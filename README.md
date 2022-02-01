@@ -7,7 +7,7 @@ Projet questionnaire !
 
 Une page d'accueil :
 
-Présentation du but du site
+Présentation du but du site Auto-ecole
 
 Menu :
 	- accueil 
