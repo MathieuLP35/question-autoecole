@@ -10,19 +10,18 @@ Une page d'accueil :
 présentation du but du site
 
 menu :
-	accueil 
-	questionnaire
-	connexion
-	résultat (quand on est connecté, affiche l'historique)
+	- accueil 
+	- questionnaire
+	- connexion
+	- résultat (quand on est connecté, affiche l'historique)
 
 connexion obligatoire
 
-	menu avec ancrage page html
-	avec les rubrics du menu a la suite 
+	- menu avec ancrage page html avec les rubrics du menu a la suite 
 
-	afficher le taux de réussite (en option) 
+	- afficher le taux de réussite (en option) 
 
-travailler logo + charte graphique 
+	- travailler logo + charte graphique 
 
 
------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
