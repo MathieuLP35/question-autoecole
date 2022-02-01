@@ -7,15 +7,15 @@ Projet questionnaire !
 
 Une page d'accueil :
 
-présentation du but du site
+Présentation du but du site
 
-menu :
+Menu :
 	- accueil 
 	- questionnaire
 	- connexion
 	- résultat (quand on est connecté, affiche l'historique)
 
-connexion obligatoire
+Connexion obligatoire
 
 	- menu avec ancrage page html avec les rubrics du menu a la suite 
 
