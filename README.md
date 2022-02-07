@@ -26,3 +26,9 @@ Connexion obligatoire
 
 
 ---------------------------------------------------------------------------------
+
+Environnement nécessaire:
+
+- Composer
+- Twig  (composer require twig/twig)
+- YAML  (composer require symfony/yaml)

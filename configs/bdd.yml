@@ -1,0 +1,6 @@
+dbtype: mysql
+host: localhost
+dbname: bdd_name
+user:
+  name: root
+  pass: null
