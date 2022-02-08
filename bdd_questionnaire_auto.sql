@@ -92,7 +92,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `role` int(11) NOT NULL DEFAULT '0' COMMENT '0 utilisateur 1 admin',
   `name` varchar(255) NOT NULL,
-  `firtname` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `nb_questionnaire` int(11) NOT NULL COMMENT 'nb questionnaire réalisés',
   `taux` float NOT NULL,

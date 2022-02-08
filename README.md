@@ -32,3 +32,4 @@ Environnement nécessaire:
 - Composer
 - Twig  (composer require twig/twig)
 - YAML  (composer require symfony/yaml)
+- Apache Laragon httpd.conf l273 AllowOveride all
