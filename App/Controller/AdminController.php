@@ -1,10 +1,11 @@
 <?php
 namespace Controller;
 
+use Core\Template;
 class AdminController {
 
     public static function index () {
-        return print 'TEST ADMIN';
+        return Template::prepare('admin')->render();
     }
 
 }

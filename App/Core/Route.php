@@ -19,7 +19,6 @@ class Route {
     **/
     public function match($url){
         $url = trim($url, '/');
-        // $this->url = $url;
         $path = preg_replace('#{([\w]+)}#', '([^/]+)', $this->path);
         $regex = "#^$path$#i";
         if(!preg_match($regex, $url, $matches)){

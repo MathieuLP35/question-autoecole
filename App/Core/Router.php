@@ -32,13 +32,10 @@ class Router {
     }
 
     public function run(){
-        var_dump($this->routes[$_SERVER['REQUEST_METHOD']]); 
-        
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
             throw new \Exception('REQUEST_METHOD does not exist');
         }
         foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
-            var_dump($route->match($this->url));
             if($route->match($this->url)){
                 return $route->call();
             }
