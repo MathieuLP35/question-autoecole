@@ -1,0 +1,14 @@
+{
+    "name": "mlp/question-autoecole",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "App/Core",
+            "Models\\": "App/Models",
+            "Controller\\": "App/Controller"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.3",
+        "symfony/yaml": "^5.4"
+    }
+}

@@ -14,6 +14,7 @@ class HomeController {
         $tpl = $twig->load('home.twig');
         return print $tpl->render([
             'titre' => 'Home Page !',
+            'name' => 'Name',
             // 'liste' => [
             //     'https://google.com',
             //     'https://google.net',
