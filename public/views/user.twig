@@ -5,5 +5,5 @@ Votre Compte - {{ parent() }}
 {% endblock %}
 
 {% block contenu %}
-    <h1>{{ titre }} {{ name }}</h1>
+    <h1>{{ titre }} {{ client.name ~' '~ client.firstname }}</h1>
 {% endblock %}
