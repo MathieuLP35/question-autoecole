@@ -1,6 +1,6 @@
 dbtype: mysql
 host: localhost
-dbname: questionnaire-autoecole
+dbname: db_name
 user:
   name: root
   pass: null
