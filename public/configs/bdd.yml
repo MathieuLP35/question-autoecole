@@ -1,7 +1,0 @@
-dbtype: mysql
-host: localhost
-dbname: question-autoecole
-user:
-  name: root
-  pass: null
- 
