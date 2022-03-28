@@ -29,6 +29,6 @@ class CreateScoreModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('score_models');
+        Schema::dropIfExists('score');
     }
 }
