@@ -15,6 +15,11 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    @if(Auth::user()->role === 3)
+                        <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                            {{ __('Administration') }}
+                        </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 
