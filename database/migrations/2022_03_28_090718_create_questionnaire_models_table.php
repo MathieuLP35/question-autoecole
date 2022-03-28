@@ -15,9 +15,9 @@ class CreateQuestionnaireModelsTable extends Migration
     {
         Schema::create('questionnaire', function (Blueprint $table) {
             $table->id();
-            $table->json('questions')->charset("utf8")->collation("utf8_general_ci");
-            $table->unsignedInteger('id_groupe');
-            $table->foreign('id_groupe')->references('id')->on('groupe');
+            $table->json('questions');
+            $table->unsignedBigInteger('id_groupe');
+            $table->foreign('id_groupe')->references('id')->on('groupes');
             $table->timestamps();
         });
     }

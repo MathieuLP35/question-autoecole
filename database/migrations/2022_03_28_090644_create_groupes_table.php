@@ -13,10 +13,10 @@ class CreateGroupesTable extends Migration
      */
     public function up()
     {
-        Schema::create('groupe', function (Blueprint $table) {
+        Schema::create('groupes', function (Blueprint $table) {
             $table->id();
             $table->string('nom-groupe')->charset("utf8")->collation("utf8_general_ci");
-            $table->float('moy')->charset("utf8")->collation("utf8_general_ci");
+            $table->float('moy');
             $table->timestamps();
         });
     }

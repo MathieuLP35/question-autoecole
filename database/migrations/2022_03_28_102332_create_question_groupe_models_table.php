@@ -16,10 +16,10 @@ class CreateQuestionGroupeModelsTable extends Migration
         Schema::create('question_groupe', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_question');
-            $table->foreign('id_question')->references('id')->on('question');
             $table->unsignedBigInteger('id_groupe');
-            $table->foreign('id_groupe')->references('id')->on('groupe');
             $table->timestamps();
+            $table->foreign('id_question')->references('id')->on('questions');
+            $table->foreign('id_groupe')->references('id')->on('groupes');
         });
     }
 
