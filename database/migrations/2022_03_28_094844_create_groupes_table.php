@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionnaireModelsTable extends Migration
+class CreateGroupesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateQuestionnaireModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questionnaire', function (Blueprint $table) {
+        Schema::create('groupe', function (Blueprint $table) {
             $table->id();
-            $table->json('questions')->charset("utf8")->collation("utf8_general_ci");
-            $table->integer('id_groupe');
+            $table->string('nom-groupe')->charset("utf8")->collation("utf8_general_ci");
+            $table->float('moy')->charset("utf8")->collation("utf8_general_ci");
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateQuestionnaireModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionnaire_models');
+        Schema::dropIfExists('groupes');
     }
 }
