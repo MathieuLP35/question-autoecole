@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::middleware(['auth', 'admin'])->group(function (){
         Route::prefix('admin')->group(function (){
             Route::get('/', [AdminController::class, 'index'])->name('admin');
+            Route::resource('question', QuestionController::class);
         });
     });
 

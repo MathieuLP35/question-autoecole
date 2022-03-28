@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class QuestionnaireController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,11 @@ class QuestionnaireController extends Controller
      */
     public function index()
     {
+        return response()->view('admin.Questions.question_form');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new rjesource.
      *
      * @return \Illuminate\Http\Response
      */
