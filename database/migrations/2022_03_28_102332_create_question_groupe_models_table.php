@@ -30,6 +30,6 @@ class CreateQuestionGroupeModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_groupe_models');
+        Schema::dropIfExists('question_groupe');
     }
 }
