@@ -1,7 +1,6 @@
 <?php
 namespace Controller;
 
-use Core\Template;
 use Core\Database;
 
 class UserController {
@@ -13,8 +12,7 @@ class UserController {
             $twig = new \Twig\Environment($loader, [
                 'cache' => false,
             ]);
-            $t = intval(1) ; /* $_SESSION['id'] */
-            $client = Database::find('users', $t);
+            $client = Database::find('users', $_SESSION['id']);
     
             $tpl = $twig->load('user.twig');
             return print $tpl->render([

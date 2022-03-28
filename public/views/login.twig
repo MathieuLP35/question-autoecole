@@ -1,0 +1,24 @@
+{% extends "index.twig" %}
+
+{% block seotitle %}
+Connexion - {{ parent() }}
+{% endblock %}
+
+{% block contenu %}
+<form action="/login2" method="GET">
+    <label for="email">Votre email</label>
+    <input type="email" name="email" id="email" placeholder="Votre email ...">
+
+    <label for="password">Votre mot de passe</label>
+    <input type="password" name="password" id="password" placeholder="Votre mot de passe ...">
+
+    <button type="submit">Se connecter</button>
+</form>
+{% endblock %}
+
+
+
+
+
+
+

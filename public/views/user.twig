@@ -6,4 +6,5 @@ Votre Compte - {{ parent() }}
 
 {% block contenu %}
     <h1>{{ titre }} {{ client.name ~' '~ client.firstname }}</h1>
+    <p>Permis préparer: {{ client.id_groupe }}</p>
 {% endblock %}
