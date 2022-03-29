@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuestionModel;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -13,7 +14,18 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return response()->view('admin.Questions.question_form');
+        try {
+            $questions = QuestionModel::get();
+            return response()
+                ->view('admin.questions.question_form', [
+                    'questions' => $questions,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('admin.questions.question_form', [
+                    'question' => [],
+                ]);
+        }
     }
 
     /**
