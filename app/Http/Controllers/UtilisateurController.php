@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Throwable;
 
 class UtilisateurController extends Controller
 {
@@ -46,7 +47,10 @@ class UtilisateurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = new QuestionController();
+        $question->texte = $request->texte;
+
+/* $question-save(); */
     }
 
     /**

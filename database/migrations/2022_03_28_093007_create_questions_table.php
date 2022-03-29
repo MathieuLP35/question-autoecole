@@ -17,7 +17,7 @@ class CreateQuestionModelsTable extends Migration
             $table->id();
             $table->string('texte')->charset("utf8")->collation("utf8_general_ci");
             $table->string('image')->charset("utf8")->collation("utf8_general_ci");
-            $table->json('propositions');
+            $table->json('propositions')();
             $table->timestamps();
         });
     }

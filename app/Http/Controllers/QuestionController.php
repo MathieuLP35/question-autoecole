@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\QuestionModel;
 use Illuminate\Http\Request;
+use Throwable;
 
 class QuestionController extends Controller
 {
@@ -17,13 +18,13 @@ class QuestionController extends Controller
         try {
             $questions = QuestionModel::get();
             return response()
-                ->view('admin.questions.question_form', [
+                ->view('admin.questions.question_list', [
                     'questions' => $questions,
                 ]);
         } catch (Throwable $e) {
             return response()
-                ->view('admin.questions.question_form', [
-                    'question' => [],
+                ->view('admin.questions.question_list', [
+                    'questions' => [],
                 ]);
         }
     }
@@ -33,9 +34,9 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() /* admin/create */
     {
-        //
+            return response()->view('admin.questions.question_add');
     }
 
     /**
@@ -46,7 +47,20 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = new QuestionModel();
+        $question->texte = $request->texte;
+        $question->image = $request->image;
+        $question->propositions = [
+            "proposition_1" => $request->proposition1,
+            "proposition_2" => $request->proposition2,
+            "proposition_3" => $request->proposition3,
+            "proposition_4" => $request->proposition4
+        ];
+        $question->save();
+        $questions = QuestionModel::get();
+            return response()->view('admin.questions.question_list', [
+                    'questions' => $questions,
+                ]);
     }
 
     /**
@@ -68,7 +82,19 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $question = QuestionModel::findOrFail($id);
+            return var_dump($question);
+            /* return response()
+                ->view('admin.Questions.question_edit', [
+                    'question' => $question,
+                ]); */
+        } catch (Throwable $e) {
+            return response()
+                ->view('admin.Questions.question_edit', [
+                    'question' => [],
+                ]);
+        }
     }
 
     /**
@@ -91,6 +117,11 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            QuestionModel::where('id', '=', $id)->delete();
+            return redirect('admin/question')->with('successMsg', 'Question supprimer');
+        } catch (\Exception $e) {
+            return redirect('admin/question')->with('errorMsg', 'Erreur: Question non supprimer'.$e);
+        }
     }
 }
