@@ -84,11 +84,10 @@ class QuestionController extends Controller
     {
         try {
             $question = QuestionModel::findOrFail($id);
-            return var_dump($question);
-            /* return response()
+            return response()
                 ->view('admin.Questions.question_edit', [
                     'question' => $question,
-                ]); */
+                ]); 
         } catch (Throwable $e) {
             return response()
                 ->view('admin.Questions.question_edit', [
