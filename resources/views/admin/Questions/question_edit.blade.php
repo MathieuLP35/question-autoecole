@@ -1,4 +1,4 @@
-<form action="{{url('admin/question/'.$user->id)}}" method="POST">
+<form action="{{url('admin/question/'.$question->id)}}" method="POST">
    @csrf
    @method('PUT')
    <input name="name" type="text" value="{{ $question->texte }}" placeholder="intituler de la question">
