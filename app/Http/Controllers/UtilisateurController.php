@@ -68,7 +68,18 @@ class UtilisateurController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+            return response()
+                ->view('admin.utilisateurs.utilisateurs_edit', [
+                    'user' => $user,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('admin.utilisateurs.utilisateurs_edit', [
+                    'user' => [],
+                ]);
+        }
     }
 
     /**
@@ -80,7 +91,19 @@ class UtilisateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $name = strval($request->name);
+            if ($name != ""){
+                $datas = User::find($id);
+                $datas->name =  htmlentities(htmlspecialchars(strtoupper($request->name)));
+                $datas->save();
+            }else{
+                return redirect('admin/utilisateur/'.$id.'/edit')->with('errorMsg', 'Erreur: impossible de modifié le nom de l\'utilisateur');
+            }
+            return redirect('admin/utilisateur')->with('successMsg', 'Utilisateur modifiée');
+        }catch(Throwable $e){
+            return redirect('admin/utilisateur')->with('errorMsg', 'Erreur: impossible de modifié le nom de l\'utilisateur');
+        }
     }
 
     /**
@@ -91,6 +114,11 @@ class UtilisateurController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            User::where('id', '=', $id)->delete();
+            return redirect('admin/utilisateur')->with('successMsg', 'Utilisateur supprimer');
+        } catch (\Exception $e) {
+            return redirect('admin/utilisateur')->with('errorMsg', 'Erreur: utilisateur non supprimer'.$e);
+        }
     }
 }
