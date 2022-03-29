@@ -99,7 +99,7 @@ class UtilisateurController extends Controller
             $name = strval($request->name);
             if ($name != ""){
                 $datas = User::find($id);
-                $datas->name =  htmlentities(htmlspecialchars(strtoupper($request->name)));
+                $datas->name =  htmlentities(htmlspecialchars(ucfirst($request->name)));
                 $datas->email = $request->email;
                 $datas->role =  $request->role;
                 $datas->save();
