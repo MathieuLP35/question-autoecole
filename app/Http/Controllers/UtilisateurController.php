@@ -96,6 +96,8 @@ class UtilisateurController extends Controller
             if ($name != ""){
                 $datas = User::find($id);
                 $datas->name =  htmlentities(htmlspecialchars(strtoupper($request->name)));
+                $datas->email = $request->email;
+                $datas->role =  $request->role;
                 $datas->save();
             }else{
                 return redirect('admin/utilisateur/'.$id.'/edit')->with('errorMsg', 'Erreur: impossible de modifié le nom de l\'utilisateur');
