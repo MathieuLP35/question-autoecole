@@ -85,14 +85,12 @@ class QuestionController extends Controller
         try {
             $question = QuestionModel::findOrFail($id);
             return response()
-                ->view('admin.Questions.question_edit', [
+                ->view('admin.Questions.question_add', [
                     'question' => $question,
                 ]); 
         } catch (Throwable $e) {
             return response()
-                ->view('admin.Questions.question_edit', [
-                    'question' => [],
-                ]);
+                ->view('admin.Questions.question_add');
         }
     }
 
