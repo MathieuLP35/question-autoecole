@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionModelsTable extends Migration
+class CreateQuestionsModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class CreateQuestionModelsTable extends Migration
             $table->id();
             $table->string('texte')->charset("utf8")->collation("utf8_general_ci");
             $table->string('image')->charset("utf8")->collation("utf8_general_ci");
-            $table->json('propositions')();
+            $table->json('propositions');
             $table->timestamps();
         });
     }
