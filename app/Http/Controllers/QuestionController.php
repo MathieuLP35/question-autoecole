@@ -36,7 +36,7 @@ class QuestionController extends Controller
      */
     public function create() /* admin/create */
     {
-            return response()->view('admin.questions.question_add');
+            return response()->view('admin.questions.question_form');
     }
 
     /**
@@ -50,12 +50,13 @@ class QuestionController extends Controller
         $question = new QuestionModel();
         $question->texte = $request->texte;
         $question->image = $request->image;
-        $question->propositions = [
+        $question->propositions = json_encode(
+        [
             "proposition_1" => $request->proposition1,
             "proposition_2" => $request->proposition2,
             "proposition_3" => $request->proposition3,
             "proposition_4" => $request->proposition4
-        ];
+        ]);
         $question->save();
         $questions = QuestionModel::get();
             return response()->view('admin.questions.question_list', [
@@ -85,12 +86,12 @@ class QuestionController extends Controller
         try {
             $question = QuestionModel::findOrFail($id);
             return response()
-                ->view('admin.Questions.question_add', [
+                ->view('admin.Questions.question_form', [
                     'question' => $question,
                 ]); 
         } catch (Throwable $e) {
             return response()
-                ->view('admin.Questions.question_add');
+                ->view('admin.Questions.question_form');
         }
     }
 

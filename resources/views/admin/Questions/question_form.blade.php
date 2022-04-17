@@ -17,21 +17,20 @@
       <input name="image" type="file">
    @endif
 
-    @if (isset($question))
+   @if (isset($question))
          @foreach ($question->propositions as $proposition)
             <input name="reponse_1" type="text" value="{{ $proposition != NULL ? $proposition:''}}">
          @endforeach
    @else
-            <input name="reponse_1" type="text">
-            <input name="reponse_2" type="text">
-            <input name="reponse_3" type="text">
-            <input name="reponse_4" type="text">
+      <input name="reponse_1" type="text">
+      <input name="reponse_2" type="text">
+      <input name="reponse_3" type="text">
+      <input name="reponse_4" type="text">
    @endif
    @if (isset($question))
       <input type="submit" value="Editer">
    @else
       <input type="submit" class="submit" value="Ajouter">
-   
    @endif
    </form>
 </x-app-layout>

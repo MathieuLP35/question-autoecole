@@ -18,12 +18,12 @@ class UtilisateurController extends Controller
         try {
             $users = User::all();
             return response()
-                ->view('admin.utilisateurs.utilisateurs_list', [
+                ->view('admin.Utilisateurs.utilisateurs_list', [
                     'users' => $users,
                 ]);
         } catch (Throwable $e) {
             return response()
-                ->view('admin.utilisateurs.utilisateurs_list', [
+                ->view('admin.Utilisateurs.utilisateurs_list', [
                     'users' => [],
                 ]);
         }
@@ -75,12 +75,12 @@ class UtilisateurController extends Controller
         try {
             $user = User::findOrFail($id);
             return response()
-                ->view('admin.utilisateurs.utilisateurs_edit', [
+                ->view('admin.Utilisateurs.utilisateurs_form', [
                     'user' => $user,
                 ]);
         } catch (Throwable $e) {
             return response()
-                ->view('admin.utilisateurs.utilisateurs_edit', [
+                ->view('admin.Utilisateurs.utilisateurs_form', [
                     'user' => [],
                 ]);
         }
