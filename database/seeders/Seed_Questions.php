@@ -17,25 +17,91 @@ class Seed_Questions extends Seeder
             [
                 'texte' => 'Quelle est la couleur du panneau ?',
                 'image' => 'string',
-                'propositions' => array (
-                    'proposition_1' => array (
-                        'id_proposition'=> 1,
-                        'content_proposition'=> 'Rouge'
-                    ),
-                    'proposition_2' => array (
-                        'id_proposition'=> 2,
-                        'content_proposition'=> 'Bleu'
-                    ),
-                    'proposition_3' => array (
-                        'id_proposition'=> 3,
-                        'content_proposition'=> 'Jaune'
-                    ),
-                    'proposition_4' => array (
-                        'id_proposition'=> 4,
-                        'content_proposition'=> 'Vert'
-                    )
-                ),
-            ]
+                'propositions' => json_encode([
+                    "proposition_1" => [
+                        'rep_id' => 1,
+                        'name' => 'Rouge',
+                    ],
+                    "proposition_2" => [
+                        'rep_id' => 2,
+                        'name' => 'Jaune',
+                    ],
+                    "proposition_3" => [
+                        'rep_id' => 3,
+                        'name' => 'Vert',
+                    ],
+                    "proposition_4" => [
+                        'rep_id' => 4,
+                        'name' => 'Bleu',
+                    ],
+                ])
+            ],
+            [
+                'texte' => 'Quelle est la couleur du panneau ?',
+                'image' => 'string',
+                'propositions' => json_encode([
+                    "proposition_1" => [
+                        'rep_id' => 1,
+                        'name' => 'Violet',
+                    ],
+                    "proposition_2" => [
+                        'rep_id' => 2,
+                        'name' => 'Jaune',
+                    ],
+                    "proposition_3" => [
+                        'rep_id' => 3,
+                        'name' => 'Vert',
+                    ],
+                    "proposition_4" => [
+                        'rep_id' => 4,
+                        'name' => 'Bleu',
+                    ],
+                ])
+            ],
+            [
+                'texte' => 'Quelle est la couleur du panneau ?',
+                'image' => 'string',
+                'propositions' => json_encode([
+                    "proposition_1" => [
+                        'rep_id' => 1,
+                        'name' => 'Violet',
+                    ],
+                    "proposition_2" => [
+                        'rep_id' => 2,
+                        'name' => 'Jaune',
+                    ],
+                    "proposition_3" => [
+                        'rep_id' => 3,
+                        'name' => 'Vert',
+                    ],
+                    "proposition_4" => [
+                        'rep_id' => 4,
+                        'name' => 'Bleu',
+                    ],
+                ])
+            ],
+            [
+                'texte' => 'Quelle est la couleur du panneau ?',
+                'image' => 'string',
+                'propositions' => json_encode([
+                    "proposition_1" => [
+                        'rep_id' => 1,
+                        'name' => 'Violet',
+                    ],
+                    "proposition_2" => [
+                        'rep_id' => 2,
+                        'name' => 'Jaune',
+                    ],
+                    "proposition_3" => [
+                        'rep_id' => 3,
+                        'name' => 'Vert',
+                    ],
+                    "proposition_4" => [
+                        'rep_id' => 4,
+                        'name' => 'Bleu',
+                    ],
+                ])
+            ],
         ]);
     }
 }

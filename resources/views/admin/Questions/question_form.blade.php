@@ -19,7 +19,8 @@
 
    @if (isset($question))
          @foreach ($question->propositions as $proposition)
-            <input name="reponse_1" type="text" value="{{ $proposition != NULL ? $proposition:''}}">
+            {{-- @dd($proposition) --}}
+            <input name="reponse_{{$proposition['rep_id']}}" type="text" value="{{ $proposition['name'] != NULL ? $proposition['name']:''}}">
          @endforeach
    @else
       <input name="reponse_1" type="text">
