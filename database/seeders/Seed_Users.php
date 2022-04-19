@@ -18,28 +18,28 @@ class Seed_Users extends Seeder
             [
                 'name' => 'Fouad',
                 'email' => 'fouadhimdi5@gmail.com',
-                'password' => '$2y$10$VkioSZkh2EWI8GGrNaJFnu.Qr590tFzSZzn7qBfmT11K5TsbJBjmS',
+                'password' => '$2y$10$VkioSZkh2EWI8GGrNaJFnu.Qr590tFzSZzn7qBfmT11K5TsbJBjmS',/* himdi352 */
                 'role' => '3',
                 'current_team_id' => '1',
             ],
             [
-                'name' => 'Mathieu',
-                'email' => 'Mathieu@gmail.com',
-                'password' => '$2y$10$oydOY.navUIRhjA1F10qE.ciJJl9MGGvo13vtNCv1s0FmPsmWnv/i',
+                'name' => 'Mathieu1d6',
+                'email' => 'jeanlasalle@outlook.fr',
+                'password' => '$2y$10$vb6KVlL.KODdkII8dtv.2.AqThmhYVx..MMzRMcTELexYD9Ir7nFS',/* MaThieu1deux3& */
                 'role' => '3',
                 'current_team_id' => '2',
             ],
             [
                 'name' => 'Fayçal',
                 'email' => 'fays35230@gmail.com',
-                'password' => '$2y$10$oydOY.navUIRhjA1F10qE.ciJJl9MGGvo13vtNCv1s0FmPsmWnv/i',
+                'password' => '$2y$10$WTe3/cFeob9qnVNVo9xkyu.ksYqubZw4SqMeIUtjpU274Dl4w7wjC',/* 00000000 */
                 'role' => '3',
                 'current_team_id' => '3',
             ],
             [
                 'name' => 'Leandre',
-                'email' => 'Leandre@gmail.com',
-                'password' => '$2y$10$oydOY.navUIRhjA1F10qE.ciJJl9MGGvo13vtNCv1s0FmPsmWnv/i',
+                'email' => 'l@l.l',
+                'password' => '$2y$10$2MJ6E1FUUDuaxIQ3WUnD3uVS2NBdpxMlEeiFUY4Zmz8U2doVS1Ftu',/* leandre@ */
                 'role' => '3',
                 'current_team_id' => '4',
             ]
