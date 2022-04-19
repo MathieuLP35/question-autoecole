@@ -1,4 +1,4 @@
-<form action="{{url('admin/Utilisateur/'.$user->id)}}" method="POST">
+<form action="{{url('admin/utilisateur/'.$user->id)}}" method="POST">
     @csrf
     @method('PUT')
     <input type="text" name="name" id="name" value="{{ $user->name }}" />
