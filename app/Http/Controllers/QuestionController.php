@@ -50,20 +50,18 @@ class QuestionController extends Controller
         $question = new QuestionModel();
         $question->texte = $request->texte;
         $question->image = $request->image;
-        $question->propositions = json_encode(
-        [
-            "proposition_1" => $request->proposition1,
-            "proposition_2" => $request->proposition2,
-            "proposition_3" => $request->proposition3,
-            "proposition_4" => $request->proposition4
-        ]);
+        $question->propositions = [
+            "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1],
+            "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2],
+            "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3],
+            "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4]
+        ];
         $question->save();
         $questions = QuestionModel::get();
             return response()->view('admin.questions.question_list', [
                     'questions' => $questions,
                 ]);
     }
-
     /**
      * Display the specified resource.
      *
@@ -104,7 +102,24 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = QuestionModel::find($id);
+        $question->texte = $request->texte;
+        $question->image = $question->image ;
+        if($request->image){ // Si on veut changer l'image
+            $question->image = $request->image;
+        }
+        $question->propositions = [
+            "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1],
+            "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2],
+            "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3],
+            "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4]
+        ];
+        $question->save();
+        //Retour liste des questions
+        $questions = QuestionModel::get();
+        return response()->view('admin.questions.question_list', [
+                'questions' => $questions,
+            ]);
     }
 
     /**
