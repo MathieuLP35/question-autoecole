@@ -19,19 +19,20 @@
 
 	{{-- Image de la question --}}
 
-	<input name="image" type="file" value={{isset($question) ? $question->image : NULL }}>
+	<input id="image" name="image" type="file" value={{isset($question) ? $question->image : NULL }}>
 
 	{{-- Propositions de réponse --}}
 
 	@if (isset($question))
 		@foreach ($question->propositions as $proposition)
 			<input name="reponse_{{$proposition['rep_id']}}" type="text" value={{ $proposition['name'] != NULL ? $proposition['name']:''}}>
-		@endforeach
+			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}}>
+			@endforeach
 	@else
-		<input name="reponse_1" type="text">
-		<input name="reponse_2" type="text">
-		<input name="reponse_3" type="text">
-		<input name="reponse_4" type="text">
+		<input name="reponse_1" type="text"><input type="checkbox" name="reponse_1_valid">
+		<input name="reponse_2" type="text"><input type="checkbox" name="reponse_2_valid">
+		<input name="reponse_3" type="text"><input type="checkbox" name="reponse_3_valid">
+		<input name="reponse_4" type="text"><input type="checkbox" name="reponse_4_valid">
 	@endif
 
 	{{-- Bouton envoi formulaire --}}

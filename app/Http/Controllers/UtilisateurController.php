@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Rules\Password;
 use Throwable;
 
 class UtilisateurController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +40,7 @@ class UtilisateurController extends Controller
      */
     public function create()
     {
-        //
+        return response()->view('admin.utilisateurs.utilisateurs_form');
     }
 
     /**
@@ -46,11 +50,33 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $question = new QuestionController();
-        $question->texte = $request->texte;
+    {        
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => $this->passwordRules(),
+            'role' => ['required', 'string', 'max:10'],
+        ]);
 
-/* $question-save(); */
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => $this->passwordRules(),
+        ];
+
+        $messages = $validator->errors()->all();
+
+        if ($validator->fails()) {
+            return redirect('admin/utilisateur/create')->dangerBanner($messages);
+        } else {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+            ]);
+            return redirect('admin/utilisateur')->banner('Compte crée avec succès.');
+        }
     }
 
     /**
@@ -126,5 +152,15 @@ class UtilisateurController extends Controller
         } catch (\Exception $e) {
             return redirect('admin/utilisateur')->with('errorMsg', 'Erreur: utilisateur non supprimer'.$e);
         }
+    }
+
+    /**
+     * Get the validation rules used to validate passwords.
+     *
+     * @return array
+     */
+    protected function passwordRules()
+    {
+        return ['required', 'string', new Password, 'confirmed'];
     }
 }
