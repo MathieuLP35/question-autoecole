@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Groupe;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -40,7 +41,10 @@ class UtilisateurController extends Controller
      */
     public function create()
     {
-        return response()->view('admin.utilisateurs.utilisateurs_form');
+        $groupes = Groupe::all();
+        return response()->view('admin.utilisateurs.utilisateurs_form', [
+            'groupes' => $groupes,
+        ]);
     }
 
     /**
@@ -56,13 +60,8 @@ class UtilisateurController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'role' => ['required', 'string', 'max:10'],
+            'groupe' => ['required'],
         ]);
-
-        $rules = [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => $this->passwordRules(),
-        ];
 
         $messages = $validator->errors()->all();
 
@@ -74,6 +73,7 @@ class UtilisateurController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => $request->role,
+                'id_groupe' => $request->groupe,
             ]);
             return redirect('admin/utilisateur')->banner('Compte crée avec succès.');
         }
@@ -100,14 +100,17 @@ class UtilisateurController extends Controller
     {
         try {
             $user = User::findOrFail($id);
+            $groupes = Groupe::all();
             return response()
                 ->view('admin.Utilisateurs.utilisateurs_form', [
                     'user' => $user,
+                    'groupes' => $groupes,
                 ]);
         } catch (Throwable $e) {
             return response()
                 ->view('admin.Utilisateurs.utilisateurs_form', [
                     'user' => [],
+                    'groupes' => [],
                 ]);
         }
     }
@@ -130,11 +133,11 @@ class UtilisateurController extends Controller
                 $datas->role =  $request->role;
                 $datas->save();
             }else{
-                return redirect('admin/utilisateur/'.$id.'/edit')->with('errorMsg', 'Erreur: impossible de modifié le nom de l\'utilisateur');
+                return redirect('admin/utilisateur/'.$id.'/edit')->dangerBanner('Erreur: impossible de modifié le nom de l\'utilisateur');
             }
-            return redirect('admin/utilisateur')->with('successMsg', 'Utilisateur modifiée');
+            return redirect('admin/utilisateur')->banner('Compte modifié avec succès.');
         }catch(Throwable $e){
-            return redirect('admin/utilisateur')->with('errorMsg', 'Erreur: impossible de modifié le nom de l\'utilisateur');
+            return redirect('admin/utilisateur')->dangerBanner('Erreur: impossible de modifié le nom de l\'utilisateur');
         }
     }
 

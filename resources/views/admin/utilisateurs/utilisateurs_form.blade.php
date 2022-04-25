@@ -20,16 +20,21 @@
 	@if (isset($user))
         <input type="text" name="name" id="name" value="{{ $user->name }}" required autofocus/>
         <input type="text" name="email" id="email" value="{{ $user->email }}" required/>
-        <select name="role" id="role"> 
+        <select name="role" id="role" required> 
             @if($user->role == 1)
-            <option value="1" selected>Utilisateur</option>
-            <option value="3">Administrateur</option>
+                <option value="1" selected>Utilisateur</option>
+                <option value="3">Administrateur</option>
             @elseif($user->role == 3)
-            <option value="1">Utilisateur</option>
-            <option value="3" selected>Administrateur</option>
+                <option value="1">Utilisateur</option>
+                <option value="3" selected>Administrateur</option>
             @endif
         </select>
-        @else
+        <select name="groupe" id="groupe" required> 
+            @foreach($groupes as $groupe)
+                <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+            @endforeach
+        </select>
+    @else
         <input type="text" name="name" id="name" placeholder="Nom du candidat" required autofocus/>
         <input type="password" name="password" id="password" placeholder="Mot de passe du candidat" required/>
         <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmation du mot de passe" required/>
@@ -37,6 +42,11 @@
         <select name="role" id="role" required> 
             <option value="1">Utilisateur</option>
             <option value="3">Administrateur</option>
+        </select>
+        <select name="groupe" id="groupe" required> 
+            @foreach($groupes as $groupe)
+                <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+            @endforeach
         </select>
 	@endif
 
