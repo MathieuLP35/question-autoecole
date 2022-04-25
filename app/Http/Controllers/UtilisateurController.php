@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Rules\Password;
+use Laravel\Jetstream\Jetstream;
 use Throwable;
 
 class UtilisateurController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -47,17 +51,25 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $user = new User();
-        $user->name =  htmlentities(htmlspecialchars(ucfirst($request->name)));
-        $user->password =  Hash::make($request->password);
-        $user->email = $request->email;
-        $user->role =  $request->role;
-        $user->save();
-        $users = User::get();
-        return response()->view('admin.utilisateurs.utilisateurs_list', [
-            'users' => $users,
+    {        
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => $this->passwordRules(),
+            'role' => ['required', 'string', 'max:10'],
         ]);
+
+        if ($validator->fails()) {
+            return redirect('admin/utilisateur/create');
+        } else {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+            ]);
+            return redirect('admin/utilisateur');
+        }
     }
 
     /**
@@ -133,5 +145,15 @@ class UtilisateurController extends Controller
         } catch (\Exception $e) {
             return redirect('admin/utilisateur')->with('errorMsg', 'Erreur: utilisateur non supprimer'.$e);
         }
+    }
+
+    /**
+     * Get the validation rules used to validate passwords.
+     *
+     * @return array
+     */
+    protected function passwordRules()
+    {
+        return ['required', 'string', new Password, 'confirmed'];
     }
 }
