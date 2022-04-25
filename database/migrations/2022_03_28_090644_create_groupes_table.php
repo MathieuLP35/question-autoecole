@@ -15,7 +15,7 @@ class CreateGroupesTable extends Migration
     {
         Schema::create('groupes', function (Blueprint $table) {
             $table->id();
-            $table->string('nom-groupe')->charset("utf8")->collation("utf8_general_ci");
+            $table->string('groupname')->charset("utf8")->collation("utf8_general_ci");
             $table->float('moy');
             $table->timestamps();
         });

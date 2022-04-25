@@ -1,0 +1,28 @@
+/* TYPE DE BOUTON ******************** */
+
+.btn-red {
+    background-color: rgb(230, 84, 84);
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+}
+
+.btn-green {
+    background-color: rgb(97, 189, 97);
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+}
+
+/* bouton bleu */
+.btn-blue {
+    background-color: #7e92f7;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+}
+.btn-blue:hover {
+    background-color: #c7cff5;
+    color: #000;
+}
+/* ******* */

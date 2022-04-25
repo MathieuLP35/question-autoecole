@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\COntrollers\GroupeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
             Route::get('/', [AdminController::class, 'index'])->name('admin');
             Route::resource('question', QuestionController::class);
             Route::resource('utilisateur', UtilisateurController::class);
+            Route::resource('groupe', GroupeController::class);
         });
     });
 

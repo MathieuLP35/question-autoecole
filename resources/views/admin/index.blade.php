@@ -14,6 +14,9 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg text-center p-6 mt-4">
                     <a href="{{url('admin/question')}}">Question</a>
                 </div>
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg text-center p-6 mt-4">
+                    <a href="{{url('admin/groupe')}}">Groupe</a>
+                </div>
             </div>
         </div>
     </main>

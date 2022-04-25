@@ -1,0 +1,34 @@
+.grouplist {
+    position: relative;
+}
+
+.grouplist thead {
+    background-color: rgb(177, 176, 176);
+}
+
+.grouplist thead th {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.grouplist tr {
+    border-top: solid 1px grey ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grouplist td {
+    text-align: center;
+    width: auto;
+}
+
+.groupname {
+    width: 200px;
+}
+
+#btn-grplist {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
