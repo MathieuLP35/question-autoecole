@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Rules\Password;
-use Laravel\Jetstream\Jetstream;
 use Throwable;
 
 class UtilisateurController extends Controller
@@ -59,8 +58,16 @@ class UtilisateurController extends Controller
             'role' => ['required', 'string', 'max:10'],
         ]);
 
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => $this->passwordRules(),
+        ];
+
+        $messages = $validator->errors()->all();
+
         if ($validator->fails()) {
-            return redirect('admin/utilisateur/create');
+            return redirect('admin/utilisateur/create')->dangerBanner($messages);
         } else {
             User::create([
                 'name' => $request->name,
@@ -68,7 +75,7 @@ class UtilisateurController extends Controller
                 'password' => Hash::make($request->password),
                 'role' => $request->role,
             ]);
-            return redirect('admin/utilisateur');
+            return redirect('admin/utilisateur')->banner('Compte crée avec succès.');
         }
     }
 
