@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Throwable;
 
@@ -36,7 +37,7 @@ class UtilisateurController extends Controller
      */
     public function create()
     {
-        //
+        return response()->view('admin.utilisateurs.utilisateurs_form');
     }
 
     /**
@@ -47,10 +48,16 @@ class UtilisateurController extends Controller
      */
     public function store(Request $request)
     {
-        $question = new QuestionController();
-        $question->texte = $request->texte;
-
-/* $question-save(); */
+        $user = new User();
+        $user->name =  htmlentities(htmlspecialchars(ucfirst($request->name)));
+        $user->password =  Hash::make($request->password);
+        $user->email = $request->email;
+        $user->role =  $request->role;
+        $user->save();
+        $users = User::get();
+        return response()->view('admin.utilisateurs.utilisateurs_list', [
+            'users' => $users,
+        ]);
     }
 
     /**

@@ -36,7 +36,7 @@ class QuestionController extends Controller
      */
     public function create() /* admin/create */
     {
-            return response()->view('admin.questions.question_form');
+        return response()->view('admin.questions.question_form');
     }
 
     /**
