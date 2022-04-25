@@ -36,8 +36,7 @@
 	@endif
 
 	{{-- Bouton envoi formulaire --}}
-
+	
     <input type="submit" value={{isset($question) ? "Editer" : "Ajouter" }}>
-
     </form>
 </x-app-layout>

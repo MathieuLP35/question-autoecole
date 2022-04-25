@@ -57,10 +57,7 @@ class QuestionController extends Controller
             "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4, "valid"=>  $request->reponse_4_valid]
         ];
         $question->save();
-        $questions = QuestionModel::get();
-            return response()->view('admin.questions.question_list', [
-                    'questions' => $questions,
-                ]);
+        return redirect('admin/question')->banner('Question crée avec succès.');
     }
     /**
      * Display the specified resource.
@@ -116,10 +113,7 @@ class QuestionController extends Controller
         ];
         $question->save();
         //Retour liste des questions
-        $questions = QuestionModel::get();
-        return response()->view('admin.questions.question_list', [
-                'questions' => $questions,
-            ]);
+        return redirect('admin/question')->banner('Question Modifiée avec succès.');
     }
 
     /**
@@ -132,9 +126,9 @@ class QuestionController extends Controller
     {
         try {
             QuestionModel::where('id', '=', $id)->delete();
-            return redirect('admin/question')->with('successMsg', 'Question supprimer');
+            return redirect('admin/question')->with('successMsg', 'Question supprimer')->banner('Question supprimer');
         } catch (\Exception $e) {
-            return redirect('admin/question')->with('errorMsg', 'Erreur: Question non supprimer'.$e);
+            return redirect('admin/question')->with('errorMsg', 'Erreur: Question non supprimer'.$e)->dangerBanner('Question non supprimer');
         }
     }
 }
