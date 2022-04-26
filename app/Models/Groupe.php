@@ -26,5 +26,11 @@ class Groupe extends Model
     public $incrementing = true;
     public $timestamps = true;
 
+
+    public function groupe()
+    {
+        return $this->hasMany(User::class);
+    }
+    
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Groupe;
+use App\Models\User;
 
 class GroupeController extends Controller
 {
@@ -15,7 +16,7 @@ class GroupeController extends Controller
     public function index()
     {
         try {
-            $groupes = Groupe::get();
+            $groupes = Groupe::all();
             return response()
                 ->view('admin.groupe.group_list', [
                     'groupes' => $groupes,
@@ -67,8 +68,9 @@ class GroupeController extends Controller
     {
         try {
             $groupe = Groupe::find($id);
+            $users = User::get()->where('id_groupe', '=', $groupe->id);
     
-            return view('admin.groupe.groupe', ['groupe' => $groupe]);
+            return view('admin.groupe.groupe', ['groupe' => $groupe, 'users' => $users]);
 
         } catch (Throwable $e) {
             return response()
