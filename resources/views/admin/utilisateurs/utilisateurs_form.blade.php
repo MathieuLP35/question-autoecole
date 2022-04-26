@@ -29,8 +29,8 @@
                 <option value="3" selected>Administrateur</option>
             @endif
         </select>
-        <select name="id_groupe" id="id_groupe" required> 
-            <option value="{{ $user->groupe_id }}" selected>{{ $user->groupe_id }}</option>
+        <select name="groupe_id" id="groupe_id" required> 
+            <option value="{{ $user->groupe_id }}" selected>{{ $user->groupe->groupname }}</option>
             @foreach($groupes as $groupe)
                 <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
             @endforeach
@@ -44,7 +44,7 @@
             <option value="1">Utilisateur</option>
             <option value="3">Administrateur</option>
         </select>
-        <select name="id_groupe" id="id_groupe" required> 
+        <select name="groupe_id" id="groupe_id" required> 
             @foreach($groupes as $groupe)
                 <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
             @endforeach

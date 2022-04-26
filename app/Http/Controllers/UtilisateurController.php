@@ -74,7 +74,7 @@ class UtilisateurController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => $request->role,
-                'groupe_id' => $request->id_groupe,
+                'groupe_id' => $request->groupe_id,
             ]);
             return redirect('admin/utilisateur')->banner('Compte crée avec succès.');
         }
@@ -132,6 +132,7 @@ class UtilisateurController extends Controller
                 $datas->name =  htmlentities(htmlspecialchars(ucfirst($request->name)));
                 $datas->email = $request->email;
                 $datas->role =  $request->role;
+                $datas->groupe_id =  $request->groupe_id;
                 $datas->save();
             }else{
                 return redirect('admin/utilisateur/'.$id.'/edit')->dangerBanner('Erreur: impossible de modifié le nom de l\'utilisateur');
