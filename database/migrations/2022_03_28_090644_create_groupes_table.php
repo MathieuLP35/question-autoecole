@@ -19,6 +19,11 @@ class CreateGroupesTable extends Migration
             $table->float('moy');
             $table->timestamps();
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('groupe_id')->nullable();
+            $table->foreign('groupe_id')->references('id')->on('groupes');
+        });
     }
 
     /**

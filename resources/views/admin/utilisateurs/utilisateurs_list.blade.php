@@ -20,12 +20,16 @@
                         Role
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Groupe
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Actions</span>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($users as $user)
+                
                 <tr class="bg-white dark:bg-gray-800">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                         {{$user->name}}
@@ -35,6 +39,9 @@
                     </td>
                     <td class="px-6 py-4">
                         {{$user->role}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{$user->groupe->groupname}}
                     </td>
                     <td class="px-6 py-4 text-right">
                         <a href="{{url('admin/utilisateur/'.$user->id.'/edit')}}"
