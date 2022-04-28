@@ -30,4 +30,8 @@ class QuestionModel extends Model
     public $incrementing = true;
     public $timestamps = true;
 
+	public function groupes() {
+        return $this->belongsToMany(Groupe::class);
+    }
+
 }

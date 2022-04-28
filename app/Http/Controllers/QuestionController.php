@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\QuestionModel;
 use Illuminate\Http\Request;
+use App\Models\Groupe;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 
@@ -36,7 +37,10 @@ class QuestionController extends Controller
      */
     public function create() /* admin/create */
     {
-        return response()->view('admin.questions.question_form');
+		$groupes = Groupe::get();
+        return response()->view('admin.questions.question_form', [
+			'groupes' => $groupes,
+		]);
     }
 
     /**
@@ -56,7 +60,13 @@ class QuestionController extends Controller
             "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3, "valid"=>  $request->reponse_3_valid],
             "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4, "valid"=>  $request->reponse_4_valid]
         ];
-        $question->save();
+		if($request->id_goupe != "0") {
+            $groupe= Groupe::find($request->id_goupe);
+			$question->save();
+			$question->groupes()->save($groupe);
+		} else {
+			$question->save();
+        }
         return redirect('admin/question')->banner('Question crée avec succès.');
     }
     /**

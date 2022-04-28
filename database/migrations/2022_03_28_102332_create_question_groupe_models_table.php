@@ -13,13 +13,13 @@ class CreateQuestionGroupeModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_groupe', function (Blueprint $table) {
+        Schema::create('groupe_question_model', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_question');
             $table->unsignedBigInteger('id_groupe');
             $table->timestamps();
-            $table->foreign('id_question')->references('id')->on('questions');
-            $table->foreign('id_groupe')->references('id')->on('groupes');
+            $table->foreign('id_question')->references('id')->on('questions')->onDelete('cascade');
+            $table->foreign('id_groupe')->references('id')->on('groupes')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateQuestionGroupeModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_groupe');
+        Schema::dropIfExists('groupe_question_model');
     }
 }
