@@ -63,7 +63,7 @@ class QuestionController extends Controller
 		if($request->id_goupe != "0") {
             $groupe= Groupe::find($request->id_goupe);
 			$question->save();
-			$question->groupes()->save($groupe);
+			/* $question->groupes()->save($groupe); */
 		} else {
 			$question->save();
         }
@@ -88,15 +88,19 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
+		$groupes = Groupe::get();
         try {
             $question = QuestionModel::findOrFail($id);
             return response()
                 ->view('admin.questions.question_form', [
-                    'question' => $question,
+                    'question' => $question,'groupes' => $groupes,
                 ]); 
         } catch (Throwable $e) {
+
             return response()
-                ->view('admin.questions.question_form');
+                ->view('admin.questions.question_form', [
+                		'groupes' => $groupes,
+                ]);
         }
     }
 
