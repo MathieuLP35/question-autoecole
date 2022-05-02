@@ -31,8 +31,8 @@ class Groupe extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
-	public function questionmodels() {
-        return $this->belongsToMany(QuestionModel::class);
+	public function questions() {
+        return $this->belongsToMany(Question::class);
     }
 
 }

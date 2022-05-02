@@ -35,11 +35,11 @@
 		<input name="reponse_4" type="text"><input type="checkbox" name="reponse_4_valid">
 	@endif
 	<label for="id_groupe">Groupe Associées</label>
-		<select name="id_groupe">
-		<option selected value="0">Choisissez un Groupe</option>
-		@foreach($groupes as $groupe)
-			<option value="{{$groupe->id}}">{{$groupe->groupname}}</option>
-		@endforeach
+		<select name="id_groupe" id="id_groupe">
+			<option selected value="0">Choisissez un Groupe</option>
+			@foreach($groupes as $groupe)
+				<option value="{{$groupe->id}}">{{$groupe->groupname}}</option>
+			@endforeach
 		</select>
 	{{-- Bouton envoi formulaire --}}
 	

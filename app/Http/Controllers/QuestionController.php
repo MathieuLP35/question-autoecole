@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\QuestionModel;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\Groupe;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +17,7 @@ class QuestionController extends Controller
     public function index()
     {
         try {
-            $questions = QuestionModel::get();
+            $questions = Question::get();
             return response()
                 ->view('admin.questions.question_list', [
                     'questions' => $questions,
@@ -51,7 +51,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $question = new QuestionModel();
+        $question = new Question();
         $question->texte = $request->texte;
         $question->image = $request->image;
         $question->propositions = [
@@ -60,10 +60,10 @@ class QuestionController extends Controller
             "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3, "valid"=>  $request->reponse_3_valid],
             "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4, "valid"=>  $request->reponse_4_valid]
         ];
-		if($request->id_goupe != "0") {
-            $groupe= Groupe::find($request->id_goupe);
+		if($request->id_groupe != "0") {
+            $groupe= Groupe::find($request->id_groupe);
 			$question->save();
-			/* $question->groupes()->save($groupe); */
+			$question->groupes()->save($groupe);
 		} else {
 			$question->save();
         }
@@ -90,7 +90,7 @@ class QuestionController extends Controller
     {
 		$groupes = Groupe::get();
         try {
-            $question = QuestionModel::findOrFail($id);
+            $question = Question::findOrFail($id);
             return response()
                 ->view('admin.questions.question_form', [
                     'question' => $question,'groupes' => $groupes,
@@ -113,7 +113,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $question = QuestionModel::find($id);
+        $question = Question::find($id);
         $question->texte = $request->texte;
         $question->image = $question->image ;
         if($request->image){ // Si on veut changer l'image
@@ -139,7 +139,7 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         try {
-            QuestionModel::where('id', '=', $id)->delete();
+            Question::where('id', '=', $id)->delete();
             return redirect('admin/question')->with('successMsg', 'Question supprimer')->banner('Question supprimer');
         } catch (\Exception $e) {
             return redirect('admin/question')->with('errorMsg', 'Erreur: Question non supprimer'.$e)->dangerBanner('Question non supprimer');
