@@ -10,13 +10,15 @@ class Groupe extends Model
     use HasFactory;
 
     protected $fillable = [
-        'texte',
+        'groupname',
+        'moy',
         'created_at',
         'updated_at',
     ];
 
     protected $casts = [
-        'texte' => 'string',
+        'groupname' => 'string',
+        'moy' => 'float',
         'created_at' => 'date',
         'updated_at' => 'date',
     ];

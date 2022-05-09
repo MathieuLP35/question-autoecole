@@ -22,6 +22,7 @@ class UtilisateurController extends Controller
     {
         try {
             $users = User::all();
+
             return response()
                 ->view('admin.Utilisateurs.utilisateurs_list', [
                     'users' => $users,
@@ -60,7 +61,7 @@ class UtilisateurController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'role' => ['required', 'string', 'max:10'],
-            'groupe' => ['required'],
+            'groupe_id' => ['required', 'string', 'max:255'],
         ]);
 
         $messages = $validator->errors()->all();
@@ -73,7 +74,7 @@ class UtilisateurController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => $request->role,
-                'id_groupe' => $request->groupe,
+                'groupe_id' => $request->id_groupe,
             ]);
             return redirect('admin/utilisateur')->banner('Compte crée avec succès.');
         }
