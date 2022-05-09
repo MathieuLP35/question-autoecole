@@ -25,22 +25,23 @@
                             @endif
                         @endauth
                     </div>
-                    @else
-                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('ACCUEIL') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('PRESENTATION') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('PASSEZ LE TEST') }}
-                        </x-jet-nav-link>
+                    @endif
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('ACCUEIL') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('PRESENTATION') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('PASSEZ LE TEST') }}
+                    </x-jet-nav-link>
+                    @auth
                         @if(Auth::user()->role === 3)
                             <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                                 {{ __('Administration') }}
                             </x-jet-nav-link>
                         @endif
-                    @endif
+                    @endauth
                 </div>
             </div>
 
