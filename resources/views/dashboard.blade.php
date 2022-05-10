@@ -1,6 +1,5 @@
 <x-app-layout class="all">
         <h2 class="bandeau">
-            titre
         </h2>
 
 

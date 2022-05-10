@@ -1755,6 +1755,7 @@ select {
 header h2 {
     color: red;
 }
+/* Gère la page d'accueil  */
 header {
     padding: 0;
     margin: 0;
@@ -1825,8 +1826,84 @@ header {
     background-color: #c7cff5;
     color: #000;
 }
+/* Gère la page du menu admin  */
+/* Titre  */
+.node--admin-menu-titre {
+    height: 250px;
+    width: 100%;
+    background: url(/images/engrenage.svg?dd19b7c6e0ec749faec6d6a511bab88f) center center / cover;
+    text-align: center;
+    padding-top: 65px;
+    padding-right: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+/* Boutons */
+.node--admin-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 15% 0;
+}
+.admin-menu-item {
+    display: flex;
+    width: 28%;
+    height: 150px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7e92f7;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+}
+.admin-menu-item a {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+}
+.admin-menu-item:hover {
+    transition: 0.2s;
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.6);
+    opacity: 65%;
+
+}
+/* Icones  */
+.icone-admin-1 {
+    background: url(/images/user.png?878acf96063b9c49e9cf985ea915e6cf) center center / cover;
+    width: 85px;
+    height: 85px;
+    margin-left: 50%;
+    transform: translate(-50%, 10px)
+}
+.icone-admin-2 {
+    background: url(/images/question.png?c5c14df3052d6fc786a89ad025da3054) center center / cover;
+    width: 90px;
+    height: 90px;
+    margin-left: 50%;
+    transform: translate(-50%, 10px)
+}
+.icone-admin-3 {
+    background: url(/images/groupe.png?360a51abc9d03740efc644d9c03f875f) center center / cover;
+    width: 75px;
+    height: 75px;
+    margin-left: 50%;
+    transform: translate(-50%, 10px)
+}
 .nav-top {
     background-color: #3c4575;
+    color: #fff;
+    border-bottom: none;
+
+}
+.nav-top a {
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+.nav-top a:hover {
+    color: #7e92f7;
 }
 /* TYPE DE BOUTON ******************** */
 .btn-red {
@@ -1853,33 +1930,41 @@ header {
     color: #000;
 }
 /* ******* */
-.grouplist {
+/* Gère l'affichage des tableaux de l'espace admin  */
+.admin-table {
     position: relative;
+    width: 100%;
 }
-.grouplist thead {
+.admin-table thead {
     background-color: rgb(177, 176, 176);
 }
-.grouplist thead th {
+.admin-table thead th {
     font-weight: 300;
     font-size: 0.8rem;
+    text-align: left;
+    width: 100%;
 }
-.grouplist tr {
+.admin-table tr {
     border-top: solid 1px grey ;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 10%;
 }
-.grouplist td {
+.admin-table td {
     text-align: left;
-    width: auto;
-}
-.groupname {
-    width: 200px;
+    width: 100%;
 }
 #btn-grplist {
     margin-top: 50px;
     right: 50px;
+}
+/* éléments particuliers du tableau */
+.groupname {
+    width: 200px;
+}
+.id-column {
+    width: 100px !important;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;

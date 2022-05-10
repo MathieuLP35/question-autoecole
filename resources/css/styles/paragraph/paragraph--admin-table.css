@@ -1,0 +1,48 @@
+/* Gère l'affichage des tableaux de l'espace admin  */
+
+
+.admin-table {
+    position: relative;
+    width: 100%;
+}
+
+.admin-table thead {
+    background-color: rgb(177, 176, 176);
+}
+
+.admin-table thead th {
+    font-weight: 300;
+    font-size: 0.8rem;
+    text-align: left;
+    width: 100%;
+}
+
+.admin-table tr {
+    border-top: solid 1px grey ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10%;
+}
+
+.admin-table td {
+    text-align: left;
+    width: 100%;
+}
+
+
+
+#btn-grplist {
+    margin-top: 50px;
+    right: 50px;
+}
+
+/* éléments particuliers du tableau */
+
+.groupname {
+    width: 200px;
+}
+
+.id-column {
+    width: 100px !important;
+}

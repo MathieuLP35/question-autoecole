@@ -1,3 +1,16 @@
 .nav-top {
     background-color: #3c4575;
+    color: #fff;
+    border-bottom: none;
+
+}
+
+.nav-top a {
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+
+.nav-top a:hover {
+    color: #7e92f7;
 }
