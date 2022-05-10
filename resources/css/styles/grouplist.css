@@ -16,10 +16,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 15px 0;
 }
 
 .grouplist td {
-    text-align: center;
+    text-align: left;
     width: auto;
 }
 
@@ -29,6 +30,6 @@
 
 #btn-grplist {
     margin-top: 50px;
-    margin-left: 50px;
+    right: 50px;
 }
 

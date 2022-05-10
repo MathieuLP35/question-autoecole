@@ -28,10 +28,13 @@ class Groupe extends Model
     public $incrementing = true;
     public $timestamps = true;
 
-    public function users(){
+
+    public function groupe()
+    {
         return $this->hasMany(User::class);
     }
-	public function questions() {
+
+	  public function questions() {
         return $this->belongsToMany(Question::class);
     }
 

@@ -6,7 +6,7 @@
     </x-slot>
 	
     <form action={{isset($groupe) ? url('admin/groupe/'.$groupe->id) :url('admin/groupe/') }} method="POST">
-	@csrf	
+	@csrf
     @if (isset($groupe))
 		@method('PUT')
     @endif

@@ -1865,9 +1865,10 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 15px 0;
 }
 .grouplist td {
-    text-align: center;
+    text-align: left;
     width: auto;
 }
 .groupname {
@@ -1875,7 +1876,7 @@ header {
 }
 #btn-grplist {
     margin-top: 50px;
-    margin-left: 50px;
+    left: 50px;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;

@@ -7,13 +7,13 @@
 
 
     <table class="grouplist w-full text-sm text-left text-gray-500 dark:text-gray-400">
-
+        
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <th class="px-6 py-3 text-center">Nom du groupe</th>
             <th class="px-6 py-3 text-center">Moyenne du groupe</th>
-            <th class="px-6 py-3 text-center">Voir</th>
-            <th class="px-6 py-3 text-center">Editer</th>
-            <th class="px-6 py-3 text-center">Supprimer</th>
+            <th class="px-6 py-3 text-center"></th>
+            <th class="px-6 py-3 text-center"></th>
+            <th class="px-6 py-3 text-center"><a id="btn-grplist" class="btn-green" href="{{url('admin/groupe/create')}}">Ajouter un groupe</a></th>
 
         </thead>
 
