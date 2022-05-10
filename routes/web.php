@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     })->name('dashboard');
 
     Route::get('test', [TestController::class, 'index'])->name('test');
+    Route::post('results/{id}', [TestController::class, 'results'])->name('results');
 
     // route for admin
     Route::middleware(['auth', 'admin'])->group(function (){

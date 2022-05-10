@@ -22,7 +22,6 @@ class TestController extends Controller
         return response()
             ->view('pages.test.test', [
                 'questions' => $questionnaire,
-                'groupe' => $questionnaire,
             ]);
     }
 
@@ -90,5 +89,15 @@ class TestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function results(Request $request, $question_id){
+        $question = Question::find($question_id);
+        foreach ($question->propositions as $reponse){
+            if ($request->reponse == $reponse['valid']){
+                return 'OK';
+            }
+        }
+        return $request->reponse;
     }
 }
