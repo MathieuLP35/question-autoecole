@@ -6,12 +6,10 @@
     </x-slot>
 
     @foreach($questions as $question)
-        <h3>{{ $question->groupname }}</h3>
+        <h3>{{ $question->texte }}</h3>
 		@foreach ($question->propositions as $proposition)
             <p>{{ $proposition['name'] }}</p>
 		@endforeach
     @endforeach
-
-    @dd($groupe)
 
 </x-app-layout>

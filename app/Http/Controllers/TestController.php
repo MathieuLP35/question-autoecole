@@ -17,7 +17,7 @@ class TestController extends Controller
     public function index()
     {  
         $groupe= Groupe::find(Auth::user()->groupe_id);
-        $questionnaire = $groupe->questions()->get();
+        $questionnaire = $groupe->questions()->get()->random(1);
 
         return response()
             ->view('pages.test.test', [
