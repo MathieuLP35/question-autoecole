@@ -33,6 +33,10 @@ class Groupe extends Model
     {
         return $this->hasMany(User::class);
     }
-    
+
+	  public function questions() {
+        return $this->belongsToMany(Question::class);
+    }
+
 }
 

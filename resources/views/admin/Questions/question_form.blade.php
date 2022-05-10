@@ -27,14 +27,20 @@
 		@foreach ($question->propositions as $proposition)
 			<input name="reponse_{{$proposition['rep_id']}}" type="text" value={{ $proposition['name'] != NULL ? $proposition['name']:''}}>
 			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}}>
-			@endforeach
+		@endforeach
 	@else
 		<input name="reponse_1" type="text"><input type="checkbox" name="reponse_1_valid">
 		<input name="reponse_2" type="text"><input type="checkbox" name="reponse_2_valid">
 		<input name="reponse_3" type="text"><input type="checkbox" name="reponse_3_valid">
 		<input name="reponse_4" type="text"><input type="checkbox" name="reponse_4_valid">
 	@endif
-
+	<label for="id_groupe">Groupe Associées</label>
+		<select name="id_groupe" id="id_groupe">
+			<option selected value="0">Choisissez un Groupe</option>
+			@foreach($groupes as $groupe)
+				<option value="{{$groupe->id}}">{{$groupe->groupname}}</option>
+			@endforeach
+		</select>
 	{{-- Bouton envoi formulaire --}}
 	
     <input type="submit" value={{isset($question) ? "Editer" : "Ajouter" }}>

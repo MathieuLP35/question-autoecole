@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\COntrollers\GroupeController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::middleware(['auth:sanctum','verified'])->get('/dashboard',function (){
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('test', [TestController::class, 'index'])->name('test');
 
     // route for admin
     Route::middleware(['auth', 'admin'])->group(function (){

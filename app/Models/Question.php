@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionModel extends Model
+class Question extends Model
 {
     use HasFactory;
 
@@ -29,5 +29,9 @@ class QuestionModel extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
+
+	public function groupes() {
+        return $this->belongsToMany(Groupe::class);
+    }
 
 }
