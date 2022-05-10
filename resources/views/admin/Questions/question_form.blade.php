@@ -27,7 +27,7 @@
 		@foreach ($question->propositions as $proposition)
 			<input name="reponse_{{$proposition['rep_id']}}" type="text" value={{ $proposition['name'] != NULL ? $proposition['name']:''}}>
 			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}}>
-			@endforeach
+		@endforeach
 	@else
 		<input name="reponse_1" type="text"><input type="checkbox" name="reponse_1_valid">
 		<input name="reponse_2" type="text"><input type="checkbox" name="reponse_2_valid">
