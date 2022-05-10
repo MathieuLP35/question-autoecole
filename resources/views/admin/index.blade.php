@@ -5,17 +5,26 @@
         </h2>
     </x-slot>
     <main>
-        <h1 class="text-center mt-20 py-12">Panneau de contrôle</h1>
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg text-center p-6">
-                    <a href="{{url('admin/utilisateur')}}">Compte Utilisateur</a>
+        {{-- <h1 class="text-center mt-20 py-12">Panneau de contrôle</h1> --}}
+
+
+        <div class="node--admin-menu">
+
+            <h1 class="node--admin-menu-titre">Panneau </br> de contrôle</h1>
+
+            <div class="node--admin-menu-item">
+
+                <div class="admin-menu-item">
+                    <a href="{{url('admin/utilisateur')}}">Compte Utilisateur <div class="icone-admin-1"></div></a>
+                    
                 </div>
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg text-center p-6 mt-4">
-                    <a href="{{url('admin/question')}}">Question</a>
+
+                <div class="admin-menu-item">
+                    <a href="{{url('admin/question')}}">Questions <div class="icone-admin-2"></div></a>
                 </div>
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg text-center p-6 mt-4">
-                    <a href="{{url('admin/groupe')}}">Groupe</a>
+
+                <div class="admin-menu-item">
+                    <a href="{{url('admin/groupe')}}">Groupes <div class="icone-admin-3"></div></a>
                 </div>
             </div>
         </div>

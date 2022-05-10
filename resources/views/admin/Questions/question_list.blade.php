@@ -7,35 +7,40 @@
     <div class="p-6 relative overflow-x-auto shadow-md sm:rounded-lg">
         <h3>Liste des Questions</h3>
         <a href="{{url('admin/question/create')}}">Ajouter une question</a>
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+
+        <table class="admin-table ">
+            <thead class="">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="id-column">
                         id
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="">
                         Intituler
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="">
                         <span class="sr-only">Actions</span>
+                    </th>
+                    <th scope="col" class="">
+                        <a class="btn-green" href="{{url('admin/question/create')}}">Ajouter une question</a>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($questions as $question)
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                <tr class="">
+                    <td scope="row" class="id-column">
                         {{$question->id}}
-                    </th>
-                    <td class="px-6 py-4">
+                    </td>
+                    <td class="">
                         {{$question->texte}}
                     </td>
-                    <td class="px-6 py-4 text-right">
-                        <a href="{{ route('question.edit', ['question' => $question->id])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editer</a>
+                    <td><a href="{{ route('question.edit', ['question' => $question->id])}}" class="btn-blue">Editer</a></td>
+                    <td class="">
                         <form action="{{url('admin/question/'.$question->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" title="Supprimer la question ?"class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Supprimer</button>
+                            <button type="submit" title="Supprimer la question ?"class="btn-red">Supprimer</button>
                         </form>
                     </td>
                 </tr>

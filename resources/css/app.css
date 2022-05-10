@@ -2,8 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'styles/root.css';
-@import 'styles/main-page.css';
+@import 'styles/node/node--main-page.css';
+@import 'styles/node/node--admin-menu.css';
 @import 'styles/header.css';
 @import 'styles/assets.css';
-@import 'styles/grouplist.css';
+@import 'styles/paragraph/paragraph--admin-table.css';
 
