@@ -75,9 +75,17 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_question)
     {
-        //
+		try {
+            $question = Question::findOrFail($id_question);
+            return response()
+                ->view('admin.questions.question', [
+                    'question' => $question
+                ]); 
+        } catch (Throwable $e) {
+            return redirect('admin/question')->dangerBanner('🚨 Aucune question trouvée 🚨');
+        }
     }
 
     /**
