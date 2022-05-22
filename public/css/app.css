@@ -1796,18 +1796,6 @@ header {
     margin: 0;
     height: 60vh;
 }
-.question_illustration{
-	display: block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    height: 60vh;
-    border-radius: 5rem;
-    border: 4px solid grey;
-}
-.question_ecrite{
-	background: url(../images/Questions-ecrite.jpg) center center / cover;
-}
 /* ////////////////////////////////////////////////////// */
 .corps {
     height: 300vh;
@@ -1830,11 +1818,13 @@ header {
     position: absolute;
     top: 150px;
     left: 10%;
+	cursor: url(/images/moto.png?ad5ae3b563b382eb51055764ea3458c3),pointer;
 }
 .article-2 {
     position: absolute;
     top: 450px;
     right: 10%;
+	cursor: url(/images/voiture.png?00cb6ffc84587213f007c3e7ad6e33e3),pointer;
 }
 .article-3 {
     position: absolute;
@@ -1929,6 +1919,9 @@ header {
     height: 75px;
     margin-left: 50%;
     transform: translate(-50%, 10px)
+}
+.backend{
+	cursor: url(/images/icon_db.png?d037cde54c2ba807659e6ba98051c893),pointer;
 }
 .nav-top {
     background-color: #3c4575;
