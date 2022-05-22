@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 text-center leading-tight">
-            ❓&nbsp;{{ __('Question') }}&nbsp;❓
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            ❓&nbsp;{{ __('Administration') }}&nbsp;❓
         </h2>
     </x-slot>
 	@if (isset($question))
