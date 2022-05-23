@@ -21,13 +21,19 @@
         <input type="text" name="name" id="name" value="{{ $user->name }}" required autofocus/>
         <input type="text" name="email" id="email" value="{{ $user->email }}" required/>
         <select name="role" id="role" required> 
-            @if($user->role == 1)
-                <option value="1" selected>Utilisateur</option>
-                <option value="3">Administrateur</option>
-            @elseif($user->role == 3)
+        @switch($user->role)
+            @case(1)
+            <option value="1" selected>Utilisateur</option>
+            <option value="3">Administrateur</option>
+                @break
+            @case(3)
                 <option value="1">Utilisateur</option>
                 <option value="3" selected>Administrateur</option>
-            @endif
+                @break
+            @default
+            <option value="1">Utilisateur</option>
+            <option value="3">Administrateur</option>
+        @endswitch
         </select>
         <select name="groupe_id" id="groupe_id" required> 
             <option value="{{ $user->groupe_id }}" selected>{{ $user->groupe->groupname }}</option>
