@@ -1662,10 +1662,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
-}
 .text-stone-50 {
   --tw-text-opacity: 1;
   color: rgb(250 250 249 / var(--tw-text-opacity));
@@ -1677,6 +1673,10 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1778,9 +1778,20 @@ select {
 :root {
     --title1: 'Dela Gothic One', cursive;
     /* --basic:; */
-}
-header h2 {
-    color: red;
+
+    /* color  */
+    --green:rgb(97, 189, 97);
+    --red:rgb(230, 84, 84);
+    --blue-light:#7e92f7;
+    --blue:#3c4575;
+    --white:#fff;
+    --black: #000;
+    --grey:rgb(177, 176, 176);
+
+    /* bouton  */
+    --btn-radius: 5px;
+    --btn-padding: 5px 15px ;
+    
 }
 /* Gère la page d'accueil  */
 header {
@@ -1860,7 +1871,7 @@ header {
 .node--admin-menu-titre {
     height: 250px;
     width: 100%;
-    background: url(/images/engrenage.svg?dd19b7c6e0ec749faec6d6a511bab88f) center center / cover;
+    background: url(/images/engrenage.svg?ddfdec816da0dc3182788bd3e39f5095) center center / cover;
     text-align: center;
     padding-top: 65px;
     padding-right: 25px;
@@ -1944,11 +1955,16 @@ header {
     padding: 5px 15px;
     color: #fff;
 }
+/* bouton vert */
 .btn-green {
     background-color: rgb(97, 189, 97);
     border-radius: 5px;
     padding: 5px 15px;
     color: #fff;
+}
+.btn-green:hover {
+    background-color: rgba(97, 189, 97, 0.8);
+    color: #000;
 }
 /* bouton bleu */
 .btn-blue {
@@ -1997,6 +2013,44 @@ header {
 }
 .id-column {
     width: 100px !important;
+}
+.paragraph--admin-question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.paragraph--admin-question input {
+    /* width: auto; */
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.question-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.admin-question {
+    width: 60%;
+}
+.valider {
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+}
+.full-width {
+    width: 65%;
+}
+.btn-question-admin {
+    margin-top: 30px;
+    width: 100px;
+    height: 50px;
+}
+.btn-question-admin:hover {
+    cursor: pointer;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
@@ -2183,9 +2237,9 @@ header {
     border-color: rgb(55 65 81 / var(--tw-border-opacity));
   }
 
-  .dark\:bg-gray-700 {
+  .dark\:bg-gray-900 {
     --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
 
   .dark\:bg-gray-800 {
@@ -2193,14 +2247,14 @@ header {
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   }
 
-  .dark\:bg-gray-900 {
+  .dark\:bg-gray-700 {
     --tw-bg-opacity: 1;
-    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
   }
 
-  .dark\:text-gray-400 {
+  .dark\:text-gray-500 {
     --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity));
+    color: rgb(107 114 128 / var(--tw-text-opacity));
   }
 
   .dark\:text-white {
@@ -2208,14 +2262,14 @@ header {
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
+  .dark\:text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
   .dark\:text-blue-500 {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-500 {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 640px) {

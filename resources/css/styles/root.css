@@ -1,8 +1,19 @@
 :root {
     --title1: 'Dela Gothic One', cursive;
     /* --basic:; */
+
+    /* color  */
+    --green:rgb(97, 189, 97);
+    --red:rgb(230, 84, 84);
+    --blue-light:#7e92f7;
+    --blue:#3c4575;
+    --white:#fff;
+    --black: #000;
+    --grey:rgb(177, 176, 176);
+
+    /* bouton  */
+    --btn-radius: 5px;
+    --btn-padding: 5px 15px ;
+    
 }
 
-header h2 {
-    color: red;
-}

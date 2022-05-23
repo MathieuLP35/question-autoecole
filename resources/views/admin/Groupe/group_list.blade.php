@@ -38,7 +38,7 @@
         </tbody>
     </table>
 
-    <a id="btn-grplist" class="btn-green" href="{{url('admin/groupe/create')}}">Ajouter un groupe</a>
+    {{-- <a id="btn-grplist" class="btn-green" href="{{url('admin/groupe/create')}}">Ajouter un groupe</a> --}}
 
 
 

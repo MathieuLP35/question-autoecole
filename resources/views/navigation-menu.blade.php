@@ -38,7 +38,7 @@
                     @auth
                         @if(Auth::user()->role === 3)
                             <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                                {{ __('Administration') }}
+                                {{ __('ADMINISTRATION') }}
                             </x-jet-nav-link>
                         @endif
                     @endauth

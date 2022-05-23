@@ -6,7 +6,7 @@
     </x-slot>
     <div class="p-6 relative overflow-x-auto shadow-md sm:rounded-lg">
         <h3>Liste des Questions</h3>
-        <a href="{{url('admin/question/create')}}">Ajouter une question</a>
+        {{-- <a href="{{url('admin/question/create')}}">Ajouter une question</a> --}}
 
 
         <table class="admin-table ">

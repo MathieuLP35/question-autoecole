@@ -7,11 +7,16 @@
     color: #fff;
 }
 
+/* bouton vert */
 .btn-green {
     background-color: rgb(97, 189, 97);
     border-radius: 5px;
     padding: 5px 15px;
     color: #fff;
+}
+.btn-green:hover {
+    background-color: rgba(97, 189, 97, 0.8);
+    color: #000;
 }
 
 /* bouton bleu */
