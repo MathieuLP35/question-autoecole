@@ -2022,6 +2022,11 @@ header {
     flex-wrap: wrap;
     width: 100%;
 }
+.paragraph--admin-question h1 {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
 .paragraph--admin-question input {
     /* width: auto; */
     margin-bottom: 20px;

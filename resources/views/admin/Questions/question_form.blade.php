@@ -8,7 +8,8 @@
 	{{-- Type de Formulaire --}}
 
 	<form action={{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }} method="POST" class="paragraph--admin-question">
-	@csrf	
+		@csrf	
+		<h1>Configuration de question</h1>
     @if (isset($question))
 		@method('PUT')
     @endif
