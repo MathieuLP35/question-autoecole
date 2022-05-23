@@ -9,30 +9,29 @@
     
 	{{-- Type de Formulaire --}}
 
-	<form action={{isset($user) ? url('admin/utilisateur/'.$user->id) :url('admin/utilisateur/') }} method="POST">
+	<form action="{{isset($user) ? url('admin/utilisateur/'.$user->id) :url('admin/utilisateur/') }}" method="POST">
 	@csrf	
     @if (isset($user))
 		@method('PUT')
     @endif
 
 	{{-- Propositions de réponse --}}
-
+    <input type="text" name="name" id="name" value="{{isset($user) ? $user->name : NULL }}" placeholder="nom du candidat" required autofocus/>
+    <input type="email" name="email" id="email"  value="{{isset($user) ? $user->email : NULL }}" placeholder="Email du candidat" required/>
 	@if (isset($user))
-        <input type="text" name="name" id="name" value="{{ $user->name }}" required autofocus/>
-        <input type="text" name="email" id="email" value="{{ $user->email }}" required/>
         <select name="role" id="role" required> 
         @switch($user->role)
             @case(1)
-            <option value="1" selected>Utilisateur</option>
-            <option value="3">Administrateur</option>
+                <option value="1" selected>Utilisateur</option>
+                <option value="3">Administrateur</option>
                 @break
             @case(3)
                 <option value="1">Utilisateur</option>
                 <option value="3" selected>Administrateur</option>
                 @break
             @default
-            <option value="1">Utilisateur</option>
-            <option value="3">Administrateur</option>
+                <option value="1">Utilisateur</option>
+                <option value="3">Administrateur</option>
         @endswitch
         </select>
         <select name="groupe_id" id="groupe_id" required> 
@@ -44,19 +43,17 @@
             @endforeach
         </select>
     @else
-        <input type="text" name="name" id="name" placeholder="Nom du candidat" required autofocus/>
-        <input type="password" name="password" id="password" placeholder="Mot de passe du candidat" required/>
-        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmation du mot de passe" required/>
-        <input type="email" name="email" id="email" placeholder="Email du candidat" required/>
-        <select name="role" id="role" required> 
-            <option value="1">Utilisateur</option>
-            <option value="3">Administrateur</option>
-        </select>
-        <select name="groupe_id" id="groupe_id" required> 
-            @foreach($groupes as $groupe)
-                <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
-            @endforeach
-        </select>
+    <input type="password" name="password" id="password" placeholder="Mot de passe du candidat" required/>
+    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmation du mot de passe" required/>
+    <select name="role" id="role" required> 
+        <option value="1">Utilisateur</option>
+        <option value="3">Administrateur</option>
+    </select>
+    <select name="groupe_id" id="groupe_id" required> 
+        @foreach($groupes as $groupe)
+            <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+        @endforeach
+    </select>
 	@endif
 
 	{{-- Bouton envoi formulaire --}}

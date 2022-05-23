@@ -7,20 +7,19 @@
 	
 	{{-- Type de Formulaire --}}
 
-	<form action={{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }} method="POST" class="paragraph--admin-form">
+	<form action="{{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }}" method="POST" class="paragraph--admin-form">
 		@csrf	
 		<h1>Configuration de question</h1>
     @if (isset($question))
 		@method('PUT')
     @endif
-
 	{{-- Intituler de la question --}}
 
-	<input class="admin-question full-width" name="texte" type="text" placeholder="intitulé de la question" value={{isset($question) ? $question->texte : NULL }} >
+	<input class="admin-question full-width" name="texte" type="text" placeholder="intitulé de la question" value="{{isset($question) ? $question->texte : NULL }}" >
 
 	{{-- Image de la question --}}
 
-	<input id="image" name="image" type="file" value={{isset($question) ? $question->image : NULL }}>
+	<input id="image" name="image" type="file" value="{{isset($question) ? $question->image : NULL }}">
 
 	{{-- Propositions de réponse --}}
 
@@ -65,6 +64,6 @@
 		</select>
 	{{-- Bouton envoi formulaire --}}
 	
-    <input  class="btn-green btn-form-admin" type="submit" value={{isset($question) ? "Editer" : "Ajouter" }}>
+    <input  class="btn-green btn-form-admin" type="submit" value="{{isset($question) ? "Editer" : "Ajouter" }}">
     </form>
 </x-app-layout>
