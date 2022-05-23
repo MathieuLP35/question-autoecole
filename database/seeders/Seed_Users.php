@@ -21,6 +21,7 @@ class Seed_Users extends Seeder
                 'password' => '$2y$10$VkioSZkh2EWI8GGrNaJFnu.Qr590tFzSZzn7qBfmT11K5TsbJBjmS',/* himdi352 */
                 'role' => '3',
                 'current_team_id' => '1',
+                'groupe_id' => '1',
             ],
             [
                 'name' => 'Mathieu1d6',
@@ -28,6 +29,7 @@ class Seed_Users extends Seeder
                 'password' => '$2y$10$vb6KVlL.KODdkII8dtv.2.AqThmhYVx..MMzRMcTELexYD9Ir7nFS',/* MaThieu1deux3& */
                 'role' => '3',
                 'current_team_id' => '2',
+                'groupe_id' => '1',
             ],
             [
                 'name' => 'Fayçal',
@@ -35,6 +37,7 @@ class Seed_Users extends Seeder
                 'password' => '$2y$10$WTe3/cFeob9qnVNVo9xkyu.ksYqubZw4SqMeIUtjpU274Dl4w7wjC',/* 00000000 */
                 'role' => '3',
                 'current_team_id' => '3',
+                'groupe_id' => '1',
             ],
             [
                 'name' => 'Leandre',
@@ -42,6 +45,7 @@ class Seed_Users extends Seeder
                 'password' => '$2y$10$2MJ6E1FUUDuaxIQ3WUnD3uVS2NBdpxMlEeiFUY4Zmz8U2doVS1Ftu',/* leandre@ */
                 'role' => '3',
                 'current_team_id' => '4',
+                'groupe_id' => '1',
             ]
         ]);
     }
