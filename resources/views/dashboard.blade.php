@@ -3,7 +3,7 @@
         </h2>
 
 
-        <section class="main">
+        <section class="main container">
             <h2>PRESENTATION DU SITE</h2>
             <div class="corps">
                 <article class="article-1">

@@ -1,5 +1,7 @@
 :root {
-    --title1: 'Dela Gothic One', cursive;
+    /* font */
+    --title: 'Orbitron', cursive;
+    --text: 'Roboto', sans-serif;
     /* --basic:; */
 
     /* color  */
@@ -12,8 +14,9 @@
     --grey:rgb(177, 176, 176);
 
     /* bouton  */
-    --btn-radius: 5px;
-    --btn-padding: 5px 15px ;
+    --btn-radius: 0.313rem;
+    --btn-padding: 0.313rem 0.938rem;
+    
     
 }
 
