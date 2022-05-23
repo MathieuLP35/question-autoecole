@@ -5537,6 +5537,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./validation */ "./resources/js/validation.js");
+
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -5571,6 +5573,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/validation.js":
+/*!************************************!*\
+  !*** ./resources/js/validation.js ***!
+  \************************************/
+/***/ (() => {
+
+var validator = document.querySelectorAll('.validate');
+
+for (var i = 0; i < validator.length; i++) {
+  validator[i].addEventListener('click', function (event) {
+    event.preventDefault();
+    var choice = confirm(this.getAttribute('data-confirm'));
+
+    if (choice) {
+      this.form.submit();
+    }
+  });
+}
 
 /***/ }),
 

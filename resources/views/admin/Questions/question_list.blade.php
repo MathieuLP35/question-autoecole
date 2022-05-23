@@ -1,14 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Questions&nbsp;❓
+            <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Questions&nbsp;❓
         </h2>
     </x-slot>
     <div class="p-6 relative overflow-x-auto shadow-md sm:rounded-lg">
         <h3>Liste des Questions</h3>
         {{-- <a href="{{url('admin/question/create')}}">Ajouter une question</a> --}}
-
-
         <table class="admin-table ">
             <thead class="">
                 <tr>
@@ -43,7 +41,7 @@
                         <form action="{{url('admin/question/'.$question->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" title="Supprimer la question ?"class="btn-red">Supprimer</button>
+                            <button type="submit" data-confirm="Supprimer la question ?" title="Supprimer la question ?"class="btn-red validate">Supprimer</button>
                         </form>
                     </td>
                 </tr>

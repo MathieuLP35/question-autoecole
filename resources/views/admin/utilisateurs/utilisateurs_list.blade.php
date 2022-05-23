@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Utilisateur') }}
+            <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Utilisateur&nbsp;❓
         </h2>
     </x-slot>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -50,8 +50,8 @@
                         <form action="{{url('admin/utilisateur/'.$user->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Supprimer"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <input data-confirm="Supprimer l'utilisateur ?" type="submit" value="Supprimer"
+                                class="validate font-medium text-blue-600 dark:text-blue-500 hover:underline">
                         </form>
                     </td>
                 </tr>

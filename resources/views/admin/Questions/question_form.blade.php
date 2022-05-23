@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Administration') }}
+			<a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Questions&nbsp;❓
         </h2>
     </x-slot>
 	
 	{{-- Type de Formulaire --}}
 
-	<form action={{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }} method="POST" class="paragraph--admin-question">
+	<form action={{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }} method="POST" class="paragraph--admin-form">
 		@csrf	
 		<h1>Configuration de question</h1>
     @if (isset($question))
@@ -25,31 +25,34 @@
 	{{-- Propositions de réponse --}}
 
 	@if (isset($question))
-	
-		@foreach ($question->propositions as $proposition)
-			<input name="reponse_{{$proposition['rep_id']}}" type="text" value={{ $proposition['name'] != NULL ? $proposition['name']:''}}>
-			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}}>
+
+	@foreach ($question->propositions as $proposition)
+	<label for="reponse_1">Réponse {{$proposition['rep_id']}}</label>
+	<div class="form-item">
+			<input name="reponse_{{$proposition['rep_id']}}" type="text" value={{ $proposition['name'] != NULL ? $proposition['name']:''}} class="admin-question">
+			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}} class="valider">
+		</div>
 		@endforeach
 	
 	@else
 
 	<label for="reponse_1">Réponse 1</label>
-	<div class="question-item">
+	<div class="form-item">
 		<input name="reponse_1" type="text" class="admin-question"><input type="checkbox" name="reponse_1_valid" class="valider">
 	</div>
 
 	<label for="reponse_1">Réponse 2</label>
-	<div class="question-item">
+	<div class="form-item">
 		<input name="reponse_2" type="text" class="admin-question"><input type="checkbox" name="reponse_2_valid" class="valider">
 	</div>
 
 	<label for="reponse_1">Réponse 3</label>
-	<div class="question-item">
+	<div class="form-item">
 		<input name="reponse_3" type="text" class="admin-question"><input type="checkbox" name="reponse_3_valid" class="valider">
 	</div>
 
 	<label for="reponse_1">Réponse 4</label>
-	<div class="question-item">
+	<div class="form-item">
 		<input name="reponse_4" type="text" class="admin-question"><input type="checkbox" name="reponse_4_valid" class="valider">
 	</div>
 	@endif
@@ -62,6 +65,6 @@
 		</select>
 	{{-- Bouton envoi formulaire --}}
 	
-    <input  class="btn-green btn-question-admin" type="submit" value={{isset($question) ? "Editer" : "Ajouter" }}>
+    <input  class="btn-green btn-form-admin" type="submit" value={{isset($question) ? "Editer" : "Ajouter" }}>
     </form>
 </x-app-layout>
