@@ -128,10 +128,10 @@ class QuestionController extends Controller
             $question->image = $request->image;
         }
         $question->propositions = [
-            "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1],
-            "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2],
-            "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3],
-            "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4]
+            "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
+            "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2, "valid"=>  $request->reponse_2_valid],
+            "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3, "valid"=>  $request->reponse_3_valid],
+            "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4, "valid"=>  $request->reponse_4_valid]
         ];
         $question->save();
         //Retour liste des questions

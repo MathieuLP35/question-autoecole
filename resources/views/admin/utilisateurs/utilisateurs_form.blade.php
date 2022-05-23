@@ -32,7 +32,9 @@
         <select name="groupe_id" id="groupe_id" required> 
             <option value="{{ $user->groupe_id }}" selected>{{ $user->groupe->groupname }}</option>
             @foreach($groupes as $groupe)
-                <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+                @if ($groupe->id != $user->groupe_id)
+                    <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+                @endif
             @endforeach
         </select>
     @else

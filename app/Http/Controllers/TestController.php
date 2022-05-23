@@ -101,19 +101,28 @@ class TestController extends Controller
     }
 
     public function results(Request $request, $question_id){
-        // $question = Question::find($question_id);
-        // foreach ($question->propositions as $reponse){
-        //     if ($request->reponse == $reponse['valid']){
-        //         return 'OK';
-        //     }
-        // }
-        // return $request->reponse;
-        $groupe= Groupe::find(Auth::user()->groupe_id);
-        $questionnaire = $groupe->questions()->get()->random(1);
+        $question = Question::find($question_id);
+        $score = 0;
+    
+        foreach ($question->propositions as $cle => $reponse){
+            // return '$reponse[valid]: '.$reponse['valid']. ' $request->input($cle): '.$request->input($cle);
+            if($request->input($cle) == $reponse['valid']){
+                var_dump('bonne reponse');
+                $score++;
+                var_dump($score);
+            }else{
+                var_dump('mauvaise reponse');
+            }
+        }
 
-        return response()
-            ->view('pages.test.test', [
-                'questions' => $questionnaire,
-            ]);
+
+
+        // $groupe= Groupe::find(Auth::user()->groupe_id);
+        // $questionnaire = $groupe->questions()->get()->random(1);
+
+        // return response()
+        //     ->view('pages.test.test', [
+        //         'questions' => $questionnaire,
+        //     ]);
     }
 }
