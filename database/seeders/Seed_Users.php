@@ -20,8 +20,8 @@ class Seed_Users extends Seeder
                 'email' => 'fouadhimdi5@gmail.com',
                 'password' => '$2y$10$VkioSZkh2EWI8GGrNaJFnu.Qr590tFzSZzn7qBfmT11K5TsbJBjmS',/* himdi352 */
                 'role' => '3',
-                'current_team_id' => '1',
-                'groupe_id' => '1',
+                'current_team_id' => '1',  
+                'groupe_id' => '1',  
             ],
             [
                 'name' => 'Mathieu1d6',

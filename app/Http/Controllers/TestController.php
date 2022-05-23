@@ -16,13 +16,22 @@ class TestController extends Controller
      */
     public function index()
     {  
-        $groupe= Groupe::find(Auth::user()->groupe_id);
-        $questionnaire = $groupe->questions()->get()->random(1);
 
-        return response()
-            ->view('pages.test.test', [
-                'questions' => $questionnaire,
-            ]);
+        try {
+            $groupe = Groupe::find(Auth::user()->groupe_id);
+            $questionnaire = $groupe->questions()->get()->random(1);
+    
+            return response()
+                ->view('pages.test.test', [
+                    'questions' => $questionnaire,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('pages.test.test', [
+                    'questions' => [],
+                ]);
+        }
+
     }
 
     /**
