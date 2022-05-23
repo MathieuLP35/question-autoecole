@@ -7,7 +7,7 @@
 }
 
 .admin-table thead {
-    background-color: rgb(177, 176, 176);
+    background-color: var(--grey)
 }
 
 .admin-table thead th {

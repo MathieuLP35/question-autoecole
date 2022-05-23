@@ -1,5 +1,5 @@
 <x-app-layout class="all">
-        <h2 class="bandeau">
+    <h2 class="bandeau">
         </h2>
 
 
@@ -25,9 +25,9 @@
                 <article class="article-5">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, id ipsam necessitatibus quam fugiat ad. Eius vel dolores, accusamus explicabo quisquam blanditiis, debitis optio tenetur quod facere corrupti officia totam?
                     <a href="#">INSCRIVEZ-VOUS</a>
-            </article>
+                </article>
                 
                 <!-- <x-jet-welcome /> -->
             </div>
-</section>
+        </section>
 </x-app-layout>
