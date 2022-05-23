@@ -16,11 +16,11 @@
 
 	{{-- Intituler de la question --}}
 
-	<input class="admin-question full-width" name="texte" type="text" placeholder="intitulé de la question" value={{isset($question) ? $question->texte : NULL }} >
+	<input class="admin-question full-width" name="texte" type="text" placeholder="intitulé de la question" value="{{isset($question) ? $question->texte : NULL }}" >
 
 	{{-- Image de la question --}}
 
-	<input id="image" name="image" type="file" value={{isset($question) ? $question->image : NULL }}>
+	<input id="image" name="image" type="file" value="{{isset($question) ? $question->image : NULL }}">
 
 	{{-- Propositions de réponse --}}
 
@@ -29,7 +29,7 @@
 	@foreach ($question->propositions as $proposition)
 	<label for="reponse_1">Réponse {{$proposition['rep_id']}}</label>
 	<div class="form-item">
-			<input name="reponse_{{$proposition['rep_id']}}" type="text" value={{ $proposition['name'] != NULL ? $proposition['name']:''}} class="admin-question">
+			<input name="reponse_{{$proposition['rep_id']}}" type="text" value="{{ $proposition['name'] != NULL ? $proposition['name']:''}}" class="admin-question">
 			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}} class="valider">
 		</div>
 		@endforeach
@@ -65,6 +65,6 @@
 		</select>
 	{{-- Bouton envoi formulaire --}}
 	
-    <input  class="btn-green btn-form-admin" type="submit" value={{isset($question) ? "Editer" : "Ajouter" }}>
+    <input  class="btn-green btn-form-admin" type="submit" value="{{isset($question) ? "Editer" : "Ajouter" }}">
     </form>
 </x-app-layout>
