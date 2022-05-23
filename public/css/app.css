@@ -1662,10 +1662,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
-}
 .text-stone-50 {
   --tw-text-opacity: 1;
   color: rgb(250 250 249 / var(--tw-text-opacity));
@@ -1677,6 +1673,10 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1871,7 +1871,7 @@ header {
 .node--admin-menu-titre {
     height: 250px;
     width: 100%;
-    background: url(/images/engrenage.svg?dd19b7c6e0ec749faec6d6a511bab88f) center center / cover;
+    background: url(/images/engrenage.svg?ddfdec816da0dc3182788bd3e39f5095) center center / cover;
     text-align: center;
     padding-top: 65px;
     padding-right: 25px;
@@ -1891,7 +1891,7 @@ header {
     height: 150px;
     flex-direction: column;
     align-items: center;
-    background-color: #7e92f7;
+    background-color: var(--blue-light);
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -1950,32 +1950,36 @@ header {
 }
 /* TYPE DE BOUTON ******************** */
 .btn-red {
-    background-color: rgb(230, 84, 84);
+    background-color: var(--red);
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: var(--white);
+}
+.btn-red:hover {
+    background-color: rgba(230, 84, 84, 0.8);
+    color: var(--black);
 }
 /* bouton vert */
 .btn-green {
-    background-color: rgb(97, 189, 97);
+    background-color: var(--green);
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: var(--white);
 }
 .btn-green:hover {
     background-color: rgba(97, 189, 97, 0.8);
-    color: #000;
+    color: var(--black);
 }
 /* bouton bleu */
 .btn-blue {
-    background-color: #7e92f7;
+    background-color: var(--blue-light);
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: var(--white);
 }
 .btn-blue:hover {
     background-color: #c7cff5;
-    color: #000;
+    color: var(--black);
 }
 /* ******* */
 /* Gère l'affichage des tableaux de l'espace admin  */
@@ -1984,7 +1988,7 @@ header {
     width: 100%;
 }
 .admin-table thead {
-    background-color: rgb(177, 176, 176);
+    background-color: var(--grey)
 }
 .admin-table thead th {
     font-weight: 300;
@@ -2023,7 +2027,7 @@ header {
     display: flex;
     justify-content: end;
 }
-.paragraph--admin-question {
+.paragraph--admin-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2031,17 +2035,18 @@ header {
     flex-wrap: wrap;
     width: 100%;
 }
-.paragraph--admin-question h1 {
+.paragraph--admin-form h1 {
     text-align: center;
     padding: 15px;
     font-size: 1.5rem;
 }
-.paragraph--admin-question input {
+.paragraph--admin-form input {
     /* width: auto; */
     margin-bottom: 20px;
     border-radius: 5px;
+    /* border: solid 1px black; */
 }
-.question-item {
+.form-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2056,14 +2061,15 @@ header {
     height: 25px;
 }
 .full-width {
-    width: 65%;
+    width: 63%;
 }
-.btn-question-admin {
+.btn-form-admin {
     margin-top: 30px;
     width: 100px;
     height: 50px;
+    border: none;
 }
-.btn-question-admin:hover {
+.btn-form-admin:hover {
     cursor: pointer;
 }
 .hover\:border-gray-300:hover {
@@ -2251,9 +2257,9 @@ header {
     border-color: rgb(55 65 81 / var(--tw-border-opacity));
   }
 
-  .dark\:bg-gray-700 {
+  .dark\:bg-gray-900 {
     --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
 
   .dark\:bg-gray-800 {
@@ -2261,14 +2267,14 @@ header {
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   }
 
-  .dark\:bg-gray-900 {
+  .dark\:bg-gray-700 {
     --tw-bg-opacity: 1;
-    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
   }
 
-  .dark\:text-gray-400 {
+  .dark\:text-gray-500 {
     --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity));
+    color: rgb(107 114 128 / var(--tw-text-opacity));
   }
 
   .dark\:text-white {
@@ -2276,14 +2282,14 @@ header {
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
+  .dark\:text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
   .dark\:text-blue-500 {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-500 {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 640px) {

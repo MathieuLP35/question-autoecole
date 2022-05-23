@@ -1,33 +1,38 @@
 /* TYPE DE BOUTON ******************** */
 
 .btn-red {
-    background-color: rgb(230, 84, 84);
+    background-color: var(--red);
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: var(--white);
+}
+.btn-red:hover {
+    background-color: rgba(230, 84, 84, 0.8);
+    color: var(--black);
 }
 
 /* bouton vert */
 .btn-green {
-    background-color: rgb(97, 189, 97);
+    background-color: var(--green);
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: var(--white);
 }
 .btn-green:hover {
     background-color: rgba(97, 189, 97, 0.8);
-    color: #000;
+    color: var(--black);
 }
 
 /* bouton bleu */
 .btn-blue {
-    background-color: #7e92f7;
+    background-color: var(--blue-light);
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: var(--white);
 }
 .btn-blue:hover {
     background-color: #c7cff5;
-    color: #000;
+    color: var(--black);
 }
+
 /* ******* */

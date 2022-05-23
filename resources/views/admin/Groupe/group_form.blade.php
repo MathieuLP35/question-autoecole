@@ -5,23 +5,25 @@
         </h2>
     </x-slot>
 	
-    <form action={{isset($groupe) ? url('admin/groupe/'.$groupe->id) :url('admin/groupe/') }} method="POST">
-	@csrf
+    <form action={{isset($groupe) ? url('admin/groupe/'.$groupe->id) :url('admin/groupe/') }} method="POST" class="paragraph--admin-form">
+        <h1>Configuration des groupe</h1>
+    @csrf
     @if (isset($groupe))
 		@method('PUT')
     @endif
 
 	{{-- Intituler du groupe --}}
-
+    <label for="groupname">Nom du groupe</label>
 	<input name="groupname" type="text" placeholder="intitulé du groupe" value={{isset($question) ? $groupe->groupname : NULL }}>
-
+    
 	{{-- Moyenne de la question --}}
-
-	<input name="moy" type="" value={{isset($groupe) ? $groupe->moy : NULL }}>
+    
+    <label for="moy">Moyenne</label>
+	<input name="moy" type="number" value={{isset($groupe) ? $groupe->moy : NULL }}>
 
 	{{-- Bouton envoi formulaire --}}
 
-    <input type="submit" value={{isset($groupe) ? "Editer" : "Ajouter" }}>
+    <input class="btn-green btn-form-admin" type="submit" value={{isset($groupe) ? "Editer" : "Ajouter" }}>
 
     </form>
 
