@@ -1,5 +1,5 @@
 /* Gère la page d'accueil  */
-
+/*
 header {
     padding: 0;
     margin: 0;
@@ -14,9 +14,11 @@ header {
     margin: 0;
     height: 60vh;
 }
+*/
 
-/* ////////////////////////////////////////////////////// */
+/* */
 
+/*
 .corps {
     height: 300vh;
     width: 100%;
@@ -69,7 +71,7 @@ header {
     left: 10%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+
     align-items: center;
 }
 
@@ -84,3 +86,4 @@ header {
     background-color: #c7cff5;
     color: #000;
 }
+*/
