@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Administration') }}
+            <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Utilisateur&nbsp;❓
         </h2>
     </x-slot>
 
@@ -21,18 +21,26 @@
         <input type="text" name="name" id="name" value="{{ $user->name }}" required autofocus/>
         <input type="text" name="email" id="email" value="{{ $user->email }}" required/>
         <select name="role" id="role" required> 
-            @if($user->role == 1)
-                <option value="1" selected>Utilisateur</option>
-                <option value="3">Administrateur</option>
-            @elseif($user->role == 3)
+        @switch($user->role)
+            @case(1)
+            <option value="1" selected>Utilisateur</option>
+            <option value="3">Administrateur</option>
+                @break
+            @case(3)
                 <option value="1">Utilisateur</option>
                 <option value="3" selected>Administrateur</option>
-            @endif
+                @break
+            @default
+            <option value="1">Utilisateur</option>
+            <option value="3">Administrateur</option>
+        @endswitch
         </select>
         <select name="groupe_id" id="groupe_id" required> 
             <option value="{{ $user->groupe_id }}" selected>{{ $user->groupe->groupname }}</option>
             @foreach($groupes as $groupe)
-                <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+                @if ($groupe->id != $user->groupe_id)
+                    <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+                @endif
             @endforeach
         </select>
     @else

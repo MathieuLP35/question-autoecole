@@ -1,4 +1,4 @@
-.paragraph--admin-question {
+.paragraph--admin-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,13 +6,22 @@
     flex-wrap: wrap;
     width: 100%;
 }
-.paragraph--admin-question input {
+
+.paragraph--admin-form h1 {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+
+
+.paragraph--admin-form input {
     /* width: auto; */
     margin-bottom: 20px;
     border-radius: 5px;
+    /* border: solid 1px black; */
 }
 
-.question-item {
+.form-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,15 +39,16 @@
 }
 
 .full-width {
-    width: 65%;
+    width: 63%;
 }
 
-.btn-question-admin {
+.btn-form-admin {
     margin-top: 30px;
     width: 100px;
     height: 50px;
+    border: none;
 }
 
-.btn-question-admin:hover {
+.btn-form-admin:hover {
     cursor: pointer;
 }

@@ -129,9 +129,9 @@ class GroupeController extends Controller
     {
         try {
             Groupe::where('id', '=', $id)->delete();
-            return redirect('admin/groupe')->with('successMsg', 'Groupe supprimer');
+            return redirect('admin/groupe')->banner('successMsg', 'Groupe supprimer');
         } catch (\Exception $e) {
-            return redirect('admin/groupe')->with('errorMsg', 'Erreur: Groupe non supprimer'.$e);
+            return redirect('admin/groupe')->dangerBanner('Erreur: Groupe non supprimer');
         }
     }
 }

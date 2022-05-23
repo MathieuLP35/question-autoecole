@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Administration') }}
+            <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Groupe&nbsp;❓
         </h2>
     </x-slot>
 
@@ -29,8 +29,8 @@
                     <form action="{{url('admin/groupe/'.$groupe->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" title="Supprimer la question ?"
-                            class="btn-red">Supprimer</button>
+                        <button data-confirm="Supprimer le groupe ?"type="submit" title="Supprimer la question ?"
+                            class="btn-red validate">Supprimer</button>
                     </form>
                 </td>
             </tr>
