@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Administration') }}
+            <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Utilisateur&nbsp;❓
         </h2>
     </x-slot>
 
@@ -32,7 +32,9 @@
         <select name="groupe_id" id="groupe_id" required> 
             <option value="{{ $user->groupe_id }}" selected>{{ $user->groupe->groupname }}</option>
             @foreach($groupes as $groupe)
-                <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+                @if ($groupe->id != $user->groupe_id)
+                    <option value="{{ $groupe->id }}">{{ $groupe->groupname }}</option>
+                @endif
             @endforeach
         </select>
     @else
