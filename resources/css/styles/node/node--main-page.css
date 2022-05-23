@@ -41,12 +41,14 @@ header {
     position: absolute;
     top: 150px;
     left: 10%;
+	cursor: url('../img/icons/moto.png'),pointer;
 }
 
 .article-2 {
     position: absolute;
     top: 450px;
     right: 10%;
+	cursor: url('../img/icons/voiture.png'),pointer;
 }
 
 .article-3 {

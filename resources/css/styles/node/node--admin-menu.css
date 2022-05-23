@@ -48,7 +48,6 @@
 
 }
 
-
 /* Icones  */
 .icone-admin-1 {
     background: url('../img/user.png') center center / cover;
@@ -72,4 +71,7 @@
     height: 75px;
     margin-left: 50%;
     transform: translate(-50%, 10px)
+}
+.backend{
+	cursor: url('../img/icons/icon_db.png'),pointer;
 }
