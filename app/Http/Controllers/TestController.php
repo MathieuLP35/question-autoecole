@@ -103,19 +103,19 @@ class TestController extends Controller
     public function results(Request $request, $question_id){
         $question = Question::find($question_id);
         $score = 0;
-        var_dump($request);
-
+    
         foreach ($question->propositions as $cle => $reponse){
+            // return '$reponse[valid]: '.$reponse['valid']. ' $request->input($cle): '.$request->input($cle);
             if($request->input($cle) == $reponse['valid']){
-                var_dump("Bonne rep");
+                var_dump('bonne reponse');
                 $score++;
+                var_dump($score);
             }else{
-                var_dump("Mauvaise rep");
+                var_dump('mauvaise reponse');
             }
         }
-        return "Le score = ".$score;
 
-        dd('bonne reponse');
+
 
         // $groupe= Groupe::find(Auth::user()->groupe_id);
         // $questionnaire = $groupe->questions()->get()->random(1);

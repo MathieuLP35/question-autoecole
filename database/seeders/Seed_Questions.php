@@ -21,22 +21,22 @@ class Seed_Questions extends Seeder
                     "proposition_1" => [
                         'rep_id' => 1,
                         'name' => 'Rouge',
-                        'valid' => null,
+                        'valid' => 'on',
                     ],
                     "proposition_2" => [
                         'rep_id' => 2,
                         'name' => 'Jaune',
-                        'valid' => "on",
+                        'valid' => 'off',
                     ],
                     "proposition_3" => [
                         'rep_id' => 3,
                         'name' => 'Vert',
-                        'valid' => "on",
+                        'valid' => 'off',
                     ],
                     "proposition_4" => [
                         'rep_id' => 4,
                         'name' => 'Bleu',
-                        'valid' => null,
+                        'valid' => 'off',
                     ],
                 ])
             ],
