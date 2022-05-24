@@ -46,12 +46,14 @@
 .id-column {
     width: 100px !important;
 }
+/* bouton ajouter dans tableau back-end */
+.bloc_end{
+	display: flex;
+	justify-content: end;
+}
+/* Colonne Action dans tableau back-end */
 .actions{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-.bloc_end{
-    display: flex;
-    justify-content: end;
 }

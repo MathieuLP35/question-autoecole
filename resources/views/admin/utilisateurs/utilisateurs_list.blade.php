@@ -30,31 +30,30 @@
             </thead>
             <tbody>
                 @foreach ($users as $user)
-                
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        {{$user->name}}
-                    </th>
-                    <td class="px-6 py-4">
-                        {{$user->email}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{$user->role}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{$user->groupe->groupname}}
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                        <a href="{{url('admin/utilisateur/'.$user->id.'/edit')}}"
-                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editer</a>
-                        <form action="{{url('admin/utilisateur/'.$user->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input data-confirm="Supprimer l'utilisateur ?" type="submit" value="Supprimer"
-                                class="validate font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        </form>
-                    </td>
-                </tr>
+					<tr class="bg-white dark:bg-gray-800">
+						<th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+							{{$user->name}}
+						</th>
+						<td class="px-6 py-4">
+							{{$user->email}}
+						</td>
+						<td class="px-6 py-4">
+							{{$user->role}}
+						</td>
+						<td class="px-6 py-4">
+							{{$user->groupe->groupname}}
+						</td>
+						<td class="px-6 py-4 text-right">
+							<a href="{{url('admin/utilisateur/'.$user->id.'/edit')}}"
+								class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editer</a>
+							<form action="{{url('admin/utilisateur/'.$user->id)}}" method="post">
+								@csrf
+								@method('DELETE')
+								<input data-confirm="Supprimer l'utilisateur ?" type="submit" value="Supprimer"
+									class="validate font-medium text-blue-600 dark:text-blue-500 hover:underline">
+							</form>
+						</td>
+					</tr>
                 @endforeach
             </tbody>
         </table>
