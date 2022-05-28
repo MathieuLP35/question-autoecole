@@ -13,11 +13,11 @@ class CreateScoreModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('score', function (Blueprint $table) {
+        Schema::create('scores', function (Blueprint $table) {
             $table->id();
             $table->float('moy');
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateScoreModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('score');
+        Schema::dropIfExists('scores');
     }
 }

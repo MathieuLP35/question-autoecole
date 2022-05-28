@@ -25,9 +25,9 @@
 
 	@if (isset($question))
 
-	@foreach ($question->propositions as $proposition)
-	<label for="reponse_1">Réponse {{$proposition['rep_id']}}</label>
-	<div class="form-item">
+		@foreach ($question->propositions as $proposition)
+		<label for="reponse_1">Réponse {{$proposition['rep_id']}}</label>
+		<div class="form-item">
 			<input name="reponse_{{$proposition['rep_id']}}" type="text" value="{{ $proposition['name'] != NULL ? $proposition['name']:''}}" class="admin-question">
 			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}} class="valider">
 		</div>
@@ -35,35 +35,33 @@
 	
 	@else
 
-	<label for="reponse_1">Réponse 1</label>
-	<div class="form-item">
-		<input name="reponse_1" type="text" class="admin-question"><input type="checkbox" name="reponse_1_valid" class="valider">
-	</div>
+		<label for="reponse_1">Réponse 1</label>
+		<div class="form-item">
+			<input name="reponse_1" type="text" class="admin-question"><input type="checkbox" name="reponse_1_valid" class="valider">
+		</div>
+		<label for="reponse_1">Réponse 2</label>
+		<div class="form-item">
+			<input name="reponse_2" type="text" class="admin-question"><input type="checkbox" name="reponse_2_valid" class="valider">
+		</div>
+		<label for="reponse_1">Réponse 3</label>
+		<div class="form-item">
+			<input name="reponse_3" type="text" class="admin-question"><input type="checkbox" name="reponse_3_valid" class="valider">
+		</div>
+		<label for="reponse_1">Réponse 4</label>
+		<div class="form-item">
+			<input name="reponse_4" type="text" class="admin-question"><input type="checkbox" name="reponse_4_valid" class="valider">
+		</div>
 
-	<label for="reponse_1">Réponse 2</label>
-	<div class="form-item">
-		<input name="reponse_2" type="text" class="admin-question"><input type="checkbox" name="reponse_2_valid" class="valider">
-	</div>
-
-	<label for="reponse_1">Réponse 3</label>
-	<div class="form-item">
-		<input name="reponse_3" type="text" class="admin-question"><input type="checkbox" name="reponse_3_valid" class="valider">
-	</div>
-
-	<label for="reponse_1">Réponse 4</label>
-	<div class="form-item">
-		<input name="reponse_4" type="text" class="admin-question"><input type="checkbox" name="reponse_4_valid" class="valider">
-	</div>
 	@endif
+
 	<label for="id_groupe">Groupe Associées</label>
-		<select name="id_groupe" id="id_groupe" class="select-list">
-			<option selected value="0">Choisissez un Groupe</option>
-			@foreach($groupes as $groupe)
-				<option value="{{$groupe->id}}">{{$groupe->groupname}}</option>
-			@endforeach
-		</select>
+	<select name="id_groupe" id="id_groupe" class="select-list">
+		<option selected value="0">Choisissez un Groupe</option>
+		@foreach($groupes as $groupe)
+			<option value="{{$groupe->id}}">{{$groupe->groupname}}</option>
+		@endforeach
+	</select>
 	{{-- Bouton envoi formulaire --}}
-	
     <input  class="btn-green btn-form-admin" type="submit" value="{{isset($question) ? "Editer" : "Ajouter" }}">
     </form>
 </x-app-layout>

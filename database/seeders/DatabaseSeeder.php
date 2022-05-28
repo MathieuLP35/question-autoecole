@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             Seed_Users::class,
             Seed_Teams::class,
             Seed_Questions::class,
+			Seed_Scores::class,
         ]);
     }
 }

@@ -1085,6 +1085,9 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.-mt-px {
+  margin-top: -1px;
+}
 .mt-20 {
   margin-top: 5rem;
 }
@@ -1192,6 +1195,9 @@ select {
 }
 .max-w-xl {
   max-width: 36rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1364,6 +1370,9 @@ select {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-r {
+  border-right-width: 1px;
+}
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1382,6 +1391,10 @@ select {
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1553,6 +1566,9 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
+.pt-8 {
+  padding-top: 2rem;
+}
 .text-left {
   text-align: left;
 }
@@ -1616,6 +1632,9 @@ select {
 .tracking-widest {
   letter-spacing: 0.1em;
 }
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -1676,13 +1695,21 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
 .text-stone-50 {
   --tw-text-opacity: 1;
   color: rgb(250 250 249 / var(--tw-text-opacity));
 }
-.text-blue-600 {
+.text-gray-200 {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1801,6 +1828,14 @@ select {
     --btn-padding: 0.313rem 0.938rem;
     
     
+}
+.question_illustration{
+	height: 40vh;
+	width: 100%;
+	border-radius: 15px;
+}
+.question_ecrite{
+	background: url(/images/Questions-Banner.jpg?67cca338cd92137c2e782485cb2407d9) center center / cover;
 }
 /* Gère la page d'accueil  */
 /*
@@ -1954,9 +1989,6 @@ header {
     margin-left: 50%;
     transform: translate(-50%, 10px)
 }
-.backend{
-	cursor: url(/images/icon_db.png?d037cde54c2ba807659e6ba98051c893),pointer;
-}
 .nav-top {
     background-color: #3c4575;
     color: #fff;
@@ -2104,14 +2136,16 @@ h3 {
 .id-column {
     width: 100px !important;
 }
+/* bouton ajouter dans tableau back-end */
+.bloc_end{
+	display: flex;
+	justify-content: end;
+}
+/* Colonne Action dans tableau back-end */
 .actions{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-.bloc_end{
-    display: flex;
-    justify-content: end;
 }
 .paragraph--admin-form {
     display: flex;
@@ -2338,6 +2372,11 @@ h3 {
 }
 @media (prefers-color-scheme: dark) {
 
+  .dark\:border-gray-700 {
+    --tw-border-opacity: 1;
+    border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  }
+
   .dark\:bg-gray-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
@@ -2348,9 +2387,9 @@ h3 {
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   }
 
-  .dark\:text-gray-500 {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
+  .dark\:bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
 
   .dark\:text-gray-400 {
@@ -2366,6 +2405,11 @@ h3 {
   .dark\:text-blue-500 {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 640px) {
@@ -2413,6 +2457,10 @@ h3 {
     margin-left: 1.5rem;
   }
 
+  .sm\:ml-0 {
+    margin-left: 0px;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -2427,6 +2475,10 @@ h3 {
 
   .sm\:h-10 {
     height: 2.5rem;
+  }
+
+  .sm\:h-20 {
+    height: 5rem;
   }
 
   .sm\:w-10 {
@@ -2484,6 +2536,10 @@ h3 {
 
   .sm\:items-center {
     align-items: center;
+  }
+
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 
   .sm\:justify-center {
@@ -2547,6 +2603,10 @@ h3 {
 
   .sm\:text-left {
     text-align: left;
+  }
+
+  .sm\:text-right {
+    text-align: right;
   }
 }
 @media (min-width: 768px) {

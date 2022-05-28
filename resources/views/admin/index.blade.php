@@ -20,6 +20,9 @@
                 <div class="admin-menu-item">
                     <a href="{{url('admin/groupe')}}">Groupes <div class="icone-admin-3"></div></a>
                 </div>
+                <div class="admin-menu-item">
+                    <a href="{{url('admin/score')}}">Scores <div class="icone-admin-3"></div></a>
+                </div>
             </div>
         </div>
     </main>

@@ -4,53 +4,49 @@
             <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Utilisateur&nbsp;❓
         </h2>
     </x-slot>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="p-6 relative overflow-x-auto shadow-md sm:rounded-lg">
         <h3>Liste des Utilisateurs</h3>
-        <a href="{{url('admin/utilisateur/create')}}">Ajouter un utilisateur</a>
-        
-        <table class="admin-table w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="admin-table">
+            <thead>
                 <tr>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="id-column">
                         Nom
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col">
                         Email
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col">
                         Role
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col">
                         Groupe
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="sr-only">Actions</span>
+                    <th scope="col" class="bloc_end">
+						<a class="btn-green" href="{{url('admin/utilisateur/create')}}">Ajouter un utilisateur</a>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($users as $user)
-					<tr class="bg-white dark:bg-gray-800">
-						<th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+					<tr>
+						<td scope="row" class="id-column">
 							{{$user->name}}
-						</th>
-						<td class="px-6 py-4">
+						</td>
+						<td>
 							{{$user->email}}
 						</td>
-						<td class="px-6 py-4">
+						<td>
 							{{$user->role}}
 						</td>
-						<td class="px-6 py-4">
+						<td>
 							{{$user->groupe->groupname}}
 						</td>
-						<td class="px-6 py-4 text-right">
-							<a href="{{url('admin/utilisateur/'.$user->id.'/edit')}}"
-								class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editer</a>
+						<td class="actions">
+							<a href="{{url('admin/utilisateur/'.$user->id.'/edit')}}" class="btn-blue">Editer</a>
 							<form action="{{url('admin/utilisateur/'.$user->id)}}" method="post">
 								@csrf
 								@method('DELETE')
-								<input data-confirm="Supprimer l'utilisateur ?" type="submit" value="Supprimer"
-									class="validate font-medium text-blue-600 dark:text-blue-500 hover:underline">
+								<input data-confirm="Supprimer l'utilisateur ?" type="submit" value="Supprimer" class="btn-red validate">
 							</form>
 						</td>
 					</tr>

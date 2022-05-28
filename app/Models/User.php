@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function groupe(){
         return $this->belongsTo(Groupe::class);
     }
+	public function scores()
+    {
+        return $this->hasMany(ScoreModel::class);
+    }
 }
