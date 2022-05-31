@@ -110,21 +110,11 @@ class TestController extends Controller
             }
         }
 
-        $groupe= Groupe::find(Auth::user()->groupe_id);
-        $questionnaire = $groupe->questions()->get()->random(1);
-
         if ($result == count($question->propositions)){
-            
-            return response()
-            ->view('pages.test.test', [
-                'questions' => $questionnaire,
-            ]);
-        }else{
+            return redirect()->route('test');
 
-            return response()
-            ->view('pages.test.test', [
-                'questions' => $questionnaire,
-            ]);
+        }else{
+            return redirect()->route('test');
         }
     }
 }
