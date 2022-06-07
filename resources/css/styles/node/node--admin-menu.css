@@ -32,6 +32,7 @@
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 30px;
+    margin: 0 5px;
 }
 
 .admin-menu-item a {
@@ -75,8 +76,8 @@
 
 .icone-admin-4 {
     background: url('../img/medaille.png') center center / cover;
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     margin-left: 50%;
     transform: translate(-50%, 10px)
 }
@@ -86,8 +87,6 @@
 } */
 
 .test::-webkit-file-upload-button {
-    /* display: block; */
-    /* width: 100%; */
     background-color: var(--blue-light);
     border-radius: 0.313rem;
     border: none;
