@@ -72,3 +72,35 @@
     margin-left: 50%;
     transform: translate(-50%, 10px)
 }
+
+.icone-admin-4 {
+    background: url('../img/medaille.png') center center / cover;
+    width: 75px;
+    height: 75px;
+    margin-left: 50%;
+    transform: translate(-50%, 10px)
+}
+
+/* #image {
+    visibility: hidden;
+} */
+
+.test::-webkit-file-upload-button {
+    /* display: block; */
+    /* width: 100%; */
+    background-color: var(--blue-light);
+    border-radius: 0.313rem;
+    border: none;
+    padding: 0.313rem 0.938rem;
+    color: var(--white);
+}
+
+.test::-webkit-file-upload-button:hover {
+    background-color: #c7cff5;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.test {
+    user-select: none;
+}

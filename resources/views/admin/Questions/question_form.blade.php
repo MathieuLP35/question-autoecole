@@ -18,8 +18,8 @@
 	<input class="admin-question full-width" name="texte" type="text" placeholder="intitulé de la question" value="{{isset($question) ? $question->texte : NULL }}" >
 
 	{{-- Image de la question --}}
-
-	<input id="image" name="image" type="file" value="{{isset($question) ? $question->image : NULL }}">
+	
+	<input class="test" id="image" name="image" type="file" value="{{isset($question) ? $question->image : NULL }}">
 
 	{{-- Propositions de réponse --}}
 
