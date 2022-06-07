@@ -30,7 +30,7 @@
                         @csrf
                         @method('DELETE')
                         <button data-confirm="Supprimer le groupe ?"type="submit" title="Supprimer la question ?"
-                            class="btn-red validate">Supprimer</button>
+                            class="btn-red validate btnDel" onclick="DeleteRow(1)">Supprimer</button>
                     </form>
                 </td>
             </tr>
