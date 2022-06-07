@@ -1,19 +1,33 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 nav-top">
+<nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <!-- METTRE LE LOGO ICI -->
-                        <!-- <x-jet-application-mark class="block h-9 w-auto" /> -->
-                    </a>
-                </div>
+    <div class="header-wrapper">
+        <div class="header-logo">
+            <a href="#">
+                <img src="https://picsum.photos/80/80" alt="">
+            </a>
+        </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @if (Route::has('login'))
+        <div class="nav-items">
+            <x-jet-nav-link class="menu-item" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('ACCUEIL') }}
+            </x-jet-nav-link>
+            <x-jet-nav-link class="menu-item" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('PRESENTATION') }}
+            </x-jet-nav-link>
+            <x-jet-nav-link class="menu-item" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('PASSEZ LE TEST') }}
+            </x-jet-nav-link>
+            @auth
+            @if(Auth::user()->role === 3)
+            <x-jet-nav-link class="menu-item" href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                {{ __('ADMINISTRATION') }}
+            </x-jet-nav-link>
+            @endif
+            @endauth
+        </div>
+
+        <div class="login-register">
+            @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
                             {{-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a> --}}
@@ -26,23 +40,9 @@
                         @endauth
                     </div>
                     @endif
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('ACCUEIL') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('PRESENTATION') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('PASSEZ LE TEST') }}
-                    </x-jet-nav-link>
-                    @auth
-                        @if(Auth::user()->role === 3)
-                            <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                                {{ __('ADMINISTRATION') }}
-                            </x-jet-nav-link>
-                        @endif
-                    @endauth
-                </div>
+        </div>
+            <div class="3">
+                
             </div>
 
             @auth
