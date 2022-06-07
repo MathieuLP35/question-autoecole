@@ -46,7 +46,7 @@
 							<form action="{{url('admin/utilisateur/'.$user->id)}}" method="post">
 								@csrf
 								@method('DELETE')
-								<input data-confirm="Supprimer l'utilisateur ?" type="submit" value="Supprimer" class="btn-red validate">
+                                <button type="submit" data-confirm="Supprimer l'utilisateur ?" title="Supprimer l'utilisateur ?"class="btn-red validate">Supprimer</button>
 							</form>
 						</td>
 					</tr>
