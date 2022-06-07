@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Icone -->
-		<link rel="shortcut icon" sizes="114x114" href="{{ asset('images/auto.ico') }}">
+		<link rel="shortcut icon" sizes="114x114" href="{{ asset('images/favicon.ico') }}">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
