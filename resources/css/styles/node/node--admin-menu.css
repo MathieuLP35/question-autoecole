@@ -72,6 +72,3 @@
     margin-left: 50%;
     transform: translate(-50%, 10px)
 }
-.backend{
-	cursor: url('../img/icons/icon_db.png'),pointer;
-}

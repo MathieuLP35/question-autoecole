@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Groupe;
-use App\Models\Question;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
-class TestController extends Controller
+use App\Models\ScoreModel;
+use App\Models\User;
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,23 +13,19 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-
+    {
         try {
-            $groupe = Groupe::find(Auth::user()->groupe_id);
-            $questionnaire = $groupe->questions()->get()->random(1);
-    
+            $scores = ScoreModel::get();
             return response()
-                ->view('pages.test.test', [
-                    'questions' => $questionnaire,
+                ->view('admin.scores.scores_list', [
+                    'scores' => $scores,
                 ]);
         } catch (Throwable $e) {
             return response()
-                ->view('pages.test.test', [
-                    'questions' => [],
+                ->view('admin.scores.scores_list', [
+                    'scores' => [],
                 ]);
         }
-
     }
 
     /**
@@ -41,7 +35,10 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+		$users = User::all();
+        return response()->view('admin.scores.scores_form',[
+			'users' => $users,
+		]);
     }
 
     /**
@@ -52,7 +49,11 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$scores = new ScoreModel();
+        $scores->moy = $request->moy;
+        $scores->user_id = $request->user_id;
+        $scores->save();
+        return redirect('admin/score');
     }
 
     /**
@@ -74,7 +75,17 @@ class TestController extends Controller
      */
     public function edit($id)
     {
-        //
+		try {
+            $score = ScoreModel::findOrFail($id);
+			$users = User::all();
+            return response()
+                ->view('admin.scores.scores_form', [
+                    'score' => $score,
+                    'users' => $users,
+                ]);
+        } catch (Throwable $e) {
+            return redirect('admin/score/create')->banner('Aucun score trouver pour cet id, Formulaire de création');
+        }
     }
 
     /**
@@ -86,7 +97,11 @@ class TestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		$score = ScoreModel::find($id);
+        $score->moy = $request->moy;
+        $score->user_id = $request->user_id;
+        $score->save();
+        return redirect('admin/score');
     }
 
     /**
@@ -97,24 +112,11 @@ class TestController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function results(Request $request, $question_id){
-        $question = Question::find($question_id);
-        $result = 0;
-    
-        foreach ($question->propositions as $cle => $reponse){
-            if($request->input($cle) != $reponse['valid']){
-                $result++;
-            }
-        }
-
-        if ($result == count($question->propositions)){
-            return redirect()->route('test');
-
-        }else{
-            return redirect()->route('test');
+		try {
+            ScoreModel::where('id', '=', $id)->delete();
+            return redirect('admin/score')->banner('Score supprimer');
+        } catch (\Exception $e) {
+            return redirect('admin/score')->dangerBanner('Erreur: score non supprimer');
         }
     }
 }

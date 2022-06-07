@@ -68,10 +68,8 @@ class GroupeController extends Controller
     {
         try {
             $groupe = Groupe::find($id);
-            $users = User::get()->where('id_groupe', '=', $groupe->id);
-    
+            $users = User::where('groupe_id', '=', $groupe->id)->get();
             return view('admin.groupe.groupe', ['groupe' => $groupe, 'users' => $users]);
-
         } catch (Throwable $e) {
             return response()
                 ->view('admin.groupe.group_list');

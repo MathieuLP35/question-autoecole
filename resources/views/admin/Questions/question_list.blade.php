@@ -16,10 +16,6 @@
                     <th scope="col" class="">
                         Intituler
                     </th>
-					<th></th>
-                    <th scope="col" class="">
-                        <span class="sr-only">Actions</span>
-                    </th>
                     <th scope="col" class="bloc_end">
                         <a class="btn-green" href="{{url('admin/question/create')}}">Ajouter</a>
                     </th>

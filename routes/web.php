@@ -5,6 +5,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\COntrollers\GroupeController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
             Route::resource('question', QuestionController::class);
             Route::resource('utilisateur', UtilisateurController::class);
             Route::resource('groupe', GroupeController::class);
+            Route::resource('score', ScoreController::class);
         });
     });
 

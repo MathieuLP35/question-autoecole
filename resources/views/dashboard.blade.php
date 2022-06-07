@@ -1,11 +1,14 @@
 <x-app-layout class="all">
-    <h2 class="bandeau"></h2>
-    <section class="main">
-        <h2>PRESENTATION DU SITE</h2>
-        <div class="corps">
-            <article class="article-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eligendi iste dolorem iusto nihil alias autem pariatur deserunt facere laboriosam cupiditate voluptatum ipsa velit tempora dolor in, asperiores soluta molestiae.
-            </article>
+        <h2 class="bandeau">
+        </h2>
+
+
+        <section class="main container">
+            <h2>PRESENTATION DU SITE</h2>
+            <div class="corps">
+                <article class="article-1">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eligendi iste dolorem iusto nihil alias autem pariatur deserunt facere laboriosam cupiditate voluptatum ipsa velit tempora dolor in, asperiores soluta molestiae.
+                </article>
 
             <article class="article-2">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio adipisci quo ratione minima deleniti exercitationem ipsa alias doloribus dolores similique nihil, nobis cum ipsum illum voluptatem odit accusantium harum necessitatibus?
