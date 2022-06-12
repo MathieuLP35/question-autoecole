@@ -103,3 +103,22 @@
 .test {
     user-select: none;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    .node--admin-menu-titre {
+        background: none;
+        height: auto;
+        padding: 50px 0 0;
+    }
+
+    .node--admin-menu-item {
+        flex-direction: column;
+    }
+
+    .admin-menu-item {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
