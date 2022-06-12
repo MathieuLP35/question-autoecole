@@ -7,6 +7,9 @@
     <title>{{ config('app.name', 'Breizh Auto Skol - Code de la route en ligne') }}</title>
     <!-- Icone -->
     <link rel="shortcut icon" sizes="114x114" href="{{ asset('images/favicon.ico') }}">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
