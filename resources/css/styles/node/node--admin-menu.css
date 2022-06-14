@@ -32,6 +32,7 @@
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 30px;
+    margin: 0 5px;
 }
 
 .admin-menu-item a {
@@ -71,4 +72,53 @@
     height: 75px;
     margin-left: 50%;
     transform: translate(-50%, 10px)
+}
+
+.icone-admin-4 {
+    background: url('../img/medaille.png') center center / cover;
+    width: 65px;
+    height: 65px;
+    margin-left: 50%;
+    transform: translate(-50%, 10px)
+}
+
+/* #image {
+    visibility: hidden;
+} */
+
+.test::-webkit-file-upload-button {
+    background-color: var(--blue-light);
+    border-radius: 0.313rem;
+    border: none;
+    padding: 0.313rem 0.938rem;
+    color: var(--white);
+}
+
+.test::-webkit-file-upload-button:hover {
+    background-color: #c7cff5;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.test {
+    user-select: none;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .node--admin-menu-titre {
+        background: none;
+        height: auto;
+        padding: 50px 0 0;
+    }
+
+    .node--admin-menu-item {
+        flex-direction: column;
+    }
+
+    .admin-menu-item {
+        width: 100%;
+        margin-bottom: 25px;
+    }
 }

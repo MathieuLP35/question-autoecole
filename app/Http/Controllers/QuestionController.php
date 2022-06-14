@@ -53,7 +53,7 @@ class QuestionController extends Controller
     {
         $question = new Question();
         $question->texte = $request->texte;
-        $question->image = $request->image;
+        $question->image = $request->file('image')->store('public');
         $question->propositions = [
             "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
             "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2, "valid"=>  $request->reponse_2_valid],
@@ -123,9 +123,10 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
         $question->texte = $request->texte;
-        $question->image = $question->image ;
         if($request->image){ // Si on veut changer l'image
-            $question->image = $request->image;
+            Storage::delete($question->image);
+            $question->image = $request->file('image')->store('public');
+/*             $question->image = $request->image; */
         }
         $question->propositions = [
             "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
@@ -146,10 +147,11 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            Question::where('id', '=', $id)->delete();
+        try{
+            $question= Question::where('id', '=', $id)->delete();
+            Storage::delete($question->image);
             return redirect('admin/question')->with('successMsg', 'Question supprimer')->banner('Question supprimer');
-        } catch (\Exception $e) {
+        }catch (\Exception $e) {
             return redirect('admin/question')->with('errorMsg', 'Erreur: Question non supprimer'.$e)->dangerBanner('Question non supprimer');
         }
     }
