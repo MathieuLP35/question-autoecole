@@ -9,6 +9,7 @@
     <form action="{{url('results/'.$question->id)}}" method="POST">
         @csrf	
         <div class="border p-6 m-2">
+            <p>{{ $question->id }}</p>
             <p>{{ $question->texte }}</p>
             @foreach ($question->propositions as $proposition)
                 <label for="proposition_{{$proposition['rep_id']}}">{{ $proposition['name'] }}</label>
@@ -18,5 +19,9 @@
         </div>
     </form>
     @endforeach
+
+
+    <p>{{ count($questionnaire->questions['questions']) }}</p>
+
 
 </x-app-layout>

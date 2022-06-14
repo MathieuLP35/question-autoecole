@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Groupe;
 use App\Models\Question;
+use App\Models\QuestionnaireModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,16 +20,49 @@ class TestController extends Controller
 
         try {
             $groupe = Groupe::find(Auth::user()->groupe_id);
-            $questionnaire = $groupe->questions()->get()->random(1);
+            $question = $groupe->questions()->get()->random(1);
+            $questionnaire = QuestionnaireModel::where('user_id', "=", Auth::user()->id)->first();
+
+            $is_user_question_exist = QuestionnaireModel::where('user_id', "=", Auth::user()->id)->first();
+
+            // Si l'utilisateur n'a pas de questionnaire on le crée
+            if (empty($is_user_question_exist)){
     
-            return response()
-                ->view('pages.test.test', [
-                    'questions' => $questionnaire,
-                ]);
+                // On créer une nouvelle instance de QuestionnaireModel
+                $questionnaire = new QuestionnaireModel();
+                $questionnaire->questions = [
+                    "questions" => []
+                ];
+                $questionnaire->user_id = Auth::user()->id;
+                $questionnaire->groupe_id = Auth::user()->groupe_id;
+                $questionnaire->save();    
+            } 
+
+            $nbr_question = 40;
+
+            if(count($questionnaire->questions['questions']) == $nbr_question){
+
+                $result = $questionnaire->result;
+
+                QuestionnaireModel::where('id', '=', $questionnaire->id)->delete();
+
+                if ($result >= $nbr_question / 2){
+                    return redirect()->route('test')->banner('Vous avez réussi le test ' . $result . ' / ' . $nbr_question.'!');
+                } else {
+                    return redirect()->route('test')->dangerBanner('Vous avez raté le test ' . $result . ' / ' . $nbr_question.'!');
+                }
+
+            } 
+            
+        return response()
+            ->view('pages.test.test', [
+                'questions' => $question,
+                'questionnaire' => $questionnaire,
+            ]);
         } catch (Throwable $e) {
             return response()
                 ->view('pages.test.test', [
-                    'questions' => [],
+                    'questionnaire' => [],
                 ]);
         }
 
@@ -102,19 +136,55 @@ class TestController extends Controller
 
     public function results(Request $request, $question_id){
         $question = Question::find($question_id);
-        $result = 0;
-    
+        $is_user_question_exist = QuestionnaireModel::where('user_id', "=", Auth::user()->id)->first();
+        $result = $is_user_question_exist->result;
+        
+        
         foreach ($question->propositions as $cle => $reponse){
-            if($request->input($cle) != $reponse['valid']){
+            if($request->input($cle) == $reponse['valid']){
                 $result++;
             }
         }
+        
+        $is_user_question_exist->result = $result;
+        $is_user_question_exist->save();
+        
+        if ($result == count($question->propositions)) {
 
-        if ($result == count($question->propositions)){
+            $check_question = $is_user_question_exist->questions;
+            
+            array_push($check_question["questions"],
+                [
+                    "question_id" => $question->id,
+                    "name" => $question->texte,
+                    "reponse" => "ok",
+                ]
+            );
+            
+            $is_user_question_exist->questions = $check_question;
+            
+            $is_user_question_exist->save();
+            
             return redirect()->route('test');
 
-        }else{
+        } else{
+            $check_question = $is_user_question_exist->questions;
+            
+            array_push($check_question["questions"],
+                [
+                    "question_id" => $question->id,
+                    "name" => $question->texte,
+                    "reponse" => "pas ok",
+                ]
+            );
+            
+            $is_user_question_exist->questions = $check_question;
+            
+            $is_user_question_exist->save();
+            
             return redirect()->route('test');
+
         }
+    
     }
 }
