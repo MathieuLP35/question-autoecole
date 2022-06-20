@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Groupe;
 use App\Models\Question;
 use App\Models\QuestionnaireModel;
+use App\Models\ScoreModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,12 +40,32 @@ class TestController extends Controller
             } 
 
             $nbr_question = 40;
-
+            
             if(count($questionnaire->questions['questions']) == $nbr_question){
-
+                
                 $result = $questionnaire->result;
+                
+                // Taux de réussite à un questionnaire
+                $taux = $result / $nbr_question * 100;
 
                 QuestionnaireModel::where('id', '=', $questionnaire->id)->delete();
+
+                $check_score_exist = ScoreModel::where('user_id', "=", Auth::user()->id)->first();
+
+                if(empty($check_score_exist)){
+                    $score = new ScoreModel();
+                    $score->user_id = Auth::user()->id;
+                    $score->moy = $taux;
+                    $score->save();
+                } else {
+                    $score = ScoreModel::where('user_id', "=", Auth::user()->id)->first();
+                    $score->moy = round(($taux + $score->moy) / 2, 2); 
+                    $score->save();
+                }
+
+                $groupe_score = Groupe::find(Auth::user()->groupe_id);
+                $groupe_score->moy = round(($taux + $groupe_score->moy) / 2, 2);
+                $groupe_score->save();
 
                 if ($result >= $nbr_question / 2){
                     return redirect()->route('test')->banner('Vous avez réussi le test ' . $result . ' / ' . $nbr_question.'!');

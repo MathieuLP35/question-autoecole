@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Groupe;
+use App\Models\ScoreModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Rules\Password;
 use Throwable;
@@ -167,5 +169,24 @@ class UtilisateurController extends Controller
     protected function passwordRules()
     {
         return ['required', 'string', new Password, 'confirmed'];
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function stats()
+    {
+        $score = ScoreModel::where('user_id', "=", Auth::user()->id)->first();
+        
+        if ($score == null) {
+            $score->moy = 0;
+        }
+
+        return response()
+            ->view('profile.stats', [
+                'score' => $score,
+            ]);
     }
 }

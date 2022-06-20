@@ -32,6 +32,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('test', [TestController::class, 'index'])->name('test');
     Route::post('results/{id}', [TestController::class, 'results'])->name('results');
 
+    Route::get('user/stats', [UtilisateurController::class, 'stats'])->name('stats');
+
     // route for admin
     Route::middleware(['auth', 'admin'])->group(function (){
         Route::prefix('admin')->group(function (){
