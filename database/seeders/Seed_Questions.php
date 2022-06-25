@@ -26,28 +26,28 @@ class Seed_Questions extends Seeder
                     "proposition_2" => [
                         'rep_id' => 2,
                         'name' => 'Jaune',
-                        'valid' => 'off',
+                        'valid' => null,
                     ],
                     "proposition_3" => [
                         'rep_id' => 3,
                         'name' => 'Vert',
-                        'valid' => 'off',
+                        'valid' => null,
                     ],
                     "proposition_4" => [
                         'rep_id' => 4,
                         'name' => 'Bleu',
-                        'valid' => 'off',
+                        'valid' => null,
                     ],
                 ])
             ],
             [
-                'texte' => 'Quelle est la couleur du panneau ?',
+                'texte' => 'Quelle est la couleur du poteaux ?',
                 'image' => 'string',
                 'propositions' => json_encode([
                     "proposition_1" => [
                         'rep_id' => 1,
                         'name' => 'Violet',
-                        'valid' => null,
+                        'valid' => 'on',
                     ],
                     "proposition_2" => [
                         'rep_id' => 2,
@@ -67,13 +67,39 @@ class Seed_Questions extends Seeder
                 ])
             ],
             [
-                'texte' => 'Quelle est la couleur du panneau ?',
+                'texte' => 'Quelle est la couleur du mouton ?',
                 'image' => 'string',
                 'propositions' => json_encode([
                     "proposition_1" => [
                         'rep_id' => 1,
                         'name' => 'Violet',
+                        'valid' => 'on',
+                    ],
+                    "proposition_2" => [
+                        'rep_id' => 2,
+                        'name' => 'Jaune',
                         'valid' => null,
+                    ],
+                    "proposition_3" => [
+                        'rep_id' => 3,
+                        'name' => 'Vert',
+                        'valid' => "on",
+                    ],
+                    "proposition_4" => [
+                        'rep_id' => 4,
+                        'name' => 'Bleu',
+                        'valid' => null,
+                    ],
+                ])
+            ],
+            [
+                'texte' => 'Quelle est la couleur du chat ?',
+                'image' => 'string',
+                'propositions' => json_encode([
+                    "proposition_1" => [
+                        'rep_id' => 1,
+                        'name' => 'Violet',
+                        'valid' => 'on',
                     ],
                     "proposition_2" => [
                         'rep_id' => 2,
@@ -92,31 +118,24 @@ class Seed_Questions extends Seeder
                     ],
                 ])
             ],
+        ]);
+
+        DB::table('groupe_question')->insert([
             [
-                'texte' => 'Quelle est la couleur du panneau ?',
-                'image' => 'string',
-                'propositions' => json_encode([
-                    "proposition_1" => [
-                        'rep_id' => 1,
-                        'name' => 'Violet',
-                        'valid' => null,
-                    ],
-                    "proposition_2" => [
-                        'rep_id' => 2,
-                        'name' => 'Jaune',
-                        'valid' => null,
-                    ],
-                    "proposition_3" => [
-                        'rep_id' => 3,
-                        'name' => 'Vert',
-                        'valid' => "on",
-                    ],
-                    "proposition_4" => [
-                        'rep_id' => 4,
-                        'name' => 'Bleu',
-                        'valid' => null,
-                    ],
-                ])
+                'question_id' => 1,
+                'groupe_id' => 1,
+            ],
+            [
+                'question_id' => 2,
+                'groupe_id' => 1,
+            ],
+            [
+                'question_id' => 3,
+                'groupe_id' => 1,
+            ],
+            [
+                'question_id' => 4,
+                'groupe_id' => 1,
             ],
         ]);
     }
