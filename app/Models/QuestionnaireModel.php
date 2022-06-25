@@ -31,4 +31,5 @@ class QuestionnaireModel extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
+
 }
