@@ -20,7 +20,7 @@ class CreateQuestionnaireModelsTable extends Migration
             $table->unsignedBigInteger('groupe_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('groupe_id')->references('id')->on('groupes');
-            $table->integer('result');
+            $table->integer('result')->default(0);
             $table->timestamps();
         });
     }
