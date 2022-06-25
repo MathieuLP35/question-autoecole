@@ -43,20 +43,18 @@ class TestController extends Controller
             
             $askedQuestions = $questionnaire->questions;
             $askedQuestions = collect($askedQuestions['questions']);
-            
+
             if(count($askedQuestions) > 0){
-                // On regarde si la question est déjà posée
-                foreach ($askedQuestions as $askedQuestion) {
-                    while($askedQuestion['question_id'] == $question->id) {
-                        // Si le nombre de question dans un questionnaire est égal au nombre de question maximum du groupe
-                        // on donne un résultat basé sur le nombre total de question du groupe et non sur 40.
-                        if (count($askedQuestions) == count($groupe->questions()->get())) {
-                            $nbr_question = count($askedQuestions);
-                            $this->finishTest($questionnaire, $nbr_question);
-                        }
-                        // Sinon on continue de demander des questions
-                        return redirect()->route('test');
-                    } 
+                // On liste les questions déjà posées
+                $askedQuestionIds = $askedQuestions->pluck('question_id')->toArray();
+                // Si le nombre de question dans un questionnaire est égal au nombre de question maximum du groupe
+                // on donne un résultat basé sur le nombre total de question du groupe et non sur 40.
+                if (count($askedQuestions) == count($groupe->questions()->get())) {
+                    $nbr_question = count($askedQuestions);
+                    $this->finishTest($questionnaire, $nbr_question);
+                } else{
+                    // On envoie une question qui n'a pas encore été posée
+                    $question = $groupe->questions()->get()->whereNotIn('id', $askedQuestionIds)->random(1)->first();
                 }
             }
 
@@ -215,6 +213,15 @@ class TestController extends Controller
         $groupe_score->moy = round(($taux + $groupe_score->moy) / 2, 2);
         $groupe_score->save();
 
+        // On créer une nouvelle instance de QuestionnaireModel
+        $new_questionnaire = new QuestionnaireModel();
+        $new_questionnaire->questions = [
+            "questions" => []
+        ];
+        $new_questionnaire->user_id = Auth::user()->id;
+        $new_questionnaire->groupe_id = Auth::user()->groupe_id;
+        $new_questionnaire->save(); 
+        
         if ($questionnaire->result >= $nbr_question / 2){
             return redirect()->route('test')->banner('Vous avez réussi le test ' . $questionnaire->result . ' / ' . $nbr_question.'!');
         } else {
