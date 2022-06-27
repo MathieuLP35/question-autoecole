@@ -20,8 +20,14 @@ class TestController extends Controller
     {  
         try {
             $groupe = Groupe::find(Auth::user()->groupe_id);
-            $question = $groupe->questions()->get()->random(1)->first();
             $questionnaire = QuestionnaireModel::where('user_id', "=", Auth::user()->id)->first();
+            $question = $groupe->questions()->get();
+            // On vérifie si $question n'est pas null
+            if (!$question->isEmpty())
+            {
+                $random = $question->random(1);
+                $question = $random->first();
+            }
 
             // Si l'utilisateur n'a pas de questionnaire en cours on le crée
             if (empty($questionnaire)){
@@ -55,7 +61,13 @@ class TestController extends Controller
                     $this->finishTest($questionnaire, $nbr_question);
                 } else{
                     // On envoie une question qui n'a pas encore été posée
-                    $question = $groupe->questions()->get()->whereNotIn('id', $askedQuestionIds)->random(1)->first();
+                    $question = $groupe->questions()->get()->whereNotIn('id', $askedQuestionIds);
+                    // On vérifie si $question n'est pas null
+                    if (!$question->isEmpty())
+                    {
+                        $random = $question->random(1);
+                        $question = $random->first();
+                    }
                 }
             }
 

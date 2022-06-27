@@ -57,7 +57,7 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -96,14 +96,14 @@ class UtilisateurController extends Controller
             $moyenne = ScoreModel::where('user_id', $id)->avg('moy');
     
             return response()
-                ->view('admin.Utilisateurs.utilisateur', [
+                ->view('admin.utilisateurs.utilisateur', [
                     'scores' => $scores,
                     'user' => $user,
                     'moyenne' => $moyenne,
                 ]);
         } catch (Throwable $e) {
             return response()
-                ->view('admin.Utilisateurs.utilisateur', [
+                ->view('admin.utilisateurs.utilisateur', [
                     'scores' => [],
                     'user' => [],
                     'moyenne' => [],

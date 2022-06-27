@@ -5,7 +5,6 @@
         </h2>
     </x-slot>
     <main>
-        {{-- <h1 class="text-center mt-20 py-12">Panneau de contrôle</h1> --}}
         <div class="node--admin-menu">
             <h1 class="node--admin-menu-titre">Panneau </br> de contrôle</h1>
             <div class="node--admin-menu-item">
