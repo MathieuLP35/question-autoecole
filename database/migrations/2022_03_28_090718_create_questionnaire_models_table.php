@@ -16,6 +16,7 @@ class CreateQuestionnaireModelsTable extends Migration
         Schema::create('questionnaire', function (Blueprint $table) {
             $table->id();
             $table->json('questions');
+            $table->json('pending_question');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('groupe_id');
             $table->foreign('user_id')->references('id')->on('users');

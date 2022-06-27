@@ -11,6 +11,7 @@ class QuestionnaireModel extends Model
 
     protected $fillable = [
         'questions',
+        'pending_question',
         'user_id',
         'groupe_id',
         'result',
@@ -20,6 +21,7 @@ class QuestionnaireModel extends Model
 
     protected $casts = [
         'questions' => 'json',
+        'pending_question' => 'json',
         'user_id' => 'integer',
         'groupe_id' => 'integer',
         'result' => 'integer',

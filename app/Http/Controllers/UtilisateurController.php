@@ -90,7 +90,25 @@ class UtilisateurController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $scores = ScoreModel::where('user_id', $id)->orderBy('id', 'desc')->get();
+            $user = User::find($id);
+            $moyenne = ScoreModel::where('user_id', $id)->avg('moy');
+    
+            return response()
+                ->view('admin.Utilisateurs.utilisateur', [
+                    'scores' => $scores,
+                    'user' => $user,
+                    'moyenne' => $moyenne,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('admin.Utilisateurs.utilisateur', [
+                    'scores' => [],
+                    'user' => [],
+                    'moyenne' => [],
+                ]);
+        }
     }
 
     /**

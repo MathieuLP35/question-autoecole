@@ -23,18 +23,19 @@ class TestController extends Controller
             $question = $groupe->questions()->get()->random(1)->first();
             $questionnaire = QuestionnaireModel::where('user_id', "=", Auth::user()->id)->first();
 
-            // Si l'utilisateur n'a pas de questionnaire on le crée
+            // Si l'utilisateur n'a pas de questionnaire en cours on le crée
             if (empty($questionnaire)){
                 // On créer une nouvelle instance de QuestionnaireModel
                 $questionnaire = new QuestionnaireModel();
                 $questionnaire->questions = [
                     "questions" => []
                 ];
+                $questionnaire->pending_question = [];
                 $questionnaire->user_id = Auth::user()->id;
                 $questionnaire->groupe_id = Auth::user()->groupe_id;
                 $questionnaire->save();    
             } 
-
+            
             // nombre de question max par test
             $nbr_question = 40;
             if(count($questionnaire->questions['questions']) == $nbr_question){
@@ -43,7 +44,7 @@ class TestController extends Controller
             
             $askedQuestions = $questionnaire->questions;
             $askedQuestions = collect($askedQuestions['questions']);
-
+            
             if(count($askedQuestions) > 0){
                 // On liste les questions déjà posées
                 $askedQuestionIds = $askedQuestions->pluck('question_id')->toArray();
@@ -56,6 +57,15 @@ class TestController extends Controller
                     // On envoie une question qui n'a pas encore été posée
                     $question = $groupe->questions()->get()->whereNotIn('id', $askedQuestionIds)->random(1)->first();
                 }
+            }
+
+            //On récupère la question non répondue par l'utilisateur
+            if ($questionnaire->pending_question == []){
+                $pending_question = $question;
+                $questionnaire->pending_question = $pending_question;
+                $questionnaire->save();
+            }else{
+                $question = Question::find($questionnaire->pending_question['id']);
             }
 
         return response()
@@ -163,6 +173,7 @@ class TestController extends Controller
             );
             
             $is_user_question_exist->questions = $check_question;
+            $is_user_question_exist->pending_question = [];
             $is_user_question_exist->result++;
 
             $is_user_question_exist->save();
@@ -181,6 +192,7 @@ class TestController extends Controller
             );
             
             $is_user_question_exist->questions = $check_question;
+            $is_user_question_exist->pending_question = [];
             
             $is_user_question_exist->save();
             
@@ -196,19 +208,12 @@ class TestController extends Controller
 
         QuestionnaireModel::where('id', '=', $questionnaire->id)->delete();
 
-        $check_score_exist = ScoreModel::where('user_id', "=", Auth::user()->id)->first();
-
-        if(empty($check_score_exist)){
-            $score = new ScoreModel();
-            $score->user_id = Auth::user()->id;
-            $score->moy = $taux;
-            $score->save();
-        } else {
-            $score = ScoreModel::where('user_id', "=", Auth::user()->id)->first();
-            $score->moy = round(($taux + $score->moy) / 2, 2); 
-            $score->save();
-        }
-
+        // On rajoute un score à l'utilisateur
+        $score = new ScoreModel();
+        $score->user_id = Auth::user()->id;
+        $score->moy = $taux;
+        $score->save();
+        
         $groupe_score = Groupe::find(Auth::user()->groupe_id);
         $groupe_score->moy = round(($taux + $groupe_score->moy) / 2, 2);
         $groupe_score->save();
@@ -218,6 +223,7 @@ class TestController extends Controller
         $new_questionnaire->questions = [
             "questions" => []
         ];
+        $new_questionnaire->pending_question = [];
         $new_questionnaire->user_id = Auth::user()->id;
         $new_questionnaire->groupe_id = Auth::user()->groupe_id;
         $new_questionnaire->save(); 
