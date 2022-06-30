@@ -5,7 +5,7 @@
 .node--admin-menu-titre {
     height: 250px;
     width: 100%;
-    background: url('../img/engrenage.svg') center center / cover;
+    background: url('/../images/engrenage.svg') center center / cover;
     text-align: center;
     padding-top: 65px;
     padding-right: 25px;
@@ -51,7 +51,7 @@
 
 /* Icones  */
 .icone-admin-1 {
-    background: url('../img/user.png') center center / cover;
+    background: url('/../images/user.png') center center / cover;
     width: 85px;
     height: 85px;
     margin-left: 50%;
@@ -59,7 +59,7 @@
 }
 
 .icone-admin-2 {
-    background: url('../img/question.png') center center / cover;
+    background: url('/../images/question.png') center center / cover;
     width: 90px;
     height: 90px;
     margin-left: 50%;
@@ -67,7 +67,7 @@
 }
 
 .icone-admin-3 {
-    background: url('../img/groupe.png') center center / cover;
+    background: url('/../images/groupe.png') center center / cover;
     width: 75px;
     height: 75px;
     margin-left: 50%;
@@ -75,7 +75,7 @@
 }
 
 .icone-admin-4 {
-    background: url('../img/medaille.png') center center / cover;
+    background: url('/../images/medaille.png') center center / cover;
     width: 65px;
     height: 65px;
     margin-left: 50%;

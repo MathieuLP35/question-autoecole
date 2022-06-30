@@ -26,7 +26,7 @@
 }
 
 .logo-bot {
-    background: url('../img/logo.png') center center / cover;
+    background: url('/../images/logo.png') center center / cover;
     width: 100px;
     height: 100px;
 }
@@ -135,7 +135,7 @@
     .footer-item button {
         width: 35px;
         height: 35px;
-        background: url('../img/envoyer.png') center center / cover;
+        background: url('/../images/envoyer.png') center center / cover;
         background-size: 20px;
         background-repeat: no-repeat;
         background-color: var(--blue-light);

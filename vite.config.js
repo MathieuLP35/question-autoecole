@@ -10,6 +10,12 @@ export default defineConfig({
             'resources/js/app.js',
         ]),
         {
+            server: { 
+                https: true, 
+                host: 'localhost', 
+            }, 
+        },
+        {
             name: 'blade',
             handleHotUpdate({ file, server }){
                 if (file.endsWith('.blade.php')) {
@@ -19,7 +25,8 @@ export default defineConfig({
                     });
                 }
             }
-        }
+        },
+        
         // react(),
         // vue({
         //     template: {

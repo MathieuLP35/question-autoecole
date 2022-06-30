@@ -1,6 +1,6 @@
-require('./bootstrap');
-require('./validation');
-// require('./NoReloadAction');
+import './bootstrap';
+import './validation';
+
 
 import Alpine from 'alpinejs';
 
