@@ -9,3 +9,5 @@
 @import 'styles/assets.css';
 @import 'styles/paragraph/paragraph--admin-table.css';
 @import 'styles/paragraph/paragraph--admin-form.css';
+@import 'styles/node/node--presentation.css';
+@import 'styles/paragraph/paragraph--cart-display.css'
