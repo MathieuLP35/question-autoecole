@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('/presentation', function () {
+    return view('presentation');
+})->name('presentation');
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
     Route::middleware(['auth:sanctum','verified'])->get('/dashboard',function (){
