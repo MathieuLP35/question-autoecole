@@ -7,11 +7,12 @@
 
     {{-- On vérifie que $question n'est pas null --}}
     @if(!empty($question))
-        <div class="flex justify-around flex-wrap bg-black p-8 gap-y-8">
+        <!-- <div class="flex justify-around flex-wrap p-8 gap-y-8"> -->
+            <div class="question">
             <div class="question_illustration">
                 <img src="/storage/{{$question->image}}" alt="">
             </div>
-            <form action="{{url('results/'.$question->id)}}" method="POST" class="w-full flex justify-around flex-wrap bg-black p-8 gap-y-8">
+            <form action="{{url('results/'.$question->id)}}" method="POST" class="w-full flex justify-around flex-wrap p-8 gap-y-8">
                 @csrf	
                 <div class="block w-full text-stone-50 p-4 bg-gray-700 rounded-lg">
                     {{$question->texte}}
