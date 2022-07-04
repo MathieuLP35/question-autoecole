@@ -13,7 +13,7 @@
         <!-- <div class="flex justify-around flex-wrap p-8 gap-y-8"> -->
             <div class="question">
                 <div class="question_illustration">
-                    <img src="/storage/{{$question->image}}" alt="">
+                    <img src="{{$question->image}}" alt="">
                 </div>
                 <form action="{{url('results/'.$question->id)}}" method="POST" class="w-full flex justify-around flex-wrap p-8 gap-y-8">
                     @csrf	

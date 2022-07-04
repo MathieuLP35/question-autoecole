@@ -8,6 +8,7 @@ use App\Models\QuestionnaireModel;
 use App\Models\ScoreModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TestController extends Controller
 {
