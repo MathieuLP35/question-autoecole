@@ -1831,70 +1831,59 @@ select {
 	background: url(/images/Questions-Banner.jpg?67cca338cd92137c2e782485cb2407d9) center center / cover;
 }
 /* Gère la page d'accueil  */
-/*
 header {
     padding: 0;
     margin: 0;
     max-width: 100%;
 }
-
-.bandeau {
+.subheader {
     display: block;
-    background: url('../img/voiture.jpg') center center / cover;
+    background: url(/images/voiture.jpg?82e2c1003917569be79179bc0b295edf) center center / cover;
     width: 100%;
     padding: 0;
     margin: 0;
     height: 60vh;
 }
-*/
 /* */
-/*
-.corps {
+/* .corps {
     height: 300vh;
     width: 100%;
     background: url('../img/route.png') center center / cover ;
     position: relative;
-}
-
+} */
 .main h2 {
     font-family: var(--title1);
     font-size: 2.5rem;
     text-align: center;
     padding-top: 25px;
 }
-
 .corps article {
     width: 30%;
     text-align: justify;
 
 }
-
 .article-1 {
     position: absolute;
     top: 150px;
     left: 10%;
-	cursor: url('../img/icons/moto.png'),pointer;
+	cursor: url(/images/moto.png?ad5ae3b563b382eb51055764ea3458c3),pointer;
 }
-
 .article-2 {
     position: absolute;
     top: 450px;
     right: 10%;
-	cursor: url('../img/icons/voiture.png'),pointer;
+	cursor: url(/images/voiture.png?00cb6ffc84587213f007c3e7ad6e33e3),pointer;
 }
-
 .article-3 {
     position: absolute;
     top: 850px;
     left: 10%;
 }
-
 .article-4 {
     position: absolute;
     bottom: 450px;
     right: 10%;
 }
-
 .article-5 {
     position: absolute;
     bottom: 150px;
@@ -1904,19 +1893,16 @@ header {
 
     align-items: center;
 }
-
 .article-5 a {
     margin-top: 15px;
     padding: 5px 15px;
     background-color: #7e92f7;
     color: #fff;
 }
-
 .article-5 a:hover {
     background-color: #c7cff5;
     color: #000;
 }
-*/
 /* Gère la page du menu admin  */
 /* Titre  */
 .node--admin-menu-titre {
@@ -1995,16 +1981,16 @@ header {
     margin: auto;
 }
 .menu-item {
-    color: var(--white);
+    width: 100%;
     font-weight: bold;
     padding: 10px;
-    box-shadow: inset 0 0 0 0 #54b3d6;
-    color: #54b3d6;
+    box-shadow: inset 0 0 0 0 var(--blue-light);
+    color: var(--white);
     padding: 0 .25rem;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 .menu-item:hover {
-    box-shadow: inset 100px 0 0 0 #54b3d6;
+    box-shadow: inset 100% 0 0 0 var(--blue);
     color: white;
 }
 /***** TYPES DE BOUTONS ******/

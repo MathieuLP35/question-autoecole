@@ -1,6 +1,7 @@
 <x-app-layout class="all">
-        <h2 class="bandeau">
-        </h2>
+        <section class="subheader">
+            <h1>BREIZH AUTO SKOL</h1>
+        </section>
 
 
         <section class="main container">
