@@ -11,7 +11,7 @@
     border-radius: 10px;
 }
 /* w-full flex justify-around flex-wrap p-8 gap-y-8 */
-.question_form {
+.question-form {
     display: flex;
     width: 100%;
     padding: 25px;
@@ -20,7 +20,7 @@
 }
 
 /* Style de la question  */
-.question_intitule {
+.question-intitule {
     background-color: var(--blue);
     width: 100%;
     color: var(--white);
@@ -30,17 +30,18 @@
 }
 
 /* Style des reponses */
-.question_reponse {
-    width: 45%;
-    /* background-color: grey; */
+.question-reponse {
+    width: 48%;
+    height: 75px;
     margin: 15px 5px;
     padding: 15px 15px;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 5px;
     position: relative;
+    /* height: auto; */
 }
 
-.question_reponse label {
+.question-reponse label {
     position: absolute;
     top: 0;
     left: 0;
@@ -49,11 +50,11 @@
     padding: 15px 10px;
 }
 
-.question_reponse input {
+.question-reponse input {
     visibility: hidden;
 }
 
-.question_reponse input:checked:after {
+.question-reponse input:checked:after {
     position: absolute;
     top: 0;
     left: 0;
@@ -67,13 +68,13 @@
 }
 
 /* Style du bouton */
-.question_submit {
+.question-submit {
     display: flex;
     justify-content: right;
     width: 100%;
     margin-top: 20px;
 }
 
-.question_submit input {
+.question-submit input {
     cursor: pointer;
 }
