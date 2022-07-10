@@ -15,16 +15,18 @@
                 <div class="question_illustration">
                     <img src="{{$question->image}}" alt="">
                 </div>
-                <form action="{{url('results/'.$question->id)}}" method="POST" class="w-full flex justify-around flex-wrap p-8 gap-y-8">
+                <form action="{{url('results/'.$question->id)}}" method="POST" class="question_form">
                     @csrf	
-                    <div class="block w-full text-stone-50 p-4 bg-gray-700 rounded-lg">
+                    <div class="question_intitule">
                         {{$question->texte}}
                     </div>
                     @foreach ($question->propositions as $proposition)
+                    <div class="question_reponse">
                         <label for="proposition_{{$proposition['rep_id']}}">{{ $proposition['name'] }}</label>
                         <input type="checkbox" id="proposition_{{$proposition['rep_id']}}" name="proposition_{{$proposition['rep_id']}}">
+                    </div>
                     @endforeach
-                    <div class="w-full flex justify-center">
+                    <div class="question_submit">
                         <input type="submit" class="btn-green m-2" value="Envoyer mes réponses">
                     </div>
                 </form>

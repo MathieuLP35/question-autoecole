@@ -6,3 +6,74 @@
     margin-top: 30px;
 }
 
+/* Style de l'image  */
+.question_illustration {
+    border-radius: 10px;
+}
+/* w-full flex justify-around flex-wrap p-8 gap-y-8 */
+.question_form {
+    display: flex;
+    width: 100%;
+    padding: 25px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Style de la question  */
+.question_intitule {
+    background-color: var(--blue);
+    width: 100%;
+    color: var(--white);
+    border-radius: 10px;
+    display: block;
+    padding: 15px;
+}
+
+/* Style des reponses */
+.question_reponse {
+    width: 45%;
+    /* background-color: grey; */
+    margin: 15px 5px;
+    padding: 15px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+}
+
+.question_reponse label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px 10px;
+}
+
+.question_reponse input {
+    visibility: hidden;
+}
+
+.question_reponse input:checked:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    background-color: var(--green);
+    width: 100%;
+    height: 100%;
+    opacity: 50%;
+    z-index: 3;
+    visibility: visible;
+}
+
+/* Style du bouton */
+.question_submit {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.question_submit input {
+    cursor: pointer;
+}
