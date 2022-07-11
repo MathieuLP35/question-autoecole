@@ -7,7 +7,7 @@
 	
 	{{-- Type de Formulaire --}}
 
-	<form action="{{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }}" method="POST" class="paragraph--admin-form" enctype='multipart/form-data'>
+	<form action="{{isset($question) ? url('admin/question/'.$question->id) :url('admin/question/') }}" method="POST" class="paragraph--admin-form">
 		@csrf	
 		<h1>Configuration de question</h1>
     @if (isset($question))
@@ -18,9 +18,7 @@
 	<input class="admin-question full-width" name="texte" type="text" placeholder="intitulé de la question" value="{{isset($question) ? $question->texte : NULL }}" >
 
 	{{-- Image de la question --}}
-	@if (isset($question))
-		<img src="/storage/{{$question->image}}" alt="">
-	@endif
+
 	<input id="image" name="image" type="file" value="{{isset($question) ? $question->image : NULL }}">
 
 	{{-- Propositions de réponse --}}
@@ -34,7 +32,9 @@
 			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}} class="valider">
 		</div>
 		@endforeach
+	
 	@else
+
 		<label for="reponse_1">Réponse 1</label>
 		<div class="form-item">
 			<input name="reponse_1" type="text" class="admin-question"><input type="checkbox" name="reponse_1_valid" class="valider">
@@ -51,6 +51,7 @@
 		<div class="form-item">
 			<input name="reponse_4" type="text" class="admin-question"><input type="checkbox" name="reponse_4_valid" class="valider">
 		</div>
+
 	@endif
 
 	<label for="id_groupe">Groupe Associées</label>
@@ -61,6 +62,6 @@
 		@endforeach
 	</select>
 	{{-- Bouton envoi formulaire --}}
-   <input  class="btn-green btn-form-admin" type="submit" value="{{isset($question) ? "Editer" : "Ajouter" }}">
-   </form>
+    <input  class="btn-green btn-form-admin" type="submit" value="{{isset($question) ? "Editer" : "Ajouter" }}">
+    </form>
 </x-app-layout>

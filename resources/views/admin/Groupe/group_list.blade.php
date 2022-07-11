@@ -1,13 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="breadcrump">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a title="Acceuil backend"class="backend hover:underline"href="{{ route('admin') }}" :active="request()->routeIs('admin')">{{ __('Administration') }}</a>&nbsp;/&nbsp;Groupe&nbsp;❓
         </h2>
     </x-slot>
 
-<div class="table-container">
-    <H3>Liste des groupes</H3>
-    <table class="admin-table">
+
+    <table class="admin-table ">
         <thead class="">
             {{-- text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 --}}
             <th class="">Nom du groupe</th>
@@ -38,7 +37,6 @@
             @endforeach
         </tbody>
     </table>
-</div>
 
     {{-- <a id="btn-grplist" class="btn-green" href="{{url('admin/groupe/create')}}">Ajouter un groupe</a> --}}
 

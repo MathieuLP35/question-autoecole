@@ -16,12 +16,10 @@ class CreateQuestionnaireModelsTable extends Migration
         Schema::create('questionnaire', function (Blueprint $table) {
             $table->id();
             $table->json('questions');
-            $table->json('pending_question');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('groupe_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('groupe_id')->references('id')->on('groupes');
-            $table->integer('result')->default(0);
             $table->timestamps();
         });
     }
