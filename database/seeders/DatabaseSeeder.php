@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Seed_Groupes::class,
             Seed_Users::class,
-            Seed_Teams::class,
             Seed_Questions::class,
 			Seed_Scores::class,
         ]);

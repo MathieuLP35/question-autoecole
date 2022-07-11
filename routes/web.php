@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('/presentation', function () {
+    return view('presentation');
+})->name('presentation');
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
     Route::middleware(['auth:sanctum','verified'])->get('/dashboard',function (){
@@ -31,6 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
     Route::get('test', [TestController::class, 'index'])->name('test');
     Route::post('results/{id}', [TestController::class, 'results'])->name('results');
+
+    Route::get('user/stats', [UtilisateurController::class, 'stats'])->name('stats');
 
     // route for admin
     Route::middleware(['auth', 'admin'])->group(function (){

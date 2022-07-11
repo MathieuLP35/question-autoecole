@@ -7,15 +7,19 @@
     <title>{{ config('app.name', 'Breizh Auto Skol - Code de la route en ligne') }}</title>
     <!-- Icone -->
     <link rel="shortcut icon" sizes="114x114" href="{{ asset('images/favicon.ico') }}">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
     @livewireStyles
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+
   </head>
 
   
@@ -36,6 +40,11 @@
         {{ $slot }}
       </main>
     </div>
+
+    <x-footer class="text-sm">
+        Footer
+    </x-footer>
+
     @stack('modals')
     @livewireScripts
   </body>

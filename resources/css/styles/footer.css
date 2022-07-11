@@ -1,0 +1,152 @@
+.footer {
+    width: 100%;
+    background-color: var(--blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    color: var(--white);
+}
+
+.footer-item {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* padding: 0 40px; */
+    justify-content: center;
+}
+
+.footer-item form {
+    margin: 20px 0;
+}
+
+.footer-item input {
+    height: 35px;
+    border-radius: 5px;
+}
+
+.logo-bot {
+    background: url('/../images/logo.png') center center / cover;
+    width: 100px;
+    height: 100px;
+}
+
+.adress {
+    line-height: 2rem;
+}
+
+/* ****************************************************************************** */
+/* Social media icon's ********************************************************** */
+/* ****************************************************************************** */
+
+.footer ul {
+    display: flex;
+    margin-top: 20px;
+}
+
+.footer ul li {
+    list-style: none;
+}
+
+.footer ul li a {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    text-align: center;
+    /* line-height: 80px; */
+    font-size: 25px;
+    margin-right: 20px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+}
+
+.footer ul li a .icon {
+    position: relative;
+    color: #262626;
+    transition: .5s;
+    z-index: 3;
+}
+
+.footer ul li a:hover .icon {
+    color: #fff;
+    transform: rotateY(360deg);
+}
+
+.footer ul li a:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: .5s;
+    z-index: 2;
+}
+
+.footer ul li a:hover:before {
+    top: 0;
+}
+
+.footer ul li:nth-child(1) a:before {
+    background: #3b5999;
+}
+
+.footer ul li:nth-child(2) a:before {
+    background: #55acee;
+}
+
+.footer ul li:nth-child(3) a:before {
+    background: #0077b5;
+}
+
+.footer ul li:nth-child(4) a:before {
+    background: #dd4b39;
+}
+
+
+
+
+
+/* *********************************************************** */
+/* Responsive************************************************ */
+/* *********************************************************** */
+
+@media screen and (max-width: 768px) {
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-item {
+        width: 100%;
+        align-items: center;
+        margin-top: 20px;
+        border-top: 1px dotted black;
+        padding-top: 15px;
+    }
+
+    .footer-item button {
+        width: 35px;
+        height: 35px;
+        background: url('/../images/envoyer.png') center center / cover;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-color: var(--blue-light);
+        border-radius: 0.313rem;
+    }
+
+    .footer .btn-text {
+        visibility: hidden;
+    }
+    .footer ul li a {
+        margin: 0 10px;
+    }
+
+}

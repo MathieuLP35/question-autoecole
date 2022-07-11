@@ -6,11 +6,14 @@ header {
     max-width: 100%;
 }
 
-
-
 .subheader {
     position: relative;
     background: url('../img/voiture.jpg') center center / cover;
+
+.bandeau {
+    display: block;
+    background: url('/../images/voiture.jpg') center center / cover;
+
     width: 100%;
     padding: 0;
     margin: 0;
@@ -110,7 +113,7 @@ header {
 /* .corps {
     height: 300vh;
     width: 100%;
-    background: url('../img/route.png') center center / cover ;
+    background: url('/../images/route.png') center center / cover ;
     position: relative;
 } */
 
@@ -131,14 +134,14 @@ header {
     position: absolute;
     top: 150px;
     left: 10%;
-	cursor: url('../img/icons/moto.png'),pointer;
+	cursor: url('/../images/icons/moto.png'),pointer;
 }
 
 .article-2 {
     position: absolute;
     top: 450px;
     right: 10%;
-	cursor: url('../img/icons/voiture.png'),pointer;
+	cursor: url('/../images/icons/voiture.png'),pointer;
 }
 
 .article-3 {
@@ -174,5 +177,7 @@ header {
     background-color: #c7cff5;
     color: #000;
 } */
-
-
+.subheader {
+    color: red;
+    background-color: grey;
+}

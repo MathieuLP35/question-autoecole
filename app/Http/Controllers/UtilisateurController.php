@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Groupe;
+use App\Models\ScoreModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Rules\Password;
 use Throwable;
@@ -55,7 +57,7 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -88,7 +90,25 @@ class UtilisateurController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $scores = ScoreModel::where('user_id', $id)->orderBy('id', 'desc')->get();
+            $user = User::find($id);
+            $moyenne = ScoreModel::where('user_id', $id)->avg('moy');
+    
+            return response()
+                ->view('admin.utilisateurs.utilisateur', [
+                    'scores' => $scores,
+                    'user' => $user,
+                    'moyenne' => $moyenne,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('admin.utilisateurs.utilisateur', [
+                    'scores' => [],
+                    'user' => [],
+                    'moyenne' => [],
+                ]);
+        }
     }
 
     /**
@@ -167,5 +187,32 @@ class UtilisateurController extends Controller
     protected function passwordRules()
     {
         return ['required', 'string', new Password, 'confirmed'];
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function stats()
+    {
+        try {
+            $user = User::find(Auth::user()->id);
+            $scores = ScoreModel::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();;
+            $moyenne = $scores->avg('moy');
+            return response()
+                ->view('profile.stats', [
+                    'scores' => $scores,
+                    'user' => $user,
+                    'moyenne' => $moyenne,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('profile.stats', [
+                    'scores' => [],
+                    'user' => [],
+                    'moyenne' => [],
+                ]);
+        }
     }
 }

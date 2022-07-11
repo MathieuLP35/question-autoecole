@@ -5,7 +5,12 @@
 @import 'styles/node/node--main-page.css';
 @import 'styles/node/node--admin-menu.css';
 @import 'styles/header.css';
+@import 'styles/footer.css';
 @import 'styles/assets.css';
 @import 'styles/paragraph/paragraph--admin-table.css';
 @import 'styles/paragraph/paragraph--admin-form.css';
-
+@import 'styles/node/node--presentation.css';
+@import 'styles/paragraph/paragraph--cart-display.css';
+@import 'styles/paragraph/paragraph--question.css';
+@import 'styles/paragraph/paragraph--profil-result.css';
+@import 'styles/paragraph/paragraph--profil-panel.css';

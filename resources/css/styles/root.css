@@ -24,6 +24,7 @@
 	width: 100%;
 	border-radius: 15px;
 }
-.question_ecrite {
-	background: url(../img/Questions-Banner.jpg) center center / cover;
+
+.question_ecrite{
+	background: url(/../images/Questions-Banner.jpg) center center / cover;
 }
