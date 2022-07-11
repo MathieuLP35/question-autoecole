@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/presentation', function () {
-    return view('presentation');
+    return view('pages/presentation');
 })->name('presentation');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
