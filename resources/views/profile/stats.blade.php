@@ -4,20 +4,25 @@
             {{ __('Statistiques') }}
         </h2>
     </x-slot>
-
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-4">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="px-4 py-5 sm:p-0">
-                    <div class="flex items-center justify-center">
-                        <span class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-500 text-white">
-                            <i class="fas fa-2x fa-user-circle"></i>
-                        </span>
-                        <p class="px-4 py-5">Votre taux de réussite: {{ $score->moy }}%</p> 
-                    </div>
-                </div>
-            </div>
-        </div>               
+    @if (isset($user))
+	<div class="flex justify-center flex-wrap bg-black p-8 gap-y-8">
+		<div class="block text-center w-full mx-1.5 text-stone-50 p-4 bg-gray-700 rounded-lg">
+            {{$user->name}}
+        </div>
+		<div class="block text-center w-full mx-1.5 text-stone-50 p-4 bg-gray-700 rounded-lg">
+            {{$moyenne}} % de reussite
+        </div>
+		<div class="block text-center w-full mx-1.5 text-stone-50 p-4 bg-gray-600 rounded-lg">
+            Historique des Résultats
+        </div>
+        <ul class="flex justify-center flex-wrap gap-y-3">
+            @foreach ($scores as $score)
+            <li class="block text-center w-full mx-1.5 text-stone-50 p-4 bg-gray-500 rounded-lg">
+                {{$score->moy}} % le {{date('d/m/Y', strtotime($score->created_at))}}
+            </li>
+            @endforeach
+        </ul>
     </div>
+	@endif
 
 </x-app-layout>
