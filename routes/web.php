@@ -6,7 +6,6 @@ use App\Http\Controllers\UtilisateurController;
 use App\Http\COntrollers\GroupeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ScoreController;
-use Faker\Core\File;
 use Illuminate\Support\Facades\Route;
 
 /*
