@@ -1,4 +1,6 @@
 import './bootstrap';
+import './checkMinQuestionRep';
+import './validation';
 
 import Alpine from 'alpinejs';
 

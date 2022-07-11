@@ -16,7 +16,7 @@ class Seed_Questions extends Seeder
         DB::table('questions')->insert([
             [
                 'texte' => 'Quelle est la couleur du panneau ?',
-                'image' => 'string',
+                'image' => 'images/Questions-Banner.jpg',
                 'propositions' => json_encode([
                     "proposition_1" => [
                         'rep_id' => 1,
@@ -42,7 +42,7 @@ class Seed_Questions extends Seeder
             ],
             [
                 'texte' => 'Quelle est la couleur du poteaux ?',
-                'image' => 'string',
+                'image' => 'images/Questions-Banner.jpg',
                 'propositions' => json_encode([
                     "proposition_1" => [
                         'rep_id' => 1,
@@ -68,7 +68,7 @@ class Seed_Questions extends Seeder
             ],
             [
                 'texte' => 'Quelle est la couleur du mouton ?',
-                'image' => 'string',
+                'image' => 'images/Questions-Banner.jpg',
                 'propositions' => json_encode([
                     "proposition_1" => [
                         'rep_id' => 1,
@@ -94,7 +94,7 @@ class Seed_Questions extends Seeder
             ],
             [
                 'texte' => 'Quelle est la couleur du chat ?',
-                'image' => 'string',
+                'image' => 'images/Questions-Banner.jpg',
                 'propositions' => json_encode([
                     "proposition_1" => [
                         'rep_id' => 1,

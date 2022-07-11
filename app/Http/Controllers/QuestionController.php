@@ -53,16 +53,32 @@ class QuestionController extends Controller
     {
         $question = new Question();
         $question->texte = $request->texte;
-        $question->image = $request->file('image')->store('images/questions');
-        $request->image->move(public_path('images/questions'), $question->image);
+        if ($request->file('image')){
+            $question->image = $request->file('image')->store('images/questions');
+            $request->image->move(public_path('images/questions'), $question->image);
+        } else{
+            // image par défaut
+            $question->image = 'images/Questions-Banner.jpg';
+        }
+
         Storage::delete($question->image);
 
-        $question->propositions = [
-            "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
-            "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2, "valid"=>  $request->reponse_2_valid],
-            "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3, "valid"=>  $request->reponse_3_valid],
-            "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4, "valid"=>  $request->reponse_4_valid]
-        ];
+        $nb_proposition = $request->nb_proposition;
+
+        // Ajouter dynamiquement les réponses à la question
+        $question->propositions = [];
+        for ($i = 1; $i <= $nb_proposition; $i++) {
+
+            $valid = $request->input("reponse_".$i."_valid");
+            $name = $request->input("reponse_".$i);
+
+            // Ajouter dynamiquement les réponses à la question
+            $question->propositions = array_merge($question->propositions, [
+                "proposition_".$i => ["rep_id" => $i, "name" => $name, "valid"=> $valid],
+            ]);
+
+        }
+
 		if($request->id_groupe != "0") {
             $groupe= Groupe::find($request->id_groupe);
 			$question->save();
@@ -133,12 +149,22 @@ class QuestionController extends Controller
             Storage::delete($question->image);
         }
 
-        $question->propositions = [
-            "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
-            "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2, "valid"=>  $request->reponse_2_valid],
-            "proposition_3" => ["rep_id" => 3, "name" => $request->reponse_3, "valid"=>  $request->reponse_3_valid],
-            "proposition_4" => ["rep_id" => 4, "name" => $request->reponse_4, "valid"=>  $request->reponse_4_valid]
-        ];
+        $nb_proposition = $request->nb_proposition;
+
+        // Ajouter dynamiquement les réponses à la question
+        $question->propositions = [];
+        for ($i = 1; $i <= $nb_proposition; $i++) {
+
+            $valid = $request->input("reponse_".$i."_valid");
+            $name = $request->input("reponse_".$i);
+
+            // Ajouter dynamiquement les réponses à la question
+            $question->propositions = array_merge($question->propositions, [
+                "proposition_".$i => ["rep_id" => $i, "name" => $name, "valid"=> $valid],
+            ]);
+
+        }
+
         $question->save();
         //Retour liste des questions
         return redirect('admin/question')->banner('Question Modifiée avec succès.');

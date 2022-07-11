@@ -22,35 +22,23 @@
 		<img src="/storage/{{$question->image}}" alt="">
 	@endif
 	<input id="image" name="image" type="file" value="{{isset($question) ? $question->image : NULL }}">
+	
+	{{-- Propositions de la question --}}
 
 	{{-- Propositions de réponse --}}
 
 	@if (isset($question))
-
 		@foreach ($question->propositions as $proposition)
-		<label for="reponse_1">Réponse {{$proposition['rep_id']}}</label>
-		<div class="form-item">
-			<input name="reponse_{{$proposition['rep_id']}}" type="text" value="{{ $proposition['name'] != NULL ? $proposition['name']:''}}" class="admin-question">
-			<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}} class="valider">
-		</div>
+			<label for="reponse_1">Réponse {{$proposition['rep_id']}}</label>
+			<div class="form-item">
+				<input name="reponse_{{$proposition['rep_id']}}" type="text" value="{{ $proposition['name'] != NULL ? $proposition['name']:''}}" class="admin-question">
+				<input type="checkbox" name="reponse_{{$proposition['rep_id']}}_valid" {{ $proposition['valid'] != null ? "checked":''}} class="valider">
+			</div>
 		@endforeach
 	@else
-		<label for="reponse_1">Réponse 1</label>
-		<div class="form-item">
-			<input name="reponse_1" type="text" class="admin-question"><input type="checkbox" name="reponse_1_valid" class="valider">
-		</div>
-		<label for="reponse_1">Réponse 2</label>
-		<div class="form-item">
-			<input name="reponse_2" type="text" class="admin-question"><input type="checkbox" name="reponse_2_valid" class="valider">
-		</div>
-		<label for="reponse_1">Réponse 3</label>
-		<div class="form-item">
-			<input name="reponse_3" type="text" class="admin-question"><input type="checkbox" name="reponse_3_valid" class="valider">
-		</div>
-		<label for="reponse_1">Réponse 4</label>
-		<div class="form-item">
-			<input name="reponse_4" type="text" class="admin-question"><input type="checkbox" name="reponse_4_valid" class="valider">
-		</div>
+		<label for="nb_proposition">Nombre de proposition</label>
+		<input type="number" name="nb_proposition" id="nb_proposition" value="4">
+		<span id="propositions"></span>
 	@endif
 
 	<label for="id_groupe">Groupe Associées</label>
