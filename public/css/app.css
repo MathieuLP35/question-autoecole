@@ -1096,6 +1096,9 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
 .block {
   display: block;
 }
@@ -1710,9 +1713,13 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
-.text-blue-600 {
+.text-gray-200 {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 .text-stone-50 {
   --tw-text-opacity: 1;
@@ -1832,7 +1839,7 @@ select {
     /* color  */
     --green:rgb(97, 189, 97);
     --red:rgb(230, 84, 84);
-    --blue-light:#7e92f7;
+    --blue-light:rgb(126, 146, 247);
     --blue:#3c4575;
     --white:#fff;
     --black: #000;
@@ -1844,41 +1851,108 @@ select {
     
     
 }
-.question_illustration{
+.question_illustration {
 	height: 40vh;
 	width: 100%;
 	border-radius: 15px;
 }
-.question_ecrite{
+.question_ecrite {
 	background: url(/images/Questions-Banner.jpg?67cca338cd92137c2e782485cb2407d9) center center / cover;
 }
 /* Gère la page d'accueil  */
-/*
 header {
     padding: 0;
     margin: 0;
     max-width: 100%;
 }
-
-.bandeau {
-    display: block;
-    background: url('/../images/voiture.jpg') center center / cover;
+.subheader {
+    position: relative;
+    background: url(/images/voiture.jpg?82e2c1003917569be79179bc0b295edf) center center / cover;
     width: 100%;
     padding: 0;
     margin: 0;
+    margin-top: 6.25rem;
     height: 60vh;
 }
-*/
-/* */
-/*
+/* .subheader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgb(129, 134, 159) 33%, rgba(29, 48, 253, 0) 60%);
+} */
+.grid-container-subheader {
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    grid-gap: 1rem;
+    width: 40%;
+    margin: 0 4rem;
+    top: 4.688rem;
+    max-height: 55vh;
+    /* background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 17px );
+    -webkit-backdrop-filter: blur( 17px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
+.main-title {
+    white-space: nowrap;
+}
+.btn-subheader {
+    width: 10rem;
+    justify-self: center;
+}
 .corps {
+    position: relative;
+    background: url(/images/route.png?e0e115c87ab0fa96d305aac940f39d31) center center / cover;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6fr;
+    min-height: 150vh;
+}
+.article-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.article-2 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    transform: translateX(90px);
+}
+.article-3 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+.article-4 {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    transform: translateX(90px);
+}
+.article-5 {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+}
+.main h2 {
+    text-align: center;
+}
+.cta {
+    display: grid;
+    grid-template-columns: 2fr;
+}
+.cta .btn-blue {
+    width: 9.625rem;
+    justify-self: center;
+}
+/* */
+/* .corps {
     height: 300vh;
     width: 100%;
     background: url('/../images/route.png') center center / cover ;
     position: relative;
-}
-
-.main h2 {
+} */
+/* .main h2 {
     font-family: var(--title1);
     font-size: 2.5rem;
     text-align: center;
@@ -1937,12 +2011,7 @@ header {
 .article-5 a:hover {
     background-color: #c7cff5;
     color: #000;
-}
-*/
-.subheader {
-    color: red;
-    background-color: grey;
-}
+} */
 /* Gère la page du menu admin  */
 /* Titre  */
 .node--admin-menu-titre {
@@ -2009,82 +2078,31 @@ header {
     margin-left: 50%;
     transform: translate(-50%, 10px)
 }
-.icone-admin-4 {
-    background: url(/images/medaille.png?48aabe6716ec704ea0086ade011e3d9f) center center / cover;
-    width: 65px;
-    height: 65px;
-    margin-left: 50%;
-    transform: translate(-50%, 10px)
-}
-/* #image {
-    visibility: hidden;
-} */
-.test::-webkit-file-upload-button {
-    background-color: var(--blue-light);
-    border-radius: 0.313rem;
-    border: none;
-    padding: 0.313rem 0.938rem;
-    color: var(--white);
-}
-.test::-webkit-file-upload-button:hover {
-    background-color: #c7cff5;
-    color: var(--black);
-    cursor: pointer;
-}
-.test {
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-}
-@media screen and (max-width: 768px) {
-
-    .node--admin-menu-titre {
-        background: none;
-        height: auto;
-        padding: 50px 0 0;
-    }
-
-    .node--admin-menu-item {
-        flex-direction: column;
-    }
-
-    .admin-menu-item {
-        width: 100%;
-        margin-bottom: 25px;
-    }
-}
-.nav-top {
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 6.25rem;
+    position: fixed;
+    top: 0;
     background-color: var(--blue);
-    color: var(--white);
-    border-bottom: none;
+    padding: 0.625rem 3.125rem;
 }
-.nav-top a {
-    color: var(--white);
+.nav-items {
+    margin: auto;
+}
+.menu-item {
+    width: 100%;
     font-weight: bold;
     padding: 10px;
+    box-shadow: inset 0 0 0 0 var(--blue-light);
+    color: var(--white);
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
-.nav-top a:before, .nav-top a:after {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-style: solid;
-    border-color: var(--white);
-}
-.nav-top a:before {
-    border-width: 2px 0 2px 0;
-    transform: scaleX(0);
-}
-.nav-top a:after {
-    border-width: 0 2px 0 2px;
-    transform: scaleY(0);
-}
-.nav-top a:hover:before, .nav-top a:hover:after {
-    transform: scale(1, 1);
-}
-.nav-top a:hover {
-    color: var(--blue-light);
+.menu-item:hover {
+    box-shadow: inset 100% 0 0 0 var(--blue);
+    color: white;
 }
 .footer {
     width: 100%;
@@ -2260,7 +2278,7 @@ h1 {
     font-family: var(--title);
     font-size: 2.5rem;
     line-height: 3rem;
-    margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 h2 {
     font-family: var(--title);
@@ -2584,9 +2602,9 @@ h3 {
 }
 @media (prefers-color-scheme: dark) {
 
-  .dark\:border-gray-700 {
-    --tw-border-opacity: 1;
-    border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  .dark\:bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
 
   .dark\:bg-gray-700 {
