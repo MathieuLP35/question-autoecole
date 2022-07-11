@@ -59,7 +59,8 @@
     top: 0;
     left: 0;
     content: " ";
-    background-color: var(--green);
+    /* background-color: rgb(129,134,159); */
+    background-color: var(--blue-light);
     width: 100%;
     height: 100%;
     opacity: 50%;
@@ -77,4 +78,18 @@
 
 .question-submit input {
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .question {
+        max-width: 100%;
+    }
+
+    .question-reponse {
+        width: 90%;
+    }
+
+    .question-submit {
+        justify-content: center;
+    }
 }

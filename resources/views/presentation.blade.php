@@ -1,6 +1,6 @@
 <x-app-layout class="all">
 
-    <h1 class="presentation-title">BREIZH AUTO SKOL : Nos formule</h1>
+    <h1 class="presentation-title">BREIZH AUTO SKOL : Nos formules</h1>
 
 
     <section class="main container">
