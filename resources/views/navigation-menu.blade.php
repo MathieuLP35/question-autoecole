@@ -71,16 +71,20 @@
 
                             <x-slot name="content">
                                 <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
+                                <div class="profil-label">
+                                    {{ __('Gestion du compte') }}
                                 </div>
 
-                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profil') }}
+                                <x-jet-dropdown-link  href="{{ route('profile.show') }}" >
+                                    <div class="profil-link">
+                                        {{ __('Profil') }}
+                                    </div>
                                 </x-jet-dropdown-link>
 
                                 <x-jet-dropdown-link href="{{ route('stats') }}">
-                                    {{ __('Statistiques') }}
+                                    <div class="profil-link">
+                                        {{ __('Statistiques') }}
+                                    </div>
                                 </x-jet-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -97,7 +101,9 @@
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                             @click.prevent="$root.submit();">
-                                        {{ __('Déconnexion') }}
+                                            <div class="profil-link">
+                                                {{ __('Déconnexion') }}
+                                            </div>
                                     </x-jet-dropdown-link>
                                 </form>
                             </x-slot>

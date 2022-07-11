@@ -6,15 +6,22 @@
     </x-slot>
 	@if (isset($question))
 	
-	<div class="flex justify-around flex-wrap bg-black p-8 gap-y-8">
-		<div class="question_illustration">
+	<div class="question">
+		<div class="question-illustration">
 			<img src="/storage/{{$question->image}}" alt="">
 		</div>
-		<div class="block w-full text-stone-50 p-4 bg-gray-700 rounded-lg">{{$question->texte}}</div>
+		<form action="{{url('results/'.$question->id)}}" method="POST" class="question-form">
+			@csrf	
+			<div class="question-intitule">
+				{{$question->texte}}
+			</div>
 			@foreach ($question->propositions as $proposition)
-				<label class="block w-5/12 cursor-pointer p-4 text-center rounded-lg text-stone-50 bg-gray-700 hover:bg-blue-700" for="reponse_{{$proposition['rep_id']}}" value={{ $proposition['name'] != NULL ? $proposition['name']:''}}>{{$proposition['name']}}</label>
-				<input id="reponse_{{$proposition['rep_id']}}" name="reponse_{{$proposition['rep_id']}}" type="hidden" value={{ $proposition['name'] != NULL ? $proposition['name']:''}}>
+			<div class="question-reponse">
+				<label for="proposition_{{$proposition['rep_id']}}">{{ $proposition['name'] }}</label>
+				<input type="checkbox" id="proposition_{{$proposition['rep_id']}}" name="proposition_{{$proposition['rep_id']}}">
+			</div>
 			@endforeach
+		</form>
 	</div>
  	<a href="{{url('admin/question')}}"><div class="icone-admin-2"></div></a>
 	@else

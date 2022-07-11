@@ -9,7 +9,7 @@
         <table class="admin-table">
             <thead>
                 <tr>
-                    <th scope="col" class="id-column">
+                    <th scope="col" >
                         Nom
                     </th>
                     <th scope="col">
@@ -24,12 +24,12 @@
                     <th scope="col" class="bloc_end">
 						<a class="btn-green" href="{{url('admin/utilisateur/create')}}">Ajouter un utilisateur</a>
                     </th>
-                </tr>
+            </tr>
             </thead>
             <tbody>
                 @foreach ($users as $user)
 					<tr>
-						<td scope="row" class="id-column">
+						<td scope="row" >
 							{{$user->name}}
 						</td>
 						<td>
