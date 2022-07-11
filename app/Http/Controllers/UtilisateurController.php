@@ -196,15 +196,23 @@ class UtilisateurController extends Controller
      */
     public function stats()
     {
-        $score = ScoreModel::where('user_id', "=", Auth::user()->id)->first();
-        
-        if ($score == null) {
-            $score->moy = 0;
+        try {
+            $user = User::find(Auth::user()->id);
+            $scores = ScoreModel::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();;
+            $moyenne = $scores->avg('moy');
+            return response()
+                ->view('profile.stats', [
+                    'scores' => $scores,
+                    'user' => $user,
+                    'moyenne' => $moyenne,
+                ]);
+        } catch (Throwable $e) {
+            return response()
+                ->view('profile.stats', [
+                    'scores' => [],
+                    'user' => [],
+                    'moyenne' => [],
+                ]);
         }
-
-        return response()
-            ->view('profile.stats', [
-                'score' => $score,
-            ]);
     }
 }
