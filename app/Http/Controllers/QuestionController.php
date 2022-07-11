@@ -53,7 +53,10 @@ class QuestionController extends Controller
     {
         $question = new Question();
         $question->texte = $request->texte;
-        $question->image = $request->file('image')->store('public');
+        $question->image = $request->file('image')->store('images/questions');
+        $request->image->move(public_path('images/questions'), $question->image);
+        Storage::delete($question->image);
+
         $question->propositions = [
             "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
             "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2, "valid"=>  $request->reponse_2_valid],
@@ -125,9 +128,11 @@ class QuestionController extends Controller
         $question->texte = $request->texte;
         if($request->image){ // Si on veut changer l'image
             Storage::delete($question->image);
-            $question->image = $request->file('image')->store('public');
-/*             $question->image = $request->image; */
+            $question->image = $request->file('image')->store('images/questions');
+            $request->image->move(public_path('images/questions'), $question->image);
+            Storage::delete($question->image);
         }
+
         $question->propositions = [
             "proposition_1" => ["rep_id" => 1, "name" => $request->reponse_1, "valid"=>  $request->reponse_1_valid],
             "proposition_2" => ["rep_id" => 2, "name" => $request->reponse_2, "valid"=>  $request->reponse_2_valid],

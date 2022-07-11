@@ -47,7 +47,8 @@
         <h2>Nos Permis</h2>
 
         <article class="cart">
-            <img src="https://picsum.photos/250/250" alt="">
+            <!-- <img src="https://picsum.photos/250/250" alt=""> -->
+            <img src="../images/voiture-permis.jpg" alt="">
             <div>
                 <h2>Permis B</h2>
                 <p>
@@ -60,7 +61,8 @@
         </article>
 
         <article class="cart">
-            <img src="https://picsum.photos/250/250" alt="">
+            <!-- <img src="https://picsum.photos/250/250" alt=""> -->
+            <img src="../images/moto-permis.jpg" alt="">
             <div>
                 <h2>Permis A</h2>
                 <p>
@@ -75,7 +77,8 @@
         </article>
 
         <article class="cart">
-            <img src="https://picsum.photos/250/250" alt="">
+            <!-- <img src="https://picsum.photos/250/250" alt=""> -->
+            <img src="../images/camion-permis.jpg" alt="">
             <div>
                 <h2>Permis C</h2>
                 <p>
