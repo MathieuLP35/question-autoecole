@@ -16,14 +16,5 @@
     /* bouton  */
     --btn-radius: 0.313rem;
     --btn-padding: 0.313rem 0.938rem;
-    
-    
 }
-.question-illustration{
-	height: 40vh;
-	width: 100%;
-	border-radius: 15px;
-}
-.question_ecrite{
-	background: url(/../images/Questions-Banner.jpg) center center / cover;
-}
+
