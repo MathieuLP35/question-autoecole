@@ -7,9 +7,20 @@
 }
 
 /* Style de l'image  */
-.question_illustration {
+.question-illustration {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    
+}
+
+.question-illustration img {
+    height: 100%;
+    width: auto;
     border-radius: 10px;
 }
+
 /* w-full flex justify-around flex-wrap p-8 gap-y-8 */
 .question-form {
     display: flex;
