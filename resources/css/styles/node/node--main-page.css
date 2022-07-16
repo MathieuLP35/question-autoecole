@@ -1,7 +1,5 @@
 /* Gère la page d'accueil  */
 
-/* Gère la page d'accueil  */
-
 header {
     padding: 0;
     margin: 0;
@@ -12,13 +10,13 @@ header {
 
 .subheader {
     position: relative;
-    background: url('../img/voiture.jpg') center center / cover;
+    background: url('../img/voiture.jpg') 70% 100% / cover;
     display: grid;
     grid-template-columns: 45% 55%;
     width: 100%;
     padding: 0;
     margin: 0;
-    height: 56vh;
+    min-height: 56vh;
 }
 
 .subheader::before {
@@ -26,7 +24,7 @@ header {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgb(129, 134, 159) 40%, rgba(29, 48, 253, 0) 60%);
+    background: linear-gradient(90deg, rgb(129, 134, 159, 0.89) 40%, rgba(29, 48, 253, 0) 70%);
 } 
 
 .container-subheader {
@@ -36,36 +34,25 @@ header {
     grid-template-columns: repeat(2, 50%);
 }
 
+.content-subheader {
+    grid-column: 1 / 3;
+    align-self: center;
+    justify-self: center;
+}
+
 .text-content-subheader {
     display: grid;
     grid-gap: 3.125rem;
     margin: 15%;
+    text-align: center;
 }
 
 
 .grid-container-subheader {
     grid-column: 1 / 2;
-    /* grid-template-rows: 1fr auto auto;
-    grid-gap: 1rem; */
-    /* width: 40%; */
-    /* margin: 0 4rem; */
-    /* top: 4.688rem;
-    max-height: 55vh; */
-    /* background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 17px );
-    -webkit-backdrop-filter: blur( 17px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
-}
-
-.main-title {
-    white-space: nowrap;
-    color: var(--black);
 }
 
 .text-intro {
-    color: var(--black);
     font-weight: 500;
 }
 
@@ -74,24 +61,41 @@ header {
     justify-self: center;
 }
 
+.home-presentation {
+    display: grid;
+    gap: 1.25rem;
+}
 
-.corps {
+.home-presentation-content {
     position: relative;
-    background: url('../img/route.png') center center / cover;
+    background: url('../img/route.png') 66% center / cover;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 125vh;
+    min-height: 140vh;
+}
+
+.home-presentation h2 {
+    margin-top: 2.5rem;
+    text-decoration: dashed;
+    text-align: center;
+}
+
+.home-presentation-content {
+    min-height: 0;
+    text-align: justify;
 }
 
 .article-1 {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    align-self: center;
 }
 
 .article-2 {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    transform: translateX(90px);
+    transform: translateX(1.188rem);
+    align-self: center;
 }
 
 .article-3 {
@@ -102,22 +106,20 @@ header {
 .article-4 {
     grid-column: 2 / 3;
     grid-row: 4 / 5;
-    transform: translateX(90px);
+    transform: translateX(1rem) translateY(4.438rem);
 }
 
 .article-5 {
     grid-column: 1 / 2;
     grid-row: 5 / 6;
+    align-self: end;
 }
 
-
-.main h2 {
-    text-align: center;
-}
 
 .cta {
     display: grid;
     grid-template-columns: 2fr;
+    margin-bottom: 2.5rem;
 }
 
 .cta .btn-blue {
@@ -213,7 +215,67 @@ header {
     color: #000;
 }
 */
-.subheader {
+/* .subheader {
     color: red;
     background-color: grey;
+} */
+
+
+@media screen and (max-width: 768px) {
+
+    .subheader::before {
+        background: linear-gradient(90deg, rgb(129, 134, 159, 0.89) 75%, rgba(29, 48, 253, 0) 140%);
+    }
+
+    .container-subheader {
+        grid-column: 1 /3;
+    }
+
+    .home-presentation {
+        position: relative;
+        background: url('../img/bckgrnd-autoecole-mobile.png') 66% center / cover;
+    }
+
+    .home-presentation::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgb(157 162 197 / 96%) 140%, rgba(29, 48, 253, 0) 140%);
+    }
+
+    .home-presentation h2 {
+        z-index: 1;
+    }
+
+    .home-presentation-content {
+        background: none;
+    }
+
+    .article-1 {
+        grid-column: 1 / 3;
+    }
+    
+    .article-2 {
+        grid-column: 1 / 3;
+        transform: none;
+    }
+    
+    .article-3 {
+        grid-column: 1 / 3;
+    }
+    
+    .article-4 {
+        grid-column: 1 / 3;
+        transform: none;
+    }
+    
+    .article-5 {
+        grid-column: 1 / 3;
+    }
+
+    .cta {
+        z-index: 1;
+    }
+
 }

@@ -1,9 +1,15 @@
+/**GENERIQUE**/
 
+main {
+    background-color: var(--background-main);
+}
 
 /***** TYPES DE BOUTONS ******/
 
 /* bouton rouge */
 .btn-red {
+    height: 2.125rem;
+    width: fit-content;
     background-color: var(--red);
     border-radius: 0.313rem;
     padding: 0.313rem 0.938rem;
@@ -16,6 +22,8 @@
 
 /* bouton vert */
 .btn-green {
+    height: 2.125rem;
+    width: fit-content;
     background-color: var(--green);
     border-radius: 0.313rem;
     padding: 0.313rem 0.938rem;
@@ -28,6 +36,8 @@
 
 /* bouton bleu */
 .btn-blue {
+    height: 2.125rem;
+    width: fit-content;
     background-color: var(--blue-light);
     border-radius: 0.313rem;
     padding: 0.313rem 0.938rem;
@@ -42,8 +52,8 @@
 /********* SPACING **********/
 
 .container {
-    max-width: 48rem;
-    padding: 2rem 1.5rem;
+    max-width: 60rem;
+    padding: 3.5rem 1.5rem;
     margin: 0 auto;
 }
 
@@ -94,6 +104,7 @@ h3 {
     .container {
         margin-left: auto;
         margin-right: auto;
+        padding: 1.5rem 1.5rem;
         max-width: 100%;
     }
 

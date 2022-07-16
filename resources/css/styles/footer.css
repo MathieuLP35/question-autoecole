@@ -1,4 +1,64 @@
-.footer {
+footer {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+}
+
+.footer-adress {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.footer-adress p {
+    margin-bottom: 0;
+}
+
+.footer-newsletter {
+    justify-self: center;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1.25rem;
+}
+
+.footer-newsletter p {
+    margin-bottom: 0;
+}
+
+.footer-newsletter form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.313rem;
+}
+
+.input-newsletter {
+    height: 2.125rem;
+    border-radius: 0.25rem;
+}
+
+ .input-newsletter::placeholder {
+     font-size: 0.8rem;
+     font-style: italic;
+ }
+
+ .input-newsletter:focus::placeholder {
+    color: transparent;
+}
+
+.footer-socials {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1.25rem;
+}
+
+.footer-socials p {
+    margin-bottom: 0;
+}
+/* .footer {
     width: 100%;
     background-color: var(--blue);
     display: flex;
@@ -13,7 +73,7 @@
     display: flex;
     flex-direction: column;
     /* padding: 0 40px; */
-    justify-content: center;
+    /* justify-content: center;
 }
 
 .footer-item form {
@@ -33,29 +93,29 @@
 
 .adress {
     line-height: 2rem;
-}
+} */
 
 /* ****************************************************************************** */
 /* Social media icon's ********************************************************** */
 /* ****************************************************************************** */
 
-.footer ul {
-    display: flex;
-    margin-top: 20px;
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .footer ul li {
     list-style: none;
+    justify-self: center;
 }
 
 .footer ul li a {
-    width: 50px;
-    height: 50px;
+    width: 2.813rem;
+    height: 2.813rem;
     background-color: #fff;
     text-align: center;
     /* line-height: 80px; */
     font-size: 25px;
-    margin-right: 20px;
     display: block;
     border-radius: 50%;
     position: relative;
@@ -108,7 +168,9 @@
     background: #dd4b39;
 }
 
-
+hr {
+    display: none;
+}
 
 
 
@@ -118,35 +180,48 @@
 
 @media screen and (max-width: 768px) {
 
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    footer {
+        padding: 3rem 0;
     }
 
-    .footer-item {
-        width: 100%;
-        align-items: center;
-        margin-top: 20px;
-        border-top: 1px dotted black;
-        padding-top: 15px;
+    .footer-wrapper {
+        grid-template-columns: none;
+        grid-template-rows: auto 1fr auto;
+        gap: 3.125rem;
     }
 
-    .footer-item button {
-        width: 35px;
-        height: 35px;
-        background: url('/../images/envoyer.png') center center / cover;
-        background-size: 20px;
-        background-repeat: no-repeat;
-        background-color: var(--blue-light);
-        border-radius: 0.313rem;
+    .footer-adress {
+        justify-self: center;
+        text-align: center;
     }
 
-    .footer .btn-text {
-        visibility: hidden;
+    .logo-bot {
+        justify-self: center;
     }
-    .footer ul li a {
-        margin: 0 10px;
+
+    .footer-newsletter {
+        text-align: center;
+    }
+
+    .footer-newsletter form {
+        justify-self: center;
+    }
+
+    .footer-socials {
+        justify-self: center;
+    }
+
+    .footer-socials p {
+        justify-self: center;
+    }
+
+    .social-icons {
+        gap: 2.5rem;
+    }
+
+    hr {
+        display: block;
+        border-top: 1px solid var(--blue-light);
     }
 
 }

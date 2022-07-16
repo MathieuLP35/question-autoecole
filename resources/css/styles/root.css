@@ -12,6 +12,7 @@
     --white:#fff;
     --black: #000;
     --grey:rgb(177, 176, 176);
+    --background-main: rgba(209, 210, 223, 0.65);
 
     /* bouton  */
     --btn-radius: 0.313rem;
