@@ -16,11 +16,21 @@ class Seed_Groupes extends Seeder
     {
         DB::table('groupes')->insert([
             [
-                'groupname' => 'Groupe 1',
-                'moy' => 5.5,
+                'groupname' => 'Permis B',
+                'moy' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
+            ],[
+                'groupname' => 'Permis moto',
+                'moy' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+			],[
+                'groupname' => 'Permis poids lourd',
+                'moy' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+			]
         ]);
     }
 }
