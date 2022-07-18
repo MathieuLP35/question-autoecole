@@ -45,14 +45,14 @@ class Seed_Users extends Seeder
             ],
             [
                 'name' => 'Test_user_admin',
-                'email' => 'test.buroscope',
+                'email' => 'test@buroscope',
                 'password' => '$2y$10$WTe3/cFeob9qnVNVo9xkyu.ksYqubZw4SqMeIUtjpU274Dl4w7wjC', /* 00000000 */
                 'role' => '3',	/* Administration */
                 'groupe_id' => '1',
             ],
             [
                 'name' => 'Test_user_basic',
-                'email' => 'test2.buroscope',
+                'email' => 'test2@buroscope',
                 'password' => '$2y$10$WTe3/cFeob9qnVNVo9xkyu.ksYqubZw4SqMeIUtjpU274Dl4w7wjC', /* 00000000 */
                 'role' => '0',
                 'groupe_id' => '1',
