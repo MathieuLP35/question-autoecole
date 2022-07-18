@@ -85,15 +85,23 @@ footer {
     border-radius: 5px;
 }
 
+
+.adress {
+    line-height: 2rem;
+} */
+
 .logo-bot {
     background: url('/../images/logo.png') center center / cover;
     width: 100px;
     height: 100px;
 }
 
-.adress {
-    line-height: 2rem;
-} */
+.logo-bot-navbar {
+    background: url('/../images/logo.png') center center / cover;
+    width: 3.0em;
+    height: 3.0em;
+}
+
 
 /* ****************************************************************************** */
 /* Social media icon's ********************************************************** */

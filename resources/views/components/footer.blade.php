@@ -1,9 +1,7 @@
 <footer class="footer">
 	<div class="footer-wrapper container">
 		<div class="footer-adress">
-			<div class="logo-bot">
-				<img src="https://picsum.photos/90/70" alt="">
-			</div>
+			<div class="logo-bot"></div>
 			<div class="adress">
 				<p class="bold">BREIZH AUTO SKOL</p>
 				<p class="small-text">2 allée Jacques Frimot</p>

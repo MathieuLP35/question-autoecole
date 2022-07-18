@@ -1,11 +1,12 @@
 <x-guest-layout>
+    @livewire('navigation-menu')
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <div class="logo-bot"></div>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('Mot de passe oublié? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons par e-mail un lien de réinitialisation de mot de passe qui vous permettra d\'en choisir un nouveau.') }}
         </div>
 
         @if (session('status'))
@@ -26,9 +27,12 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Réinitialiser le mot de passe') }}
                 </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>
+    <x-footer class="text-sm">
+        Footer
+    </x-footer>
 </x-guest-layout>

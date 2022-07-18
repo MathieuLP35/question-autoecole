@@ -5,30 +5,21 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <!-- METTRE LE LOGO ICI -->
-                        <!-- <x-jet-application-mark class="block h-9 w-auto" /> -->
-                    </a>
+                    <!-- METTRE LE LOGO ICI -->
+                    <div class="logo-bot-navbar"></div>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @if (Route::has('login'))
-                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                            @auth
-                                {{-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a> --}}
-                            @else
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se Connecter</a>
-        
-                                {{-- @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                @endif --}}
-                            @endauth
-                        </div>
-                    @endif
-                    <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('ACCUEIL') }}
-                    </x-jet-nav-link>
+                    @auth
+                        <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('ACCUEIL') }}
+                        </x-jet-nav-link>
+                    @else
+                        <x-jet-nav-link href="/" :active="request()->routeIs('dashboard')">
+                            {{ __('ACCUEIL') }}
+                        </x-jet-nav-link>  
+                    @endauth
                     <x-jet-nav-link href="{{ route('presentation') }}" :active="request()->routeIs('presentation')">
                         {{ __('PRESENTATION') }}
                     </x-jet-nav-link>
@@ -200,5 +191,9 @@
                 </div>
             </div>
         </div>
+        @else
+            <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                {{ __('CONNEXION') }}
+            </x-jet-nav-link>
         @endauth
 </nav>
