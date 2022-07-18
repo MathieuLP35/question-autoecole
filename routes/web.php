@@ -45,7 +45,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
             Route::resource('question', QuestionController::class);
             Route::resource('utilisateur', UtilisateurController::class);
             Route::resource('groupe', GroupeController::class);
-            Route::resource('score', ScoreController::class);
         });
     });
 
