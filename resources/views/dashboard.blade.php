@@ -4,7 +4,7 @@
 			<div class="content-subheader">
 				<div class="text-content-subheader">
 					<h1 class="main-title">BREIZH AUTO SKOL</h1>
-					<p class="text-intro"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde cum ipsa aperiam. Nesciunt ad facilis eum modi blanditiis molestiae asperiores.</p>
+					<p class="text-intro"> Degemer mat ! Apprenez à conduire comme un vrai Breton ! </p>
 					<button class="btn-blue btn-subheader">CONTACTEZ-NOUS</button>
 				</div>
 			</div>

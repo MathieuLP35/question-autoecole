@@ -49,7 +49,7 @@
         <article class="cart">
             <!-- <img src="https://picsum.photos/250/250" alt=""> -->
             <img src="../images/voiture-permis.jpg" alt="">
-            <div>
+            <div class="cart-right">
                 <h2>Permis B</h2>
                 <p>
                     Le permis B permet de conduire des voitures dont le poids en charge est inférieur à 3,5 tonnes, et
@@ -63,7 +63,7 @@
         <article class="cart">
             <!-- <img src="https://picsum.photos/250/250" alt=""> -->
             <img src="../images/moto-permis.jpg" alt="">
-            <div>
+            <div class="cart-right">
                 <h2>Permis A</h2>
                 <p>
                     La catégorie A du permis de conduire permet la conduite de toutes les motocyclettes et tricycles
@@ -79,7 +79,7 @@
         <article class="cart">
             <!-- <img src="https://picsum.photos/250/250" alt=""> -->
             <img src="../images/camion-permis.jpg" alt="">
-            <div>
+            <div class="cart-right">
                 <h2>Permis C</h2>
                 <p>
                     Le permis C1 permet de conduire des véhicules dont le PTAC est compris entre 3,5 et 7,5 tonnes et
