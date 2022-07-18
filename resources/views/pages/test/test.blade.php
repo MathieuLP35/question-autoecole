@@ -11,6 +11,7 @@
         </div>
     @else
         <!-- <div class="flex justify-around flex-wrap p-8 gap-y-8"> -->
+            <div class="question-container">
             <div class="question">
                 <div class="question-illustration">
                     <img src="{{$question->image}}" alt="">
@@ -30,6 +31,7 @@
                         <input type="submit" class="btn-green m-2" value="Envoyer mes réponses">
                     </div>
                 </form>
+            </div>
             </div>
     @endif
 
