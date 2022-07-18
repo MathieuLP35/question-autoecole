@@ -10,7 +10,7 @@ header {
 
 .subheader {
     position: relative;
-    background: url('../img/voiture.jpg') 70% 100% / cover;
+    background: url('/../images/voiture.jpg') 70% 100% / cover;
     display: grid;
     grid-template-columns: 45% 55%;
     width: 100%;
@@ -68,7 +68,7 @@ header {
 
 .home-presentation-content {
     position: relative;
-    background: url('../img/route.png') 66% center / cover;
+    background: url('/../images/route.png') 66% center / cover;
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 140vh;

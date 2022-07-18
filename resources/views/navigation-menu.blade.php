@@ -14,28 +14,28 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if (Route::has('login'))
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                        @auth
-                            {{-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a> --}}
-                        @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se Connecter</a>
-    
-                            {{-- @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                            @endif --}}
-                        @endauth
-                    </div>
+                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                            @auth
+                                {{-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a> --}}
+                            @else
+                                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se Connecter</a>
+        
+                                {{-- @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                @endif --}}
+                            @endauth
+                        </div>
                     @endif
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('ACCUEIL') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('presentation') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('presentation') }}" :active="request()->routeIs('presentation')">
                         {{ __('PRESENTATION') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('test') }}" :active="request()->routeIs('test')">
-                        {{ __('PASSEZ LE TEST') }}
-                    </x-jet-nav-link>
                     @auth
+                        <x-jet-nav-link href="{{ route('test') }}" :active="request()->routeIs('test')">
+                            {{ __('PASSEZ LE TEST') }}
+                        </x-jet-nav-link>
                         @if(Auth::user()->role === 3)
                             <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                                 {{ __('ADMINISTRATION') }}
