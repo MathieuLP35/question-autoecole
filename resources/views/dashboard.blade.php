@@ -1,4 +1,4 @@
-<x-app-layout class="all">
+<x-app-layout class="all ">
 	<section class="subheader">
 		<div class="container-subheader">
 			<div class="content-subheader">
@@ -13,11 +13,17 @@
 	<section class="home-presentation container">
 		<h2>PRESENTATION DU SITE</h2>
 		<ul class="home-presentation-content">
-			<li class="article-1 small-text container bold"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eligendi iste dolorem iusto nihil alias autem pariatur deserunt facere laboriosam cupiditate voluptatum ipsa velit tempora dolor in, asperiores soluta molestiae. </li>
-			<li class="article-2 small-text container bold"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio adipisci quo ratione minima deleniti exercitationem ipsa alias doloribus dolores similique nihil, nobis cum ipsum illum voluptatem odit accusantium harum necessitatibus? </li>
-			<li class="article-3 small-text container bold"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, provident quidem cumque esse nobis debitis voluptate ratione. Assumenda quisquam, nihil voluptatem, quos labore sit molestiae tenetur iure, atque quas reprehenderit! </li>
-			<li class="article-4 small-text container bold"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium expedita similique nam suscipit illum facilis dolores nulla perferendis neque ipsa vero unde nesciunt deleniti debitis, consequatur aliquid eveniet cumque reiciendis. </li>
-			<li class="article-5 small-text container bold"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, id ipsam necessitatibus quam fugiat ad. Eius vel dolores, accusamus explicabo quisquam blanditiis, debitis optio tenetur quod facere corrupti officia totam? </li>
+			<li class="article-1 small-text container bold"> La conduite en toute sérénité.
+				Chez Breizh Auto Skol, nous prenons la route avec vous dès le premier jour. Et nous restons à vos côtés les jours d'après. </li>
+			<li class="article-2 small-text container bold"> 
+				Pour bien conduire, il faut avancer bien accompagné.
+				Nous vous apportons un soutien adapté et bienveillant pendant tout votre parcours. Rejoignez nos 2 737 371 utilisateurs et prenez la route dans les meilleures conditions avec la première auto-école de France.</li>
+			<li class="article-3 small-text container bold">Les tarifs attractifs et la flexibilité des auto-écoles en ligne comme Breizh Auto Skol présentent de nombreux avantages. Notamment pour les 18-25 dont l’activité s’accommode parfois mal avec les horaires d’ouverture d’une auto-école classique.</li>
+			<li class="article-4 small-text container bold"> Apprenez à conduire à votre rythme.
+				Mathieu, Fouad et plus de 2 autres enseignants diplômés d’Etat s’adaptent à vos besoins et vous accompagnent pendant votre apprentissage. </li>
+			<li class="article-5 small-text container bold"> 
+				Votre permis de conduire financé grâce au CPF
+				Vous souhaitez utiliser votre compte professionnel de formation (CPF) pour obtenir votre permis de conduire ? Avec Breizh Auto Skol, c'est possible !</li>
         </ul>
 		<a href="#" class="btn-blue btn-subheader">CONTACTEZ-NOUS</a>
 	</section>
